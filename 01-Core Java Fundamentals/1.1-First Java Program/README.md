@@ -43,13 +43,11 @@
     - [Development Tools](#development-tools)
 11. [Getting Help](#getting-help)
 
----
 
 ## Introduction
 
 Welcome to your journey into Java programming! This guide is designed for complete beginners with no prior programming experience. Java is one of the world's most widely-used programming languages, powering everything from Android apps to enterprise software systems.
 
----
 
 ## Why Choose Java?
 
@@ -81,7 +79,6 @@ Welcome to your journey into Java programming! This guide is designed for comple
   * Cloud services
   * Internet programming
 
----
 
 ## Understanding Java Architecture
 
@@ -125,7 +122,6 @@ Welcome to your journey into Java programming! This guide is designed for comple
 2. Platform-specific interpretation
 3. Output displayed on attached device (monitor, console, etc.)
 
----
 
 ## Development Environment Setup
 
@@ -152,7 +148,7 @@ Welcome to your journey into Java programming! This guide is designed for comple
   * Modify `.bash_profile` or `.bashrc`
   * Add Java path to environment variables
 
----
+
 
 ## Text Editors and IDEs
 
@@ -173,7 +169,7 @@ Welcome to your journey into Java programming! This guide is designed for comple
 3. Configure Java path if required
 4. Set up workspace and projects
 
----
+
 
 ## Understanding Java Program Structure
 
@@ -217,7 +213,7 @@ public class Welcome {
   * `static`: Allows method call without object
   * `void`: Indicates no return value
 
----
+
 
 ## Writing Your First Java Program
 
@@ -236,7 +232,7 @@ public class Welcome {
 3. Statements executed sequentially
 4. Output displayed on console
 
----
+
 
 ## Java Program Components in Detail
 
@@ -296,7 +292,7 @@ public static void main(String[] args)
    comment block */
 ```
 
----
+
 
 ## Java Package System
 
@@ -312,24 +308,30 @@ public static void main(String[] args)
 * `System.out.print()`: Prints without newline
 * Output stream connects to console device
 
----
+
 
 ## Additional Resources
 
 ### Official Documentation
-* Oracle Java Documentation
-* Java Tutorials
-* API Documentation
+* [Oracle Java Documentation](https://docs.oracle.com/en/java/)
+* [Java Tutorials](https://docs.oracle.com/javase/tutorial/)
+* [Java API Documentation](https://docs.oracle.com/en/java/javase/17/docs/api/)
 
 ### Learning Platforms
-* Online tutorials
-* Interactive courses
-* Practice platforms
+* **Interactive Learning**
+  * [Codecademy Java Course](https://www.codecademy.com/learn/learn-java)
+  * [W3Schools Java Tutorial](https://www.w3schools.com/java/)
+
+* **Practice Platforms**
+  * [LeetCode](https://leetcode.com/problemset/all/?difficulty=Easy&page=1&topicSlugs=java)
+  * [HackerRank Java Track](https://www.hackerrank.com/domains/java)
+  * [GeeksforGeeks Java Programming](https://www.geeksforgeeks.org/java-programming-basics/)
 
 ### Development Tools
-* IDEs
-* Text editors
-* Debugging tools
+**IDEs**
+  * [Eclipse Download](https://www.eclipse.org/downloads/)
+  * [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/)
+  * [Visual Studio Code](https://code.visualstudio.com/download)
 
 ---
 
