@@ -1,9 +1,7 @@
 /*
-
 todo: Commands to execute the file
  
 ---> java CommandLine.java sam 
-
 
 this command will execute the java code and the provided argument will be printed on the console screen
 */
