@@ -113,28 +113,13 @@ cd 'chapter-name'
 2. Create Feature Branch
 3. Commit Changes
 4. Push to Branch
-5. Create Pull Request
+5. Create a Pull Request
 6. Ensure to include a structured README for any new content added
 
 ## 👥 Our Amazing Contributors
 
+[![Contributors](https://contributors-img.web.app/image?repo=VSat08/Java-SpringBoot-REST-Microservices-Learning)](https://github.com/VSat08/Java-SpringBoot-REST-Microservices-Learning/graphs/contributors)
 
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/prabalesh">
-        <img src="https://github.com/prabalesh.png" width="80px;" style="border-radius: 50%;" alt="Contributor 1"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/VSat08">
-        <img src="https://github.com/VSat08.png" width="80px;" style="border-radius: 50%;" alt="Contributor 2"/>
-      </a>
-    </td>
-    <!-- Add more contributors as needed -->
-  </tr>
-</table>
 
 <p align="center">
   We sincerely appreciate the valuable contributions from our collaborators. 🙌  
