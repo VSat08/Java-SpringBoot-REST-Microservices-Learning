@@ -127,6 +127,7 @@ cd 'chapter-name'
 </p>
 
 ## 📢 How to Contribute?  
+
 Want to be part of this amazing project? Follow these steps:  
 
 1. **Fork** the repository  
@@ -152,6 +153,8 @@ Want to be part of this amazing project? Follow these steps:
 
 > [!NOTE]
 > After a successful merge, the contributor will be added to the contributors list. No further pull requests are required, and contributors can continue to contribute at their own pace.
+
+We welcome contributions! Please read our [Contribution Guidelines](CONTRIBUTING.md) for more details.
 
 ## 🤝 Community Support
 
