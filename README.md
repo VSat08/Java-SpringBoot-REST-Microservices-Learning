@@ -74,7 +74,7 @@ Building a comprehensive, community-driven learning resource for Java developers
 
 ```bash
 # Clone this repository
-git clone https://github.com/yourusername/java-learning-warehouse.git
+git clone https://github.com/yourusername/Java-SpringBoot-REST-Microservices-Learning.git
 
 # Navigate to the repository
 cd Java-SpringBoot-REST-Microservices-Learning
