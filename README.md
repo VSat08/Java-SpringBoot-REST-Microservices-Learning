@@ -125,9 +125,7 @@ cd 'chapter-name'
   We sincerely appreciate the valuable contributions from our collaborators. 🙌  
 </p>
 
----
-
-### 📢 How to Contribute?  
+## 📢 How to Contribute?  
 Want to be part of this amazing project? Follow these steps:  
 
 1. **Fork** the repository  
