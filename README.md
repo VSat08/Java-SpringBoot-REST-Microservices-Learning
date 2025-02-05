@@ -172,9 +172,5 @@ Special thanks to all our contributors who make this learning warehouse better e
 ---
 
 <p align="center">
-  Made with ❤️ by the Java Learning Community
-</p>
-
-<p align="center">
   <a href="#start-of-content">⬆️ Back to Top</a>
 </p>
