@@ -1,4 +1,4 @@
-# 🚀 Java & Spring Boot Learning Warehouse
+# 🚀 Java-SpringBoot-REST-Microservices-Learning
 > An Open Source Initiative for Collaborative Learning
 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
