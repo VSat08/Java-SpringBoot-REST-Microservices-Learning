@@ -156,10 +156,10 @@ Want to be part of this amazing project? Follow these steps:
 
 ## 🤝 Community Support
 
-- 💬 [Discussions](https://github.com/yourusername/repository/discussions)
-- 🐛 [Issue Tracker](https://github.com/yourusername/repository/issues)
-- 📢 [Announcements](https://github.com/yourusername/repository/releases)
-- 📚 [Wiki](https://github.com/yourusername/repository/wiki)
+- 💬 [Discussions](https://github.com/VSat08/Java-SpringBoot-REST-Microservices-Learning/discussions)
+- 🐛 [Issue Tracker](https://github.com/VSat08/Java-SpringBoot-REST-Microservices-Learning/issues)
+- 📢 [Announcements](https://github.com/VSat08/Java-SpringBoot-REST-Microservices-Learning/releases)
+- 📚 [Wiki](https://github.com/VSat08/Java-SpringBoot-REST-Microservices-Learning/wiki)
 
 ## 📜 License
 
