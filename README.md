@@ -6,9 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 [![Stars](https://img.shields.io/github/stars/VSat08/Java-SpringBoot-REST-Microservices-Learning?style=social)](https://github.com/VSat08/Java-SpringBoot-REST-Microservices-Learning)
 
-<p align="center">
-  <img src="https://img-c.udemycdn.com/course/750x422/5410794_a010_3.jpg" alt="Java Learning Repository Banner" width="600">
-</p>
+![Springboot](https://miro.medium.com/v2/resize:fit:1093/1*wyt0vhfNT5oMx4ZWPn0IcQ.png)
 
 ## 🎯 Mission
 Building a comprehensive, community-driven learning resource for Java developers worldwide. From basics to advanced concepts, we're creating a knowledge warehouse that grows with our community.
