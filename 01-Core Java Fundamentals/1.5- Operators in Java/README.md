@@ -15,118 +15,167 @@ Java provides a variety of operators to perform different operations. These oper
 5. [Assignment Operators](#assignment-operators)
 6. [Unary Operators](#unary-operators)
 7. [Ternary Operator](#ternary-operator)
-8. [Operator Precedence](#operator-precedence)
-9. [Key Takeaways](#key-takeaways)
+8. [Shift Operators](#shift-operators)
+9. [Operator Precedence](#operator-precedence)
 10. [Additional Resources](#additional-resources)
 
 ---
 
-### Arithmetic Operators
+## Arithmetic Operators
 
-Arithmetic operators are used to perform basic mathematical operations such as addition, subtraction, multiplication, division, and modulus.
+Arithmetic operators are used to perform mathematical operations such as addition, subtraction, multiplication, division, and modulus.
+
+| Operator | Description    | Example (a = 10, b = 5) |
+|----------|--------------|-------------------------|
+| `+`      | Addition      | `a + b = 15`           |
+| `-`      | Subtraction   | `a - b = 5`            |
+| `*`      | Multiplication| `a * b = 50`           |
+| `/`      | Division      | `a / b = 2`            |
+| `%`      | Modulus       | `a % b = 0`            |
 
 ```java
 int a = 10, b = 5;
-System.out.println(a + b);  // Addition: 15
-System.out.println(a - b);  // Subtraction: 5
-System.out.println(a * b);  // Multiplication: 50
-System.out.println(a / b);  // Division: 2
-System.out.println(a % b);  // Modulus: 0
+System.out.println(a + b);  // Output: 15
+System.out.println(a - b);  // Output: 5
+System.out.println(a * b);  // Output: 50
+System.out.println(a / b);  // Output: 2
+System.out.println(a % b);  // Output: 0
 ```
 
-### Relational Operators
+---
 
-Relational operators are used to compare two values. They return a boolean value (true or false).
+## Relational Operators
+
+Relational operators compare two values and return a boolean result.
+
+| Operator | Description       | Example (a = 10, b = 5) |
+|----------|-----------------|-------------------------|
+| `>`      | Greater than     | `a > b` → `true`       |
+| `<`      | Less than        | `a < b` → `false`      |
+| `>=`     | Greater or equal | `a >= b` → `true`      |
+| `<=`     | Less or equal    | `a <= b` → `false`     |
+| `==`     | Equal to         | `a == b` → `false`     |
+| `!=`     | Not equal to     | `a != b` → `true`      |
 
 ```java
-System.out.println(a > b);  // Greater than: true
-System.out.println(a < b);  // Less than: false
-System.out.println(a == b); // Equal to: false
-System.out.println(a != b); // Not equal to: true
+System.out.println(a > b);  // Output: true
+System.out.println(a < b);  // Output: false
+System.out.println(a == b); // Output: false
+System.out.println(a != b); // Output: true
 ```
 
-### Logical Operators
+---
 
-Logical operators are used to combine two or more conditions and return a boolean value.
+## Logical Operators
+
+Logical operators operate on boolean values to combine conditions.
+
+| Operator | Description   | Example (x = true, y = false) |
+|----------|-------------|--------------------------------|
+| `&&`     | AND         | `x && y` → `false`           |
+| `||`     | OR          | `x || y` → `true`            |
+| `!`      | NOT         | `!x` → `false`               |
 
 ```java
 boolean x = true, y = false;
-System.out.println(x && y);  // AND: false
-System.out.println(x || y);  // OR: true
-System.out.println(!x);      // NOT: false
+System.out.println(x && y);  // Output: false
+System.out.println(x || y);  // Output: true
+System.out.println(!x);      // Output: false
 ```
 
-### Bitwise Operators
+---
 
-Bitwise operators perform operations on binary representations of numbers.
+## Bitwise Operators
+
+Bitwise operators perform operations on individual bits of numbers.
+
+| Operator | Description    | Example (c = 6, d = 3) | Binary Representation |
+|----------|--------------|----------------------|---------------------|
+| `&`      | AND          | `c & d = 2`          | `110 & 011 = 010`  |
+| `|`      | OR           | `c | d = 7`          | `110 | 011 = 111`  |
+| `^`      | XOR          | `c ^ d = 5`          | `110 ^ 011 = 101`  |
+| `~`      | Complement   | `~c = -7`            | `~110 = 001`       |
 
 ```java
-int c = 6, d = 3; // Binary: c = 110, d = 011
-System.out.println(c & d);  // AND: 2 (010)
-System.out.println(c | d);  // OR: 7 (111)
-System.out.println(c ^ d);  // XOR: 5 (101)
-System.out.println(~c);     // Complement: -7
+int c = 6, d = 3;
+System.out.println(c & d);  // Output: 2
+System.out.println(c | d);  // Output: 7
+System.out.println(c ^ d);  // Output: 5
+System.out.println(~c);     // Output: -7
 ```
 
-### Assignment Operators
+---
 
-Assignment operators are used to assign values to variables, often combining with arithmetic operations.
+## Assignment Operators
+
+Assignment operators assign values to variables and can combine with arithmetic operators.
 
 ```java
 int e = 10;
 e += 5; // e = e + 5
-System.out.println(e); // 15
+System.out.println(e); // Output: 15
 e *= 2; // e = e * 2
-System.out.println(e); // 30
+System.out.println(e); // Output: 30
 ```
-
-### Unary Operators
-
-Unary operators operate on a single operand. They include increment (++), decrement (--), and logical complement (!).
-
-```java
-int f = 5;
-System.out.println(++f);  // Pre-increment: 6
-System.out.println(f--);  // Post-decrement: 6 (f becomes 5)
-```
-
-### Ternary Operator
-
-The ternary operator is a shorthand for if-else conditions. It has the syntax: `condition ? value_if_true : value_if_false`
-
-```java
-int result = (a > b) ? a : b;  // Returns the larger value
-System.out.println(result);  // Output: 10
-```
-
-### Operator Precedence
-
-Operator precedence determines the order in which operations are performed. Higher precedence operators execute before lower precedence operators.
-
-| Operator Type       | Operators                 | Precedence (Highest to Lowest) |
-|---------------------|--------------------------|-------------------------------|
-| Postfix            | `expr++`, `expr--`        | 1                             |
-| Unary              | `+`, `-`, `++`, `--`, `!` | 2                             |
-| Multiplicative     | `*`, `/`, `%`             | 3                             |
-| Additive           | `+`, `-`                  | 4                             |
-| Relational         | `>`, `<`, `>=`, `<=`      | 5                             |
-| Equality           | `==`, `!=`                | 6                             |
-| Logical AND        | `&&`                      | 7                             |
-| Logical OR         | `||`                      | 8                             |
-| Ternary            | `?:`                      | 9                             |
-| Assignment         | `=`, `+=`, `-=`, `*=`     | 10                            |
 
 ---
 
-## Key Takeaways
+## Unary Operators
 
-- Java operators are versatile and include arithmetic, relational, logical, bitwise, assignment, unary, and ternary operators.
-- Arithmetic operators are used for mathematical operations.
-- Relational operators compare two values and return a boolean.
-- Logical operators combine boolean conditions.
-- Unary operators modify a single operand's value.
-- Ternary operators provide a shorthand for simple conditional logic.
-- Operator precedence affects the execution order of expressions.
+Unary operators operate on a single operand.
+
+```java
+int f = 5;
+System.out.println(++f);  // Output: 6
+System.out.println(f--);  // Output: 6 (f becomes 5)
+```
+
+---
+
+## Ternary Operator
+
+The ternary operator is a shorthand for if-else conditions.
+
+```java
+int result = (a > b) ? a : b;
+System.out.println(result);  // Output: 10
+```
+
+---
+
+## Shift Operators
+
+Shift operators move bits left or right in a number.
+
+| Operator | Description             | Example (c = 6) | Binary Representation |
+|----------|------------------------|----------------|---------------------|
+| `<<`     | Left shift              | `c << 1 = 12`  | `110 << 1 = 1100`  |
+| `>>`     | Right shift             | `c >> 1 = 3`   | `110 >> 1 = 011`   |
+| `>>>`    | Unsigned right shift    | `c >>> 1 = 3`  | `110 >>> 1 = 011`  |
+
+```java
+System.out.println(c << 1);  // Output: 12
+System.out.println(c >> 1);  // Output: 3
+```
+
+---
+
+## Operator Precedence
+
+Operator precedence determines the order in which operations are performed.
+
+| Operator Type       | Operators                 |
+|---------------------|--------------------------|
+| Postfix            | `expr++`, `expr--`        |
+| Unary              | `+`, `-`, `++`, `--`, `!` |
+| Multiplicative     | `*`, `/`, `%`             |
+| Additive           | `+`, `-`                  |
+| Relational         | `>`, `<`, `>=`, `<=`      |
+| Equality           | `==`, `!=`                |
+| Logical AND        | `&&`                      |
+| Logical OR         | `||`                      |
+| Ternary            | `?:`                      |
+| Assignment         | `=`, `+=`, `-=`           |
 
 ---
 
@@ -134,3 +183,4 @@ Operator precedence determines the order in which operations are performed. High
 
 - [Official Java Documentation](https://docs.oracle.com/en/java/)
 - [Java Tutorials - Oracle](https://docs.oracle.com/javase/tutorial/)
+
