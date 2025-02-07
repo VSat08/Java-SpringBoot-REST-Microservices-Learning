@@ -4,6 +4,23 @@
 
 Java provides a variety of operators to perform different operations. These operators are categorized into several types based on their functionality.
 
+---
+
+## Table of Contents
+
+1. [Arithmetic Operators](#arithmetic-operators)
+2. [Relational Operators](#relational-operators)
+3. [Logical Operators](#logical-operators)
+4. [Bitwise Operators](#bitwise-operators)
+5. [Assignment Operators](#assignment-operators)
+6. [Unary Operators](#unary-operators)
+7. [Ternary Operator](#ternary-operator)
+8. [Operator Precedence](#operator-precedence)
+9. [Key Takeaways](#key-takeaways)
+10. [Additional Resources](#additional-resources)
+
+---
+
 ### Arithmetic Operators
 
 Arithmetic operators are used to perform basic mathematical operations such as addition, subtraction, multiplication, division, and modulus.
@@ -75,19 +92,45 @@ System.out.println(f--);  // Post-decrement: 6 (f becomes 5)
 
 ### Ternary Operator
 
-The ternary operator is a shorthand for if-else conditions. It has the syntax: condition ? value_if_true : value_if_false
+The ternary operator is a shorthand for if-else conditions. It has the syntax: `condition ? value_if_true : value_if_false`
 
 ```java
-int a = 10, b = 5;
 int result = (a > b) ? a : b;  // Returns the larger value
 System.out.println(result);  // Output: 10
 ```
 
+### Operator Precedence
+
+Operator precedence determines the order in which operations are performed. Higher precedence operators execute before lower precedence operators.
+
+| Operator Type       | Operators                 | Precedence (Highest to Lowest) |
+|---------------------|--------------------------|-------------------------------|
+| Postfix            | `expr++`, `expr--`        | 1                             |
+| Unary              | `+`, `-`, `++`, `--`, `!` | 2                             |
+| Multiplicative     | `*`, `/`, `%`             | 3                             |
+| Additive           | `+`, `-`                  | 4                             |
+| Relational         | `>`, `<`, `>=`, `<=`      | 5                             |
+| Equality           | `==`, `!=`                | 6                             |
+| Logical AND        | `&&`                      | 7                             |
+| Logical OR         | `||`                      | 8                             |
+| Ternary            | `?:`                      | 9                             |
+| Assignment         | `=`, `+=`, `-=`, `*=`     | 10                            |
+
+---
+
 ## Key Takeaways
 
--   Java operators are versatile and include arithmetic, relational, logical, bitwise, assignment, unary, and ternary operators.
--   Arithmetic operators are used for mathematical operations.
--   Relational operators compare two values and return a boolean.
--   Logical operators combine boolean conditions.
--   Unary operators modify a single operand's value.
--   Ternary operators provide a shorthand for simple conditional logic.
+- Java operators are versatile and include arithmetic, relational, logical, bitwise, assignment, unary, and ternary operators.
+- Arithmetic operators are used for mathematical operations.
+- Relational operators compare two values and return a boolean.
+- Logical operators combine boolean conditions.
+- Unary operators modify a single operand's value.
+- Ternary operators provide a shorthand for simple conditional logic.
+- Operator precedence affects the execution order of expressions.
+
+---
+
+## Additional Resources
+
+- [Official Java Documentation](https://docs.oracle.com/en/java/)
+- [Java Tutorials - Oracle](https://docs.oracle.com/javase/tutorial/)
