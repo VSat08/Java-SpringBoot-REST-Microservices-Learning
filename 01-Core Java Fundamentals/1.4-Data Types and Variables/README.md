@@ -1,4 +1,4 @@
-# 1.2: Data Types and Variables
+# 1.4: Data Types and Variables
 
 ## Primitive Data Types in Java
 

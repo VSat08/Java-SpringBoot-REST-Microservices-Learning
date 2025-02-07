@@ -1,4 +1,4 @@
-# 1.3: Operators in Java
+# 1.5: Operators in Java
 
 ## Topics Covered
 
