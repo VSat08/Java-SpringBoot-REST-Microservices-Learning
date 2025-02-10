@@ -1,4 +1,4 @@
-public class if_else {
+public class IfElse {
     public static void main(String[] args) {
         int a = 1 + (int) (Math.random() * 100); // 1 - 100
         int b = 1 + (int) (Math.random() * 100); // 1 - 100

@@ -1,6 +1,8 @@
+package Switch;
+
 // finding the grade using switch
 // Grade : >=90-A+, >=70-A, >=60-B, >=50-C, >=40-D, <40 - Fail
-public class SwitchBreakExamples{
+public class SwitchBreakExample {
     public static void main(String[] args) {
         int marks = 1 + (int) (Math.random() * 100); // 1 - 100
         System.out.println(marks);

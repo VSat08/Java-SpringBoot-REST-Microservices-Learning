@@ -15,33 +15,38 @@ Control flow statements are divided into three main types:
 ## Table of Contents
 
 1. [Decision-Making Statements](#decision-making-statements)
-   - [if Statement](#if-statement)
-   - [if-else Statement](#if-else-statement)
-   - [Nested if Statement](#nested-if-statement)
-   - [if-else-if Ladder](#if-else-if-ladder)
-   - [Switch Statement](#switch-statement)
+   - [if Statement](#1-if-statement)
+   - [if-else Statement](#2-if-else-statement)
+   - [Nested if Statement](#3-nested-if-statement)
+   - [if-else-if Ladder](#4-if-else-if-ladder)
+   - [Switch Statement](#5-switch-statement)
 2. [Looping Statements](#looping-statements)
-   - [for Loop](#for-loop)
-   - [while Loop](#while-loop)
-   - [do-while Loop](#do-while-loop)
+   - [for Loop](#1-for-loop)
+   - [while Loop](#2-while-loop)
+   - [do-while Loop](#3-do-while-loop)
 3. [Branching Statements](#branching-statements)
-   - [break Statement](#break-statement)
-   - [continue Statement](#continue-statement)
-   - [return Statement](#return-statement)
-4. [Additional Resources](#additional-resources)
+   - [break Statement](#1-break-statement)
+   - [continue Statement](#2-continue-statement)
+   - [return Statement](#3-return-statement)
+4. [Common Use Cases and Best Practices](#common-use-cases-and-best-practices)
+5. [Additional Resources](#additional-resources)
 
 ---
 
 ## Decision-Making Statements
 
-Decision-making statements allow a program to execute different code based on conditions. These statements help the program make logical choices.
-
 ### 1. if Statement
 
 **Definition**: The `if` statement executes a block of code only if a specified condition is `true`.
 
-**Usage**: Used when we want to execute a statement only when a certain condition holds true.
+**Syntax:**
+```java
+if (condition) {
+    // Code to execute if condition is true
+}
+```
 
+**Example:**
 ```java
 int num = 10;
 if (num > 0) {
@@ -53,8 +58,7 @@ if (num > 0) {
 
 **Definition**: Executes one block of code if the condition is `true` and another if it is `false`.
 
-**Usage**: Used when we need to choose between two possible outcomes.
-
+**Example:**
 ```java
 int num = -10;
 if (num > 0) {
@@ -68,8 +72,7 @@ if (num > 0) {
 
 **Definition**: An `if` statement inside another `if` statement.
 
-**Usage**: Used when multiple conditions need to be checked in a hierarchy.
-
+**Example:**
 ```java
 int num = 10;
 if (num > 0) {
@@ -81,22 +84,15 @@ if (num > 0) {
 
 ### 4. if-else-if Ladder
 
-**Definition**: Used when we need to test multiple conditions one after another.
+**Definition**: Used when multiple conditions need to be tested sequentially.
 
-**Usage**: Helps in situations where more than two conditions need to be evaluated.
-
+**Example:**
 ```java
 int marks = 85;
 if (marks >= 85) {
     System.out.println("Grade: A+");
 } else if (marks >= 70) {
     System.out.println("Grade: A");
-} else if (marks >= 60) {
-    System.out.println("Grade: B");
-} else if (marks >= 50) {
-    System.out.println("Grade: C");
-} else if (marks >= 40) {
-    System.out.println("Grade: D");
 } else {
     System.out.println("FAIL");
 }
@@ -104,10 +100,9 @@ if (marks >= 85) {
 
 ### 5. Switch Statement
 
-**Definition**: The `switch` statement allows a variable to be tested for equality against multiple values.
+**Definition**: The `switch` statement allows a variable to be tested against multiple values.
 
-**Usage**: Used when we need to execute one of many code blocks based on a single variable’s value.
-
+**Example:**
 ```java
 int day = 2;
 switch (day) {
@@ -116,9 +111,6 @@ switch (day) {
         break;
     case 2:
         System.out.println("Tuesday");
-        break;
-    case 3:
-        System.out.println("Wednesday");
         break;
     default:
         System.out.println("Invalid day");
@@ -129,14 +121,11 @@ switch (day) {
 
 ## Looping Statements
 
-Looping statements are used to execute a block of code multiple times.
-
 ### 1. for Loop
 
 **Definition**: A loop that runs a fixed number of times.
 
-**Usage**: Used when the number of iterations is known beforehand.
-
+**Example:**
 ```java
 for (int i = 1; i <= 5; i++) {
     System.out.println("Iteration: " + i);
@@ -145,10 +134,9 @@ for (int i = 1; i <= 5; i++) {
 
 ### 2. while Loop
 
-**Definition**: A loop that executes while the condition is true.
+**Definition**: A loop that executes while the condition is `true`.
 
-**Usage**: Used when the number of iterations is unknown and based on a condition.
-
+**Example:**
 ```java
 int i = 1;
 while (i <= 5) {
@@ -159,10 +147,9 @@ while (i <= 5) {
 
 ### 3. do-while Loop
 
-**Definition**: A loop that executes at least once and then repeats while the condition is `true`.
+**Definition**: A loop that executes at least once before checking the condition.
 
-**Usage**: Ensures that the block runs at least once before checking the condition.
-
+**Example:**
 ```java
 int i = 1;
 do {
@@ -179,8 +166,7 @@ do {
 
 **Definition**: Used to exit from a loop or switch statement.
 
-**Usage**: Helps in terminating a loop early when a condition is met.
-
+**Example:**
 ```java
 for (int i = 1; i <= 5; i++) {
     if (i == 3) {
@@ -194,8 +180,7 @@ for (int i = 1; i <= 5; i++) {
 
 **Definition**: Skips the current iteration and proceeds to the next iteration.
 
-**Usage**: Used when certain iterations need to be skipped.
-
+**Example:**
 ```java
 for (int i = 1; i <= 5; i++) {
     if (i == 3) {
@@ -209,14 +194,32 @@ for (int i = 1; i <= 5; i++) {
 
 **Definition**: Exits from a method and optionally returns a value.
 
-**Usage**: Used to terminate execution of a function and return control to the caller.
-
+**Example:**
 ```java
 public static void main(String[] args) {
     System.out.println("Before return");
     return;
 }
 ```
+
+---
+
+## Common Use Cases and Best Practices
+
+### When to Use Decision-Making Statements
+- Use `if` for simple conditions.
+- Use `if-else` when there are two possible outcomes.
+- Use `switch` for multiple fixed-value conditions.
+
+### When to Use Loops
+- Use `for` when the number of iterations is known.
+- Use `while` for unknown iterations based on a condition.
+- Use `do-while` when at least one iteration must execute.
+
+### Best Practices
+- Avoid infinite loops by ensuring loop conditions will eventually be false.
+- Use `break` carefully to avoid unintended exits.
+- Optimize switch cases using `default` to handle unexpected values.
 
 ---
 
