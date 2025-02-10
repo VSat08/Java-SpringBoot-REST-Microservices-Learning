@@ -1,7 +1,4 @@
-# Java Arrays: The Ultimate Guide
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Java Version](https://img.shields.io/badge/Java-8%2B-blue)
+# 1.6: Arrays in Java
 
 A comprehensive guide to mastering arrays in Java, covering everything from basic concepts to advanced techniques. This guide serves as both a learning resource and a reference manual for developers at all skill levels.
 
