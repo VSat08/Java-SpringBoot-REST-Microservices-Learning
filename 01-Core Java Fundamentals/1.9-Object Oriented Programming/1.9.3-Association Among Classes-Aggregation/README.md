@@ -1,5 +1,4 @@
-# Mastering Java + Spring Boot: REST APIs and Microservices  
-## Lecture 31: Association Among Classes - Aggregation  
+# 1.9.3: Association Among Classes - Aggregation  
 
 ## Overview  
 This lecture covers the concept of association among classes in Java, specifically focusing on **aggregation** and **composition**. Association is a **structural relationship** between classes, and it can be categorized into two types:
