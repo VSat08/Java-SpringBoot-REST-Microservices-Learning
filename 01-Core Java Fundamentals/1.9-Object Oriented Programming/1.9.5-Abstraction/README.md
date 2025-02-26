@@ -236,7 +236,7 @@ Welcome to **Section 1.9.5: Concept of Abstraction** 🚀! Abstraction stands as
     /    \
     A   B
     \   /
-     C
+      C
   - Issue: Class `C` inherits duplicate `Object` methods (e.g., 22 methods total), causing ambiguity.
   - Java Fix: Bans multiple `extends`, uses `implements` for interfaces.
 - **Example**: See `Demo` above—combines `Printable` and `Showable`.
