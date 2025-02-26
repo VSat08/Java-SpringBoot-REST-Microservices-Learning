@@ -1,4 +1,4 @@
-# 1.9: Inheritance
+# 1.9.4: Inheritance
 
 ## Introduction
 
