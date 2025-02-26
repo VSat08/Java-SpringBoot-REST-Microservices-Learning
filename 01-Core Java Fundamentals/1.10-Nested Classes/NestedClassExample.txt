@@ -1,0 +1,24 @@
+public class NestedClassExample {
+//    Inner member class 
+    class Inner {
+
+    }
+// static class
+static class Nested {
+
+}
+    
+void func() {
+    // local class
+    class B {
+
+    }
+}
+
+void funct() {
+    // Anonymous class
+    new <SuperType>(){
+        // class definations
+    }
+}
+}
