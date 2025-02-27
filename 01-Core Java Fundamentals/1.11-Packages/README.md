@@ -1,7 +1,7 @@
 # 1.11: Packages
 
 ## Introduction
-Welcome to **Section 1.11: Packages** 🚀! Packages in Java are your essential allies for organizing code, grouping related classes, interfaces, and more into structured, manageable units. Powered by the `package` keyword, they act like digital folders, keeping your project neat and efficient. This guide explores what packages are, why they’re transformative, and how to use them effectively—covering logical grouping, access protection, and naming conflict resolution. With practical examples and a beginner-friendly approach, you’ll learn to harness Java’s vast API packages (like `java.util`) and prepare for crafting your own. Get ready to master this foundational Java feature for cleaner, scalable code! 🌟
+Welcome to **Section 1.11: Packages** 🚀! Packages in Java are your essential allies for organizing code, bundling related classes, interfaces, and more into structured, manageable units. Powered by the `package` keyword, they act like digital folders, keeping your project neat and efficient. This guide explores what packages are, why they’re transformative, and how to wield them effectively—covering logical grouping, access protection, naming conflict resolution, and crafting your own custom packages. With practical examples and a beginner-friendly approach, you’ll learn to harness Java’s vast API packages (like `java.util`) and create tailored ones for your needs. Get ready to master this foundational Java feature for cleaner, scalable code! 🌟
 
 ---
 
@@ -16,6 +16,8 @@ Welcome to **Section 1.11: Packages** 🚀! Packages in Java are your essential 
         - [Structure of Java Packages](#231-structure-of-java-packages)
         - [Importing Packages](#232-importing-packages)
         - [Java API Packages](#233-java-api-packages)
+        - [Creating Custom Packages](#234-creating-custom-packages)
+        - [Access Modifiers and Package Scope](#235-access-modifiers-and-package-scope)
 3. [Practical Guidance](#3-practical-guidance)
     - [Best Practices](#31-best-practices)
     - [Common Pitfalls](#32-common-pitfalls)
@@ -31,7 +33,7 @@ Welcome to **Section 1.11: Packages** 🚀! Packages in Java are your essential 
 ## 1. Understanding Packages
 
 ### 1.1 What are Packages?
-A *package* in Java is a mechanism for grouping related types—such as classes, interfaces, exceptions, and annotations—into a single, organized unit using the `package` keyword. Think of packages as namespaces, much like folders in a file system, designed to categorize and manage code efficiently, preventing chaos as projects grow.
+A *package* in Java is a mechanism for grouping related types—such as classes, interfaces, exceptions, and annotations—into a single, organized unit using the `package` keyword. Think of packages as namespaces, much like folders in a file system, designed to categorize and manage code efficiently, preventing clutter as projects grow.
 
 In the context of OOP, packages enhance **encapsulation** by providing an additional layer of access control, support **modularity** through logical grouping, and ensure **scalability** for large-scale applications. They complement inheritance and polymorphism by offering a broader organizational framework.
 
@@ -69,7 +71,7 @@ Packages offer powerful benefits that streamline Java development:
 ## 2. Packages in Java
 
 ### 2.1 Core Concepts
-Packages group precompiled `.class` files (e.g., `Date.class`) under a namespace defined by the `package` keyword. You can access them using the `import` keyword or fully qualified names, integrating them effortlessly into your code. Their purpose is threefold: ensuring **modularity** (organized structure), **maintainability** (simplified updates), and **uniqueness** (conflict-free naming), making them vital for projects from small scripts to global enterprise systems.
+Packages group precompiled `.class` files (e.g., `Date.class`) under a namespace defined by the `package` keyword. You can access them using the `import` keyword or fully qualified names, integrating them effortlessly into your code. Their purpose is threefold: ensuring **modularity** (organized structure), **maintainability** (easy updates), and **uniqueness** (conflict-free naming), making them vital for projects from small scripts to global enterprise systems.
 
 Each class compiles into a `.class` file stored in a directory matching its package name (e.g., `java/util/Date.class`), reflecting the package hierarchy in the file system. Packages are Java’s organizational glue, simplifying development at any scale.
 
@@ -77,7 +79,7 @@ Each class compiles into a `.class` file stored in a directory matching its pack
 #### Tools for Implementation
 Java provides flexible tools to work with packages:
 - Define packages using the `package` keyword.
-- Access them with the `import` keyword.
+- Access them with the `import` keyword (implicitly or explicitly).
 - Use fully qualified names directly for no-import access.
 
 #### Examples in Action
@@ -118,48 +120,54 @@ class Test {
 }
 ```
 
-##### Mixed Import with Scanner
+##### Mixed Import with Scanner and Custom Package Access
 ```java
 import java.util.Scanner;
+import in.pune.ABC;  // Explicit import from custom package
+import in.hd.XYZ;   // Explicit import from another custom package
 
-class Test {
+class Driver {
     public static void main(String[] args) {
-        java.util.Date d = new java.util.Date();
-        System.out.println("Today's timestamp: " + d);
+        ABC abc = new ABC(112);  // Custom class from in.pune
+        XYZ xyz = new XYZ(139);  // Custom class from in.hd
+        System.out.println("Value of a from ABC: " + abc.getA());
+        System.out.println("Value of x from XYZ: " + xyz.getX());
+        // Output: Value of a from ABC: 112
+        //         Value of x from XYZ: 139
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter your name: ");
         String name = sc.nextLine();
         System.out.println("Hello, Mr./Ms. " + name);
-        // Output: Today's timestamp: [current date/time]
-        //         Enter your name: [e.g., "Java"]
+        // Output: Enter your name: [e.g., "Java"]
         //         Hello, Mr./Ms. Java
     }
 }
 ```
 
-These examples illustrate accessing `Date` (timestamp) and `Scanner` (input) using different methods—implicit, explicit, fully qualified, and mixed—each producing dynamic outputs like timestamps and user greetings.
+These examples illustrate accessing built-in (`Date`, `Scanner`) and custom package classes (`ABC`, `XYZ`) using different methods, producing dynamic outputs like timestamps and greetings.
 
 ### 2.3 Advanced Features
 
 #### 2.3.1 Structure of Java Packages
-A *Package Structure* in Java is a hierarchical arrangement of packages and subpackages, resembling a directory tree. The top-level package `java` contains subpackages like `util` and `lang`, which house classes and interfaces (e.g., `Date`, `String`). For instance, `java.util.concurrent` nests under `java.util`, showcasing depth.
+A *Package Structure* in Java is a hierarchical arrangement of packages and subpackages, resembling a directory tree. The top-level package `java` contains subpackages like `util` and `lang`, which house classes and interfaces (e.g., `Date`, `String`). Custom packages can follow suit—e.g., `in.pune` nests under `in`.
 
 | Level         | Example           | Contents                   | Description                  |
 |---------------|-------------------|----------------------------|------------------------------|
 | Top Package   | `java`            | Base package              | Root of Java API             |
 | Subpackage    | `java.util`       | Utility classes/interfaces| Hosts `Date`, `Scanner`      |
 | Class         | `java.util.Date`  | Specific type             | Timestamp utility            |
+| Custom Example| `in.pune.ABC`     | Custom class              | User-defined type            |
 
 #### 2.3.2 Importing Packages
 Importing packages brings external contents into scope with three methods:
 
-- *Implicit Import*: `import java.util.*`—imports all classes/interfaces in `java.util` (not subpackages like `java.util.concurrent`).
-- *Explicit Import*: `import java.util.Date`—imports only `Date`, keeping scope tight and clear.
-- *Fully Qualified Name (FQN)*: `java.util.Date d`—direct access without `import`, using the full path.
+- *Implicit Import*: `import java.util.*`—imports all classes/interfaces in `java.util` (not subpackages).
+- *Explicit Import*: `import java.util.Date`—imports only `Date`, keeping scope tight.
+- *Fully Qualified Name (FQN)*: `java.util.Date d`—direct access without `import`.
 
 ##### Key Considerations
-Implicit imports are broad but exclude subpackages; explicit imports are precise; FQN avoids imports for one-off use. See "Implementing Packages" for examples.
+Implicit imports are broad but exclude subpackages; explicit imports are precise; FQN avoids imports for one-off use. Custom packages (e.g., `in.pune.*`) follow the same rules. See "Implementing Packages" for examples.
 
 >[!NOTE] 
 >Implicit imports (e.g., `java.util.*`) do not include subpackages like `java.util.concurrent`—use separate imports (e.g., `import java.util.concurrent.*`) for subpackage access.
@@ -168,12 +176,12 @@ Implicit imports are broad but exclude subpackages; explicit imports are precise
 >Use explicit imports in production code for clarity and to avoid namespace clutter.
 
 #### 2.3.3 Java API Packages
-*Java API Packages* are prebuilt libraries in the JDK, offering reusable classes and interfaces for common tasks. Notable examples include:
+*Java API Packages* are prebuilt libraries in the JDK, offering reusable classes and interfaces. Examples include:
 
-- `java.lang`: Core classes like `System`, `String`—auto-imported for all programs.
-- `java.util`: Utilities like `Date`, `Scanner`, `Collections` for everyday needs.
-- `java.io`: Input/output tools (e.g., `File`, `BufferedReader`).
-- `java.net`: Networking utilities (e.g., `Socket`, `URL`).
+- `java.lang`: Core classes like `System`, `String`—auto-imported.
+- `java.util`: Utilities like `Date`, `Scanner`, `Collections`.
+- `java.io`: Input/output tools (e.g., `File`).
+- `java.net`: Networking utilities (e.g., `Socket`).
 - `java.sql`: Database operations (e.g., `Connection`).
 
 | Package       | Purpose                     | Key Classes                  | Auto-Imported? |
@@ -183,33 +191,126 @@ Implicit imports are broad but exclude subpackages; explicit imports are precise
 | `java.io`     | Input/output                | `File`, `BufferedReader`     | No             |
 | `java.net`    | Networking                  | `Socket`, `URL`              | No             |
 
-`java.lang` is always available; others need explicit import or FQN. For instance, `java.util.Date` provides timestamps, overridden with a custom `toString()` for readable output (e.g., "Wed May 24 07:14:23 IST 2023").
+#### 2.3.4 Creating Custom Packages
+Creating *custom packages* lets you define your own namespaces using the `package` keyword. Place classes/interfaces in a package, compile with a special syntax, and import them elsewhere.
+
+##### Steps to Create
+1. Define the package at the file’s top (e.g., `package in.pune;`).
+2. Write public classes/interfaces (e.g., `public class ABC`).
+3. Compile with `javac -d . ClassName.java` to place `.class` files in the package directory (e.g., `in/pune/ABC.class`).
+4. Run with `java packageName.ClassName` (e.g., `java in.pune.ABC`).
+
+##### Example: Custom Package Classes
+```java
+// in/pune/ABC.java
+package in.pune;
+
+public class ABC {
+    private int a;
+    public ABC(int a) { this.a = a; }
+    public int getA() { return a; }
+}
+```
+
+```java
+// in/hd/XYZ.java
+package in.hd;
+
+public class XYZ {
+    private int x;
+    public XYZ(int x) { this.x = x; }
+    public int getX() { return x; }
+}
+```
+
+##### Driver Class Using Custom Packages
+```java
+// in/Driver.java
+package in;
+
+import in.pune.ABC;
+import in.hd.XYZ;
+
+public class Driver {
+    public static void main(String[] args) {
+        ABC abc = new ABC(112);
+        XYZ xyz = new XYZ(139);
+        System.out.println("Value of a from ABC: " + abc.getA());
+        System.out.println("Value of x from XYZ: " + xyz.getX());
+        // Output: Value of a from ABC: 112
+        //         Value of x from XYZ: 139
+    }
+}
+```
+
+###### Compilation and Execution
+- Compile: `javac -d . in/pune/ABC.java`, `javac -d . in/hd/XYZ.java`, `javac -d . in/Driver.java`
+- Run: `java in.Driver`
+
+This creates a directory structure: `in/pune/ABC.class`, `in/hd/XYZ.class`, `in/Driver.class`.
+
+#### 2.3.5 Access Modifiers and Package Scope
+Access modifiers control visibility across packages:
+
+- *Public*: Accessible everywhere (e.g., `public class ABC`).
+- *Default (Unspecified)*: Package scope—accessible only within the same package (e.g., `class ABC`).
+- *Protected*: Package scope plus accessible to subclasses outside the package (e.g., `protected int x`).
+- *Private*: Class-only scope (e.g., `private int a`).
+
+##### Key Rule
+When creating custom packages, make **classes**, **constructors**, and **methods** public to ensure accessibility from other packages. Default or protected limits access to the package unless subclassed.
+
+##### Example: Access Issue
+```java
+// in/hd/XYZ.java
+package in.hd;
+
+class XYZ {  // Default access
+    private int x;
+    XYZ(int x) { this.x = x; }  // Default constructor
+    public int getX() { return x; }
+}
+
+// in/Driver.java
+package in;
+
+import in.hd.XYZ;  // Error: XYZ not accessible
+
+public class Driver {
+    public static void main(String[] args) {
+        XYZ xyz = new XYZ(139);  // Compilation error
+    }
+}
+```
+
+>[!NOTE] 
+>Default (unspecified) or non-public members (e.g., constructors) are only accessible within the same package—use `public` for cross-package access.
 
 ---
 
 ## 3. Practical Guidance
 
 ### 3.1 Best Practices
-- Organize code into packages for logical grouping (e.g., `com.myapp.students`).
-- Use explicit imports for precision (e.g., `import java.util.Date`).
-- Reserve fully qualified names for rare uses to keep imports clean.
-- Choose unique, descriptive package names (e.g., `com.mycompany.util`).
-- Structure subpackages for large projects (e.g., `com.myapp.data`).
-- Ensure naming consistency in team projects.
+- Organize code into custom packages for logical grouping (e.g., `in.pune`, `in.hd`).
+- Use explicit imports for clarity (e.g., `import in.pune.ABC`).
+- Make classes, constructors, and methods **public** in custom packages for accessibility.
+- Use fully qualified names for one-off uses to avoid import clutter.
+- Choose unique, meaningful package names (e.g., `com.mycompany.util`).
+- Place `package` as the first line in source files, followed by imports.
 
 ### 3.2 Common Pitfalls
-- Overusing implicit imports, cluttering scope.
-- Forgetting imports, triggering "cannot find symbol" errors.
-- Assuming implicit imports cover subpackages—they don’t.
-- Using generic names without distinct packages.
-- Ignoring naming conventions in collaborative work.
+- Forgetting to make custom package members public, blocking external access.
+- Using implicit imports excessively, obscuring dependencies.
+- Omitting imports or FQN, causing "cannot find symbol" errors.
+- Compiling without `-d` flag, misplacing `.class` files.
+- Running without correct package path (e.g., `java Driver` vs. `java in.Driver`).
 
 ### 3.3 Practice Exercises
-1. Write a program with implicit import (`java.util.*`) to print the current timestamp using `Date`.
-2. Modify it to use explicit import (`import java.util.Date`).
-3. Rewrite it with `java.util.Date`’s fully qualified name, no `import`.
-4. Import `java.util.Scanner` explicitly, read a name, and print a greeting.
-5. Combine `Scanner` (explicit) and `Date` (FQN) for timestamp and greeting output.
+1. Create a custom package `myapp.utils` with a `public class Utils` and a `public` method `printHello()`.
+2. Compile it using `javac -d .` and run from another class with implicit import (`myapp.utils.*`).
+3. Write a driver class in `myapp.main` importing `myapp.utils.Utils` explicitly to call `printHello()`.
+4. Modify the driver to use FQN (`myapp.utils.Utils`) without import.
+5. Add a private constructor to `Utils`, attempt to access it from `myapp.main`, and observe the error.
 
 ---
 
@@ -222,7 +323,7 @@ Implicit imports are broad but exclude subpackages; explicit imports are precise
 | Purpose           | Organize types across files          | Embed types within a class      |
 | Access            | Via imports or FQN                   | Via outer instance or static    |
 | Granularity       | Broad, multi-file                    | Fine, single-file               |
-| Example           | `java.util.Date`                     | `Outer.Inner`                   |
+| Example           | `in.pune.ABC`                        | `Outer.Inner`                   |
 
 ---
 
@@ -233,13 +334,11 @@ Implicit imports are broad but exclude subpackages; explicit imports are precise
 - [Java API Overview](https://docs.oracle.com/en/java/javase/17/docs/api/index.html)
 
 ### 5.2 Summary
-Packages organize related classes and interfaces into namespaces with the `package` keyword, making Java projects modular and maintainable. Access them via **implicit imports** (broad scope), **explicit imports** (targeted), or **fully qualified names** (direct), tapping into Java API or custom packages. They excel at logical grouping, access protection, and resolving naming conflicts.
+Packages organize related classes and interfaces into namespaces with the `package` keyword, making Java projects modular and maintainable. Access them via implicit imports (broad scope), explicit imports (targeted), or fully qualified names (direct), using Java API or custom packages. Custom packages are created with `package`, compiled with `javac -d`, and run with package-specific paths, requiring public members for external use.
 
 #### Highlights
-- **Structure**: Hierarchical with subpackages (e.g., `java.util`).
-- **Importing**: Three flexible access methods.
-- **API Packages**: Rich libraries like `java.util` for utility tasks.
-
-#### Takeaway
-Packages are Java’s secret to scalable, clean code—master their use for efficient, conflict-free projects! 🎉
+- **Structure**: Hierarchical with subpackages for depth.
+- **Importing**: Flexible access methods balancing scope and clarity.
+- **Custom Creation**: Define with `package`, compile with care, and import strategically.
+- **Takeaway**: Packages streamline Java—master built-in and custom ones for scalable, clean code! 🎉
 
