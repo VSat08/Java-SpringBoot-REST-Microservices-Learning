@@ -1,0 +1,30 @@
+
+
+    Keywords: try, catch, throw, throws, finally
+
+        try {
+             code that might throw error
+        } catch (Exception e) {
+            // handling-----------> System.out.println(e),
+            e.printStackTrace();
+            e.getMessage(); //error description
+            
+        }
+        finally{
+            // always gets executed
+            // clean up code
+        }
+
+
+
+
+Possible scenarios:
+try  - catch
+try  - catch - finally
+try  -  finally
+
+
+throw - This keyword is used to explicitly raise an exception within a method body. It is followed by an instance of an exception class. When a throw statement is executed, the normal flow of the program is interrupted, and the control is transferred to the nearest enclosing catch block or the calling method if the exception is not caught within the method.
+
+
+throws - This keyword is used in the method signature to declare the exceptions that a method might throw during its execution. It doesn't actually throw the exception but informs the caller that the method may potentially throw these exceptions. The caller is then responsible for handling these exceptions using try-catch blocks or further declaring them in its own signature. 
