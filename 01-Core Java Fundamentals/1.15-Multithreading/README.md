@@ -1,7 +1,7 @@
 # 1.15: Multithreading
 
 ## Introduction
-Welcome to **Section 1.15: Multithreading** 🚀! Multithreading in Java empowers parallel execution, enhancing performance and responsiveness by running multiple threads within a process. This guide explores the essentials—what threads are, how to create them via `Thread` class extension or `Runnable` interface, and their lifecycle. We’ll cover processes vs. threads, advantages, and practical creation, using examples and a beginner-friendly approach. Get set to unlock concurrency in Java! 🌟
+Welcome to **Section 1.15: Multithreading** 🚀! Multithreading in Java unleashes concurrent execution, boosting performance and responsiveness by running multiple threads within a process. This guide explores threads—lightweight process subunits—covering their creation via `Thread` extension or `Runnable` interface, lifecycle, and control methods like `sleep()`, `join()`, and `currentThread()`. We’ll dive into processes vs. threads, advantages, and practical thread management, using examples and a beginner-friendly approach. Master concurrency in Java! 🌟
 
 ---
 
@@ -17,7 +17,11 @@ Welcome to **Section 1.15: Multithreading** 🚀! Multithreading in Java empower
         - [Extending Thread Class](#241-extending-thread-class)
         - [Implementing Runnable Interface](#242-implementing-runnable-interface)
     - [Thread Lifecycle](#25-thread-lifecycle)
-    - [Advantages of Multithreading](#26-advantages-of-multithreading)
+    - [Thread Control Methods](#26-thread-control-methods)
+        - [Sleep Method](#261-sleep-method)
+        - [Join Method](#262-join-method)
+        - [CurrentThread and Attributes](#263-currentthread-and-attributes)
+    - [Advantages of Multithreading](#27-advantages-of-multithreading)
 3. [Practical Guidance](#3-practical-guidance)
     - [Best Practices](#31-best-practices)
     - [Common Pitfalls](#32-common-pitfalls)
@@ -34,14 +38,14 @@ Welcome to **Section 1.15: Multithreading** 🚀! Multithreading in Java empower
 ## 1. Understanding Multithreading
 
 ### 1.1 What is Multithreading?
-*Multithreading* is a multitasking technique where multiple *threads*—lightweight subunits of a process—execute parallelly within a single *process*. A process is a program under execution, while threads share its resources, enabling efficient concurrency. In Java, multithreading leverages CPU power for simultaneous task execution.
+*Multithreading* is a multitasking approach where multiple *threads*—lightweight subunits of a *process*—run parallelly within a single process. A process is a program under execution, while threads share its resources, enabling efficient concurrency. In Java, multithreading leverages CPU power for simultaneous task execution.
 
 #### Definitions
 - **Process**: A program or app under execution, heavyweight with separate memory.
 - **Thread**: A lightweight subunit of a process, sharing its address space.
 
 #### Real-World Example
-A ticket booking app: one process runs the app, while threads handle concurrent user tasks (selecting seats, paying) in parallel.
+A ticket booking app: one process runs the app, with threads handling concurrent user tasks (seat selection, payment).
 
 #### Key Terms
 | Term             | Definition                                   | Example                |
@@ -56,27 +60,27 @@ Multithreading enhances applications by:
 - Enabling parallel task execution within a process.
 - Reducing switching overhead vs. processes.
 - Maximizing CPU utilization during idle times.
-- Improving user responsiveness (e.g., quick ticket bookings).
+- Improving responsiveness (e.g., quick bookings).
 
 #### Analogy
-Multithreading is like a chef (process) delegating tasks to sous-chefs (threads)—chopping, cooking, plating—simultaneously to serve dishes faster.
+Multithreading is like a chef (process) delegating tasks to sous-chefs (threads)—chopping, cooking, plating—simultaneously to serve faster.
 
 ---
 
 ## 2. Multithreading in Java
 
 ### 2.1 Core Concepts
-Multithreading in Java, supported by `java.lang.Thread` and `java.lang.Runnable`, allows threads to run concurrently within a process, managed by the JVM’s *thread scheduler*. Each program starts with a *main thread*, and additional threads can be created via two methods: extending `Thread` or implementing `Runnable`.
+Multithreading in Java, supported by `java.lang.Thread` and `java.lang.Runnable`, allows threads to run concurrently within a process, managed by the JVM’s *thread scheduler*. Each program starts with a *main thread*, and additional threads are created via `Thread` extension or `Runnable` implementation, controlled with methods like `sleep()`, `join()`, and `currentThread()`.
 
 ### 2.2 Processes vs. Threads
 #### Process-Based Multitasking (Multiprocessing)
-- **Definition**: Multiple processes run parallelly, each with separate memory and resources.
-- **Mechanism**: CPU switches between processes, updating memory maps, registers, and process control blocks (PCB).
+- **Definition**: Multiple processes run parallelly, each with separate memory/resources.
+- **Mechanism**: CPU switches, updating memory maps, registers, and process control blocks (PCB).
 - **Traits**: Heavyweight, high switching cost (nanoseconds, noticeable in bulk).
 
 #### Thread-Based Multitasking (Multithreading)
 - **Definition**: Multiple threads run within one process, sharing its address space.
-- **Mechanism**: Threads switch quickly, avoiding memory updates, using process resources.
+- **Mechanism**: Threads switch quickly, avoiding memory updates.
 - **Traits**: Lightweight, low-cost switching.
 
 ##### Textual Block Diagram
@@ -95,11 +99,11 @@ Multithreading in Java, supported by `java.lang.Thread` and `java.lang.Runnable`
 ```
 
 ### 2.3 Thread Definition and Role
-A *thread* is the smallest processing unit within a process, executing a task (critical section) via the `run()` method. Threads share the process’s address space, managed by the JVM’s thread scheduler.
+A *thread* is the smallest processing unit within a process, executing a task (critical section) via the `run()` method, managed by the JVM’s scheduler.
 
 #### Role
 - Execute tasks parallelly within a process.
-- Controlled by the scheduler, which assigns `run()` execution.
+- Controlled by the scheduler for `run()` execution.
 
 #### Snippet: Main Thread
 ```java
@@ -113,7 +117,7 @@ class MultithreadDemo {
 ```
 
 ### 2.4 Creating Threads
-Threads in Java are created in two ways: extending `Thread` or implementing `Runnable`.
+Threads are created via two methods: extending `Thread` or implementing `Runnable`.
 
 #### 2.4.1 Extending Thread Class
 Extend `Thread`, override `run()`, and call `start()` to make instances threads directly.
@@ -122,7 +126,7 @@ Extend `Thread`, override `run()`, and call `start()` to make instances threads 
 ```java
 class Multi extends Thread {
     public void run() {
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("User thread: " + i);
         }
     }
@@ -130,13 +134,13 @@ class Multi extends Thread {
 
 class MultiDemo {
     public static void main(String[] args) {
-        Multi t1 = new Multi();  // New state
-        Multi t2 = new Multi();  // New state
-        t1.start();              // Runnable state
-        t2.start();              // Runnable state
+        Multi t1 = new Multi();
+        Multi t2 = new Multi();
+        t1.start();
+        t2.start();
     }
 }
-// Output: Interleaved "User thread: 1" to "User thread: 10" from t1 and t2
+// Output: Interleaved "User thread: 1" to "User thread: 5" from t1 and t2
 ```
 
 #### 2.4.2 Implementing Runnable Interface
@@ -146,7 +150,7 @@ Implement `Runnable`, define `run()`, and pass instances to a `Thread` construct
 ```java
 class RunnableDemo implements Runnable {
     public void run() {
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("User thread: " + i);
         }
     }
@@ -156,23 +160,23 @@ class RunnableTest {
     public static void main(String[] args) {
         Runnable r1 = new RunnableDemo();
         Runnable r2 = new RunnableDemo();
-        Thread t1 = new Thread(r1);  // New state
-        Thread t2 = new Thread(r2);  // New state
-        t1.start();                  // Runnable state
-        t2.start();                  // Runnable state
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        t1.start();
+        t2.start();
     }
 }
-// Output: Interleaved "User thread: 1" to "User thread: 10" from t1 and t2
+// Output: Interleaved "User thread: 1" to "User thread: 5" from t1 and t2
 ```
 
 ### 2.5 Thread Lifecycle
 Threads transition through five states, managed by the JVM.
 
 #### States
-1. **New**: Thread created (e.g., `new Thread()`), not started.
-2. **Runnable (Ready)**: Thread ready after `start()`, awaiting scheduler.
-3. **Running**: Thread executes `run()` when scheduled.
-4. **Blocked (Non-Runnable)**: Paused (e.g., sleeping, waiting for I/O, locked).
+1. **New**: Created (e.g., `new Thread()`), not started.
+2. **Runnable (Ready)**: Ready after `start()`, awaiting scheduler.
+3. **Running**: Executes `run()` when scheduled.
+4. **Blocked (Non-Runnable)**: Paused (e.g., sleeping, waiting, locked).
 5. **Terminated (Dead)**: Exits `run()` or fails.
 
 #### Flowchart (Textual)
@@ -203,41 +207,140 @@ Threads transition through five states, managed by the JVM.
 +-----------------+
 ```
 
-### 2.6 Advantages of Multithreading
-Multithreading boosts applications by:
+### 2.6 Thread Control Methods
+Java provides methods to manage thread execution: `sleep()`, `join()`, and `currentThread()`, plus attribute getters/setters.
+
+#### 2.6.1 Sleep Method
+`sleep()` pauses the current thread for a specified time (milliseconds or milliseconds + nanoseconds), moving it to the Blocked state. It’s static and throws `InterruptedException`.
+
+##### Snippet: Sleep Method
+```java
+class Multi extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+            try {
+                Thread.sleep(750); // Sleep 750ms
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted");
+            }
+        }
+    }
+}
+
+class MultiDemo {
+    public static void main(String[] args) {
+        Multi t1 = new Multi();
+        Multi t2 = new Multi();
+        t1.start();
+        t2.start();
+    }
+}
+// Output: Thread-0: 1, Thread-1: 1, Thread-0: 2, Thread-1: 2, ... (uniform interleaving)
+```
+
+#### 2.6.2 Join Method
+`join()` makes other threads wait until the joined thread completes (indefinite) or for a specified time (milliseconds or milliseconds + nanoseconds). It’s non-static and throws `InterruptedException`.
+
+##### Snippet: Join Method
+```java
+class Multi extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+            try {
+                Thread.sleep(750);
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted");
+            }
+        }
+    }
+}
+
+class MultiDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Multi t1 = new Multi();
+        Multi t2 = new Multi();
+        t1.start();
+        t1.join(2500); // Wait 2500ms
+        t2.start();
+    }
+}
+// Output: Thread-0: 1-3, then Thread-1: 1-5, Thread-0: 4-5 (t2 waits 2500ms)
+```
+
+#### 2.6.3 CurrentThread and Attributes
+- **`currentThread()`**: Static, returns the currently executing thread.
+- **`getName()` / `setName()`**: Get or set thread name (default: "Thread-0", "Thread-1", ...).
+- **`getPriority()` / `setPriority()`**: Get or set priority (1-10, default 5: `NORM_PRIORITY`).
+
+##### Snippet: CurrentThread and Attributes
+```java
+class Multi extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + " (Priority " +
+                              Thread.currentThread().getPriority() + "): " + i);
+            try {
+                Thread.sleep(750);
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted");
+            }
+        }
+    }
+}
+
+class MultiDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Multi t1 = new Multi();
+        Multi t2 = new Multi();
+        t1.setPriority(Thread.MAX_PRIORITY); // 10
+        t2.setName("Second");
+        t1.start();
+        t2.start();
+    }
+}
+// Output: Thread-0 (Priority 10): 1, Second (Priority 5): 1, ... (interleaved)
+```
+
+>[!NOTE] 
+>`sleep()` and `join()` throw `InterruptedException`; `run()` overrides cannot declare exceptions.
+
+### 2.7 Advantages of Multithreading
+Multithreading enhances applications by:
 
 - **Parallel Processing**: Executes tasks concurrently (e.g., 1000 bookings in 3 minutes).
 - **Responsiveness**: Reduces wait times (e.g., e-commerce checkout).
 - **CPU Utilization**: Uses idle CPU time efficiently.
-- **Priority Control**: Assigns execution order via priorities.
+- **Priority Control**: Orders execution with `join()` or priorities.
 
 #### Example
-1000 users booking tickets in 3 minutes—not 3000—due to parallel thread execution.
+1000 users book tickets in 3 minutes—not 3000—due to parallel thread execution.
 
 ---
 
 ## 3. Practical Guidance
 
 ### 3.1 Best Practices
-- Extend `Thread` for simple, standalone tasks; use `Runnable` when extending other classes.
-- Call `start()` to enable multithreading, not `run()` directly.
-- Define clear `run()` methods for thread tasks.
-- Use multiple threads for parallel, independent operations (e.g., bookings).
-- Minimize blocking operations to keep threads responsive.
+- Use `sleep()` for uniform thread access (e.g., ticket booking delays).
+- Apply `join()` to prioritize critical threads (e.g., payment completion).
+- Leverage `currentThread()` for dynamic logic based on thread identity.
+- Set thread names for debugging clarity.
+- Adjust priorities sparingly (1-10) to influence scheduling.
 
 ### 3.2 Common Pitfalls
 - Calling `run()` instead of `start()`, losing parallelism.
-- Assuming thread execution order (scheduler-dependent).
-- Over-creating threads, straining resources.
-- Neglecting thread termination, causing leaks.
-- Ignoring inheritance conflicts with `Thread` extension.
+- Starting a thread twice, causing `IllegalThreadStateException`.
+- Ignoring `InterruptedException` in `sleep()` or `join()`.
+- Overusing high priorities, skewing scheduler fairness.
+- Assuming predictable interleaving without control methods.
 
 ### 3.3 Practice Exercises
-1. Create a thread via `Thread` extension printing "Hello" 5 times.
-2. Implement `Runnable` for a thread counting 1-10, run two instances.
-3. Simulate two threads booking tickets, printing interleaved outputs.
-4. Add a delay in `run()` to observe interleaving with the main thread.
-5. Compare outputs of `start()` vs. `run()` calls on a thread.
+1. Create two threads with `sleep(500)`, printing names and numbers.
+2. Use `join()` to make one thread wait for another, printing sequentially.
+3. Set custom names and priorities, display with `currentThread()`.
+4. Simulate three threads with `sleep()`, observe uniform output.
+5. Call `run()` vs. `start()`, compare sequential vs. parallel output.
 
 ---
 
@@ -271,10 +374,11 @@ Multithreading boosts applications by:
 - [Java API: Thread](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html)
 
 ### 5.2 Summary
-Multithreading in Java enables parallel thread execution within a process, using `Thread` extension or `Runnable` implementation. Threads are lightweight, sharing process resources, and transition through New, Runnable, Running, Blocked, and Terminated states. The JVM’s scheduler manages execution, offering high performance and responsiveness.
+Multithreading in Java enables parallel thread execution within a process, created by extending `Thread` or implementing `Runnable`. Threads transition through New, Runnable, Running, Blocked, and Terminated states, controlled by methods like `sleep()` (pauses), `join()` (waits), and `currentThread()` (identifies). It offers performance, responsiveness, and CPU efficiency.
 
 #### Highlights
-- **Creation**: Extend `Thread` or implement `Runnable` for threads.
+- **Creation**: `Thread` extension or `Runnable` for threads.
+- **Control**: `sleep()`, `join()`, `currentThread()` manage execution.
 - **Lifecycle**: Five states, driven by `start()` and `run()`.
-- **Advantages**: Parallelism, efficiency, user responsiveness.
-- **Takeaway**: Master thread creation for concurrent Java applications! 🎉
+- **Takeaway**: Master thread creation and control for concurrent Java apps! 🎉
+
