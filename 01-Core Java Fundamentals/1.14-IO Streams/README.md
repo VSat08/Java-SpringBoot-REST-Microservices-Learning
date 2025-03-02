@@ -1,7 +1,7 @@
-# 1.13: IO Streams
+# 1.14: IO Streams
 
 ## Introduction
-Welcome to **Section 1.13: IO Streams** 🚀! IO streams in Java are your pathways for data flow, enabling seamless input and output operations. This guide explores streams—**text streams** (character-based) and **byte streams** (binary)—and their roles in handling data from sources like files, consoles, or devices to destinations like files or networks, enhanced by processing buffers, serialization, and user input methods. We’ll cover practical file handling with classes like `FileReader`, byte stream operations, serialization with `ObjectOutputStream`, and four ways to read user data, using examples and a beginner-friendly approach. Master data flow and interaction in Java! 🌟
+Welcome to **Section 1.14: IO Streams** 🚀! IO streams in Java are your pathways for data flow, enabling seamless input and output operations. This guide explores streams—**text streams** (character-based) and **byte streams** (binary)—and their roles in handling data from sources like files, consoles, or devices to destinations like files or networks, enhanced by processing buffers, serialization, and user input methods. We’ll cover practical file handling with classes like `FileReader`, byte stream operations, serialization with `ObjectOutputStream`, and four ways to read user data, using examples and a beginner-friendly approach. Master data flow and interaction in Java! 🌟
 
 ---
 
