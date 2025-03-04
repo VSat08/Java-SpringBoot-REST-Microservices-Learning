@@ -26,7 +26,7 @@ Welcome to **Section 2.1: Introduction to SQL** 🚀! Structured Query Language 
 4. [Comparisons](#4-comparisons)
     - [SQL vs. Procedural Languages](#41-sql-vs-procedural-languages)
 5. [Resources & Summary](#5-resources--summary)
-    - [Resources](#51-resources)
+    - [Study Materials](#51-study-materials)
     - [Summary](#52-summary)
 
 ---
@@ -39,6 +39,10 @@ Welcome to **Section 2.1: Introduction to SQL** 🚀! Structured Query Language 
 #### Definition
 - **SQL**: A query language for RDBMS, based on relational algebra and calculus.
 - **RDBMS**: A database system where data is stored in tables (relations) with rows and columns.
+
+#### Historical Context
+- Originated in the 1970s at IBM during the "System R" project.
+- Standardized by ANSI (1986) and ISO (1989), ensuring portability across RDBMS.
 
 #### Real-World Example
 Think of SQL as a librarian who can fetch, add, update, or remove books (data) from a library (database) based on your requests, without you needing to know how the library is organized.
@@ -55,7 +59,7 @@ SQL is essential for database management because it:
 - Enables interaction with RDBMS through simple, English-like commands.
 - Supports CRUD operations (Create, Read, Update, Delete) for data management.
 - Acts as an interface between users and databases, translating queries into actions.
-- Is standardized, making it compatible across RDBMS like MySQL, Oracle, and SQL Server.
+- Is standardized, making it compatible across RDBMS like MySQL, Oracle, SQL Server, DB2, PostgreSQL, and Informix.
 
 #### Analogy
 SQL is like a universal translator: you speak your request in simple terms (e.g., "fetch all employees with salary > 5000"), and the RDBMS understands and delivers the results.
@@ -98,7 +102,7 @@ SQL operates within RDBMS, where data is structured in tables—each table repre
 ### 2.2 Key Characteristics
 - **Declarative Language**: SQL is non-procedural; you specify *what* data you want, not *how* to get it (unlike procedural languages like C or Java).
 - **Not Case-Sensitive**: Commands like `SELECT`, `select`, or `SeLeCt` are treated the same.
-- **Simple Syntax**: Queries are typically single-line, English-like statements.
+- **Simple Syntax**: Queries are typically single-line, English-like statements (e.g., `SELECT * FROM employee;`).
 - **Standardized**: SQL is standardized by ANSI (1986) and ISO (1989), ensuring compatibility across RDBMS.
 
 >[!NOTE]  
@@ -176,7 +180,7 @@ MySQL’s Community Server includes a sample database called `world`, which we�
     DESCRIBE country;
     ```
     - Key Fields: `Code`, `Name`, `Continent`, `Region`, `SurfaceArea`, `IndepYear`, `Population`, `LifeExpectancy`, `GNP`, `GNPOld`, `LocalName`, `GovernmentForm`, `HeadOfState`, `Capital`, `Code2`
-  - **Data**:
+  - **Data** ([See `country_data.sql`](#51-study-materials)):
     ```sql
     SELECT * FROM country;
     ```
@@ -193,7 +197,7 @@ MySQL’s Community Server includes a sample database called `world`, which we�
     DESCRIBE city;
     ```
     - Fields: `ID`, `Name`, `CountryCode`, `District`, `Population`
-  - **Data**:
+  - **Data** ([See `city_data.sql`](#51-study-materials)):
     ```sql
     SELECT * FROM city;
     ```
@@ -210,7 +214,7 @@ MySQL’s Community Server includes a sample database called `world`, which we�
     DESCRIBE countrylanguage;
     ```
     - Fields: `CountryCode`, `Language`, `IsOfficial`, `Percentage`
-  - **Data**:
+  - **Data** ([See `countrylanguage_data.sql`](#51-study-materials)):
     ```sql
     SELECT * FROM countrylanguage WHERE CountryCode = 'IND';
     ```
@@ -222,6 +226,24 @@ You can view how a table was created using:
 SHOW CREATE TABLE country;
 ```
 - Output: Displays the exact `CREATE TABLE` statement with field definitions and constraints.
+
+#### Utility Commands
+- **Check Version**:
+  ```sql
+  SELECT VERSION();
+  ```
+  - Example Output: `8.1.0`
+- **Check User**:
+  ```sql
+  SELECT USER();
+  ```
+  - Example Output: `root@localhost`
+- **Current Date and Time**:
+  ```sql
+  SELECT CURRENT_DATE();
+  SELECT NOW();
+  ```
+  - Outputs the current date and timestamp.
 
 ---
 
@@ -265,10 +287,93 @@ SHOW CREATE TABLE country;
 
 ## 5. Resources & Summary
 
-### 5.1 Resources
-- [MySQL Documentation](https://dev.mysql.com/doc/)
-- [W3Schools SQL Tutorial](https://www.w3schools.com/sql/)
-- [SQLZoo](https://sqlzoo.net/)
+
+
+
+### 5.1 Study Materials
+The following SQL scripts and resources are provided for hands-on practice with the `world` database:
+
+- **`world_database.sql`**: Script to create the `world` database (if not already present). *Note*: The `world` database is typically included with MySQL Community Server installation.
+- **`country_data.sql`**: Contains `SELECT` queries for the `country` table (e.g., `SELECT * FROM country WHERE Code = 'IND';`).
+- **`city_data.sql`**: Contains `SELECT` queries for the `city` table (e.g., `SELECT * FROM city WHERE CountryCode = 'IND';`).
+- **`countrylanguage_data.sql`**: Contains `SELECT` queries for the `countrylanguage` table (e.g., `SELECT * FROM countrylanguage WHERE CountryCode = 'IND';`).
+
+---
+Below are the SQL scripts to accompany the README, which you can include in your GitHub repository under the `sql/` directory.
+
+#### `world_database.sql`
+*Note*: The `world` database is typically pre-installed with MySQL Community Server. This script is a placeholder in case the database needs to be manually set up (creation details are not provided in the transcript, but usage is demonstrated).
+
+```sql
+-- Placeholder script for the world database
+-- Note: The world database is typically included with MySQL Community Server installation
+-- Run these commands to verify its presence
+
+SHOW DATABASES;
+-- Expected Output: information_schema, mysql, performance_schema, sys, world (among others)
+
+USE world;
+-- Expected Output: Database changed
+
+SHOW TABLES;
+-- Expected Output: city, country, countrylanguage
+```
+
+#### `country_data.sql`
+```sql
+-- Queries for the country table in the world database
+
+-- Select all countries
+SELECT * FROM country;
+-- Expected Output: 239 rows (countries)
+
+-- Select data for India
+SELECT * FROM country WHERE Code = 'IND';
+-- Expected Output: 1 row (India's details)
+
+-- View the table structure
+DESCRIBE country;
+-- Expected Fields: Code, Name, Continent, Region, SurfaceArea, IndepYear, Population, LifeExpectancy, GNP, GNPOld, LocalName, GovernmentForm, HeadOfState, Capital, Code2
+
+-- View the CREATE TABLE statement
+SHOW CREATE TABLE country;
+```
+
+#### `city_data.sql`
+```sql
+-- Queries for the city table in the world database
+
+-- Select all cities
+SELECT * FROM city;
+-- Expected Output: 4079 rows (cities worldwide)
+
+-- Select cities in India
+SELECT * FROM city WHERE CountryCode = 'IND';
+-- Expected Output: 341 rows (cities in India)
+
+-- View the table structure
+DESCRIBE city;
+-- Expected Fields: ID, Name, CountryCode, District, Population
+```
+
+#### `countrylanguage_data.sql`
+```sql
+-- Queries for the countrylanguage table in the world database
+
+-- Select languages spoken in India
+SELECT * FROM countrylanguage WHERE CountryCode = 'IND';
+-- Expected Output: 12 rows (languages in India, e.g., Hindi, Tamil, with percentages)
+
+-- View the table structure
+DESCRIBE countrylanguage;
+-- Expected Fields: CountryCode, Language, IsOfficial, Percentage
+```
+
+- **External Resources**:
+  - [MySQL Documentation](https://dev.mysql.com/doc/)
+  - [W3Schools SQL Tutorial](https://www.w3schools.com/sql/)
+  - [SQLZoo](https://sqlzoo.net/)
+
 
 ### 5.2 Summary
 SQL (Structured Query Language) is a declarative, case-insensitive language for managing data in RDBMS like MySQL. It interfaces between users and databases, enabling CRUD operations through commands categorized as DDL (structure), DML (data manipulation), DCL (authorization), TCL (transactions), and DQL (querying). Using MySQL’s `world` database, you can practice with real-world data across tables like `country`, `city`, and `countrylanguage`. This chapter lays the foundation for deeper SQL exploration!
@@ -278,3 +383,7 @@ SQL (Structured Query Language) is a declarative, case-insensitive language for 
 - **Command Types**: DDL, DML, DCL, TCL, DQL (`SELECT`).
 - **World Database**: Sample data for practical learning.
 - **Takeaway**: Start with simple queries and build familiarity with SQL commands! 🎉
+
+
+---
+
