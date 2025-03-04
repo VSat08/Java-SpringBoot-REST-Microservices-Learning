@@ -1,11 +1,16 @@
 # Introduction to Java Programming - Complete Beginner's Guide
 
+## Welcome to Core Java Fundamentals
+
+Welcome to your journey into Core Java programming! This manual serves as your comprehensive guide to mastering the foundational concepts of Java, tailored for complete beginners with no prior programming experience. Java is one of the world's most widely-used programming languages, powering everything from Android apps to enterprise software systems. Through this guide, you’ll explore Java’s core principles, set up your development environment, write your first program, and progress through essential topics via structured chapters. Each chapter builds on the previous one, culminating in a practical mini project to apply your skills. Let’s embark on this learning adventure together! 🌟
+
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Why Choose Java?](#why-choose-java)
+1. [Introduction](#welcome-to-core-java-fundamentals)
+2. [Learning Path: Chapters Overview](#learning-path-chapters-overview)
+3. [Why Choose Java?](#why-choose-java)
    - [Core Benefits](#core-benefits)
    - [Community and Usage](#community-and-usage)
-3. [Understanding Java Architecture](#understanding-java-architecture)
+4. [Understanding Java Architecture](#understanding-java-architecture)
    - [Core Components](#core-components)
      - [Java Development Kit (JDK)](#java-development-kit-jdk)
      - [Java Runtime Environment (JRE)](#java-runtime-environment-jre)
@@ -13,41 +18,64 @@
    - [Execution Process](#execution-process)
      - [Compilation Stage](#compilation-stage)
      - [Interpretation Stage](#interpretation-stage)
-4. [Development Environment Setup](#development-environment-setup)
+5. [Development Environment Setup](#development-environment-setup)
    - [Installing Java](#installing-java)
    - [Setting up PATH](#setting-up-path)
-5. [Text Editors and IDEs](#text-editors-and-ides)
+6. [Text Editors and IDEs](#text-editors-and-ides)
    - [Popular Options](#popular-options)
    - [Installation and Setup](#installation-and-setup)
-6. [Understanding Java Program Structure](#understanding-java-program-structure)
+7. [Understanding Java Program Structure](#understanding-java-program-structure)
    - [Basic Program Components](#basic-program-components)
    - [Program Structure Rules](#program-structure-rules)
    - [Naming Conventions](#naming-conventions)
    - [Keywords and Reserved Words](#keywords-and-reserved-words)
-7. [Writing Your First Java Program](#writing-your-first-java-program)
+8. [Writing Your First Java Program](#writing-your-first-java-program)
    - [Program Creation Steps](#program-creation-steps)
    - [Program Execution Flow](#program-execution-flow)
-8. [Java Program Components in Detail](#java-program-components-in-detail)
+9. [Java Program Components in Detail](#java-program-components-in-detail)
    - [Class Structure](#class-structure)
    - [Main Method](#main-method)
    - [Visibility Specifiers](#visibility-specifiers)
    - [Code Blocks](#code-blocks)
    - [Special Symbols](#special-symbols)
    - [Comments](#comments)
-9. [Java Package System](#java-package-system)
-   - [Java.lang Package](#javalang-package)
-   - [System.out Operations](#systemout-operations)
-10. [Additional Resources](#additional-resources)
+10. [Java Package System](#java-package-system)
+    - [Java.lang Package](#javalang-package)
+    - [System.out Operations](#systemout-operations)
+11. [Additional Resources](#additional-resources)
     - [Official Documentation](#official-documentation)
     - [Learning Platforms](#learning-platforms)
     - [Development Tools](#development-tools)
-11. [Getting Help](#getting-help)
+12. [Getting Help](#getting-help)
 
+---
 
-## Introduction
+## Learning Path: Chapters Overview
 
-Welcome to your journey into Java programming! This guide is designed for complete beginners with no prior programming experience. Java is one of the world's most widely-used programming languages, powering everything from Android apps to enterprise software systems.
+This Core Java Fundamentals manual is organized into a series of chapters, each focusing on a key aspect of Java programming. Progress through these chapters sequentially to build a strong foundation, culminating in a hands-on mini project. Below is an overview of the topics you’ll cover:
 
+- **[1.1-First Java Program](01-Core%20Java%20Fundamentals/1.1-First%20Java%20Program)**: Write and run your first Java program, understanding the basics of compilation and execution.
+- **[1.2-Java Char Set](01-Core%20Java%20Fundamentals/1.2-Java%20Char%20Set)**: Explore Java’s character set, including ASCII and Unicode support.
+- **[1.3-Identifiers and Constants](01-Core%20Java%20Fundamentals/1.3-Identifiers%20and%20Constants)**: Learn about naming rules, identifiers, and constants in Java.
+- **[1.4-Data Types and Variables](01-Core%20Java%20Fundamentals/1.4-Data%20Types%20and%20Variables)**: Understand Java’s data types, variables, and type casting.
+- **[1.5-Operators in Java](01-Core%20Java%20Fundamentals/1.5-%20Operators%20in%20Java)**: Dive into arithmetic, logical, and relational operators.
+- **[1.6-Control Statements](01-Core%20Java%20Fundamentals/1.6-Control%20Statements)**: Master control structures like `if-else`, loops, `switch`, and `break/continue`.
+- **[1.7-Arrays](01-Core%20Java%20Fundamentals/1.7-Arrays)**: Work with arrays for storing and manipulating multiple values.
+- **[1.8-Methods](01-Core%20Java%20Fundamentals/1.8-Methods)**: Define and use methods to organize code efficiently.
+- **[1.9-Object Oriented Programming](01-Core%20Java%20Fundamentals/1.9-Object%20Oriented%20Programming)**: Grasp OOP principles—classes, objects, encapsulation, inheritance, and abstraction.
+- **[1.10-Nested Classes](01-Core%20Java%20Fundamentals/1.10-Nested%20Classes)**: Explore nested and inner classes for better code organization.
+- **[1.11-Packages](01-Core%20Java%20Fundamentals/1.11-Packages)**: Learn how to organize code into packages for modularity.
+- **[1.12-Exception Handling](01-Core%20Java%20Fundamentals/1.12-Exception%20Handling)**: Handle errors gracefully with try-catch, throw, and custom exceptions.
+- **[1.13-Strings](01-Core%20Java%20Fundamentals/1.13-Strings)**: Manipulate strings and understand their immutability.
+- **[1.14-IO Streams](01-Core%20Java%20Fundamentals/1.14-IO%20Streams)**: Perform file input/output operations using streams.
+- **[1.15-Multithreading](01-Core%20Java%20Fundamentals/1.15-Multithreading)**: Create and manage multiple threads for concurrent execution.
+- **[1.16-Collection Framework](01-Core%20Java%20Fundamentals/1.16-Collection%20Framework)**: Use Java’s Collection Framework (`List`, `Set`, `Map`) for data management.
+- **[1.17-Generics & Reflection Mechanism](01-Core%20Java%20Fundamentals/1.17-Generics%20&%20Reflection%20Mechanism)**: Enhance type safety with generics and inspect runtime behavior with reflection.
+- **[Mini Project-Student Management System](01-Core%20Java%20Fundamentals/Mini%20Project-Student%20Management%20System)**: Apply your skills in a practical project to manage student records.
+
+Each chapter includes a dedicated README, code examples, and exercises to reinforce your learning. Start with the basics and progressively tackle more advanced topics, culminating in the mini project to solidify your understanding.
+
+---
 
 ## Why Choose Java?
 
@@ -79,6 +107,7 @@ Welcome to your journey into Java programming! This guide is designed for comple
   * Cloud services
   * Internet programming
 
+---
 
 ## Understanding Java Architecture
 
@@ -122,6 +151,7 @@ Welcome to your journey into Java programming! This guide is designed for comple
 2. Platform-specific interpretation
 3. Output displayed on attached device (monitor, console, etc.)
 
+---
 
 ## Development Environment Setup
 
@@ -148,7 +178,7 @@ Welcome to your journey into Java programming! This guide is designed for comple
   * Modify `.bash_profile` or `.bashrc`
   * Add Java path to environment variables
 
-
+---
 
 ## Text Editors and IDEs
 
@@ -169,7 +199,7 @@ Welcome to your journey into Java programming! This guide is designed for comple
 3. Configure Java path if required
 4. Set up workspace and projects
 
-
+---
 
 ## Understanding Java Program Structure
 
@@ -213,7 +243,7 @@ public class Welcome {
   * `static`: Allows method call without object
   * `void`: Indicates no return value
 
-
+---
 
 ## Writing Your First Java Program
 
@@ -232,7 +262,7 @@ public class Welcome {
 3. Statements executed sequentially
 4. Output displayed on console
 
-
+---
 
 ## Java Program Components in Detail
 
@@ -292,7 +322,7 @@ public static void main(String[] args)
    comment block */
 ```
 
-
+---
 
 ## Java Package System
 
@@ -308,7 +338,7 @@ public static void main(String[] args)
 * `System.out.print()`: Prints without newline
 * Output stream connects to console device
 
-
+---
 
 ## Additional Resources
 
@@ -352,4 +382,5 @@ Remember:
 
 ---
 
-_This guide is regularly updated to reflect the latest Java developments and best practices. Last updated: January 2024._
+_This guide is regularly updated to reflect the latest Java developments and best practices. Last updated: March 2025._
+```
