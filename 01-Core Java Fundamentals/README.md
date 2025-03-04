@@ -383,4 +383,3 @@ Remember:
 ---
 
 _This guide is regularly updated to reflect the latest Java developments and best practices. Last updated: March 2025._
-```

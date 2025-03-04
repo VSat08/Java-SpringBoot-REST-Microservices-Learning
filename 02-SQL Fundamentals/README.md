@@ -251,4 +251,3 @@ MySQL is chosen for this course due to its:
 
 ---
 _This guide is regularly updated to reflect the latest database and SQL developments and best practices. Last updated: March 2025._
-```
