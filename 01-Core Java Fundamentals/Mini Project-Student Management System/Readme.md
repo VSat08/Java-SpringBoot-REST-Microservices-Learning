@@ -18,7 +18,7 @@ The **Student Management System (SMS)** is a console-based Java application desi
   5. Display students by GPA (descending).
   6. Exit the application.
 - **Sorting**: Uses lambda expressions for name and GPA ordering.
-- **Structure**: Organized in the `edu.sms` package with a POJO (`Student.java`) and main class (`StudentManagement.java`).
+- **Structure**: Organized in the `edu.mit.sms` package with a POJO (`Student.java`) and main class (`StudentManagement.java`).
 
 ---
 
@@ -58,7 +58,7 @@ The **Student Management System (SMS)** is a console-based Java application desi
 4. **Source Files**:
    - **`Student.java`** (POJO):
      ```java
-     package edu.sms;
+     package edu.mit.sms;
 
      public class Student {
          private int id;
@@ -92,7 +92,7 @@ The **Student Management System (SMS)** is a console-based Java application desi
      ```
    - **`StudentManagement.java`** (Main Class):
      ```java
-     package edu.sms;
+     package edu.mit.sms;
 
      import java.util.*;
      import java.io.*;
@@ -202,13 +202,13 @@ The **Student Management System (SMS)** is a console-based Java application desi
 ### Compilation
 From the project root directory:
 ```bash
-javac -d . edu/sms/Student.java
-javac -d . edu/sms/StudentManagement.java
+javac -d .  Student.java
+javac -d . StudentManagement.java
 ```
 
 ### Execution
 ```bash
-java edu.sms.StudentManagement
+java edu.mit.sms.StudentManagement
 ```
 
 ### Expected Output
@@ -235,14 +235,14 @@ java edu.sms.StudentManagement
 
 ## Troubleshooting
 - **"File Not Found"**: Ensure `student_data.txt` is in the root directory with correct format (ID,name,GPA,city).
-- **"Class Not Found"**: Verify compilation and use `java edu.sms.StudentManagement` (no spaces, use dots).
+- **"Class Not Found"**: Verify compilation and use `java edu.mit.sms.StudentManagement` (no spaces, use dots).
 - **Input Errors**: Enter correct types (e.g., `123` for ID, not text; `9.8` for GPA, not letters).
 - **No Output**: Check `student_data.txt` exists and isn’t empty.
 
 ---
 
 ## Project Notes
-- **Package**: `edu.sms` (Educational Student Management System, default university: MIT).
+- **Package**: `edu.mit.sms` (Educational Student Management System, default university: MIT).
 - **Data**: Stored in an `ArrayList<Student>`, manipulates dynamically.
 - **Sorting**: Uses `Collections.sort()` with lambda-based `Comparator` for name and GPA.
 - **Limitations**: Console-based, no persistence beyond runtime (updates don’t save to file).
