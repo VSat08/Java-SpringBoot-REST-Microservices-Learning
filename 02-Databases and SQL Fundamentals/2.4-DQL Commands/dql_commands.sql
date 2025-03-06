@@ -1,8 +1,4 @@
--- dql_where_clause.sql
--- SQL file containing code snippets from the "2.4: DQL Where Clause" README
--- Generated based on the transcript from Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices" 
--- (Lecture 76: Select Where Clause)
--- Current Date: March 05, 2025
+
 
 -- Create 'employee' table and populate with data (10 rows from transcript)
 CREATE TABLE employee (

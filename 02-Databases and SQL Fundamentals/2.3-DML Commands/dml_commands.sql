@@ -1,8 +1,3 @@
--- dml_commands.sql
--- SQL file containing code snippets from the "2.3: DML Commands" README
--- Generated based on the transcript from Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices" 
--- (Lecture 74: DML Commands)
--- Current Date: March 05, 2025
 
 -- Create 'employee' table for demonstration (assumed structure from transcript)
 CREATE TABLE employee (

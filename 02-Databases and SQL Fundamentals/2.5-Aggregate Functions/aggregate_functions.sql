@@ -1,7 +1,4 @@
--- aggregate_functions.sql
--- SQL file for "2.5: Aggregate Functions" README
--- Based on Lecture 77 ("Aggregate Functions") from "Mastering Java + Spring Boot: REST APIs and Microservices"
--- Current Date: March 06, 2025
+
 
 -- Create 'employee' table
 CREATE TABLE employee (

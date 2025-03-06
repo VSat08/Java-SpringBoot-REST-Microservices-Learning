@@ -1,8 +1,3 @@
--- ddl_commands.sql
--- SQL file containing code snippets from the "2.2: DDL Commands" README
--- Generated based on the transcripts from Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices" 
--- (Lecture 72: DDL Create and Lecture 73: 5 DDL Alter Drop)
--- Current Date: March 05, 2025
 
 -- Creating a 'student' table
 CREATE TABLE student (
