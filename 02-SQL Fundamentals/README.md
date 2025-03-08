@@ -1,6 +1,6 @@
 # Introduction to SQL Fundamentals - Beginner's Guide
 
-## Welcome to Databases and SQL Fundamentals
+## Welcome to  SQL Fundamentals
 
 Welcome to **SQL Fundamentals**, your starting point for mastering Structured Query Language (SQL)! This course is designed for complete beginners with no prior database experience, guiding you through the essentials of Relational Database Management Systems (RDBMS) using MySQL. This manual introduces the course structure, outlines the topics you’ll cover, and helps you set up your environment to begin working with MySQL and SQL. You’ll progress through foundational concepts, practical SQL usage, and integration with Java, culminating in a mini project to apply your skills. Let’s embark on this journey into the world of databases and SQL! 🌟
 
