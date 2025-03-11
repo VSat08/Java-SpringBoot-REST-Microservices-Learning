@@ -49,11 +49,10 @@ CRUD stands for Create, Read, Update, and Delete—fundamental operations for ma
 #### Real-World Analogy
 
 Think of CRUD as managing a student roster:
-
-- Create: Add a new student.
-- Read: View the list.
-- Update: Change a grade.
-- Delete: Remove a dropout.
+- Create: Add a new student (e.g., Sara).
+- Read: View the list of students.
+- Update: Change a student’s name (e.g., Bob to Jane).
+- Delete: Remove students with low grades.
 
 ### 1.2 Why CRUD Matters
 
@@ -63,18 +62,19 @@ Think of CRUD as managing a student roster:
 
 #### Example Benefit
 
-Inserting, viewing, updating, and deleting student records in `sample_db` from Java.
+Inserting, viewing, updating, and deleting student records like Kris, Sara, and Samuel from a Java program.
 
 ### 1.3 Key Terms for Beginners
 
-| Term              | Meaning                      | Example                 |
-| ----------------- | ---------------------------- | ----------------------- |
-| **CRUD**          | Create, Read, Update, Delete | Basic DB operations     |
-| **INSERT**        | Adds new records             | `INSERT INTO student`   |
-| **SELECT**        | Retrieves data               | `SELECT * FROM student` |
-| **UPDATE**        | Modifies records             | `UPDATE student SET`    |
-| **DELETE**        | Removes records              | `DELETE FROM student`   |
-| **ExecuteUpdate** | Runs non-SELECT queries      | `stmt.executeUpdate()`  |
+| Term              | Meaning                                   | Example                 |
+|-------------------|-------------------------------------------|-------------------------|
+| **CRUD**          | Create, Read, Update, Delete              | Basic DB operations     |
+| **INSERT**        | Adds new records                          | `INSERT INTO student`   |
+| **SELECT**        | Retrieves data                            | `SELECT * FROM student` |
+| **UPDATE**        | Modifies records                          | `UPDATE student SET`    |
+| **DELETE**        | Removes records                           | `DELETE FROM student`   |
+| **ExecuteUpdate** | Runs non-SELECT queries, returns row count| `stmt.executeUpdate()`  |
+| **ExecuteQuery**  | Runs SELECT queries, returns ResultSet    | `stmt.executeQuery()`   |
 
 ---
 
@@ -83,15 +83,14 @@ Inserting, viewing, updating, and deleting student records in `sample_db` from J
 ### 2.1 Overview of CRUD in JDBC
 
 JDBC performs CRUD by:
-
-- Connecting to MySQL (e.g., `sample_db`).
+- Connecting to MySQL using a URL (e.g., `jdbc:mysql://localhost:3306/YOUR_DATABASE_NAME`).
 - Using `Statement` to execute SQL queries.
-- Processing results (`ResultSet` for `SELECT`, row counts for others).
+- Processing results: `ResultSet` for `SELECT`, row counts for `INSERT`, `UPDATE`, `DELETE`.
 
 #### Prerequisites
 
-- Table exists (e.g., `student` created via JDBC).
-- Connection steps from "3.1" (driver, `DriverManager`, etc.).
+- A table exists (e.g., `student` created via JDBC).
+- Connection steps completed (driver loading, `DriverManager`, etc.).
 
 ### 2.2 Create: Inserting Data
 
@@ -101,20 +100,20 @@ Adds new records to a table using `INSERT`.
 
 #### Why Use It?
 
-Populates the database with data (e.g., new students).
+Populates the database with data (e.g., adding students like Sara and Kris).
 
 #### Instructions
 
-- Write an `INSERT` query.
-- Use `executeUpdate()`—returns the number of rows inserted.
-- Check result (e.g., `> 0` means success).
+- Write an `INSERT` query with multiple values.
+- Use `executeUpdate()`—returns the number of rows inserted (e.g., 6 for six students).
+- Check result: `> 0` means success.
 
 #### Example
 
 ```java
-String insertQuery = "INSERT INTO student VALUES (101, 'Sarah', 7.5)";
-int rows = stmt.executeUpdate(insertQuery);
-if (rows > 0) System.out.println(rows + " records inserted");
+String iq = "INSERT INTO student VALUES (123, 'Sara', 9.5), (101, 'Kris', 8.7)";
+int x = stmt.executeUpdate(iq);
+if (x > 0) System.out.println(x + " Record(s) Inserted");
 ```
 
 ### 2.3 Read: Retrieving Data
@@ -125,20 +124,20 @@ Fetches data using `SELECT`.
 
 #### Why Use It?
 
-Views database content (e.g., student details).
+Views database content (e.g., listing all students).
 
 #### Instructions
 
 - Write a `SELECT` query.
 - Use `executeQuery()`—returns a `ResultSet`.
-- Process with `next()`, `getInt()`, `getString()`, etc.
+- Process with `next()` and getters (e.g., `getInt()`, `getString()`, `getFloat()`).
 
 #### Example
 
 ```java
 ResultSet rs = stmt.executeQuery("SELECT * FROM student");
 while (rs.next()) {
-    System.out.println(rs.getInt("sid") + " " + rs.getString("sname") + " " + rs.getDouble("cgpa"));
+    System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getFloat(3));
 }
 ```
 
@@ -150,19 +149,20 @@ Changes existing records using `UPDATE`.
 
 #### Why Use It?
 
-Adjusts data (e.g., renaming a student).
+Adjusts data (e.g., renaming Bob to Jane).
 
 #### Instructions
 
 - Write an `UPDATE` query with `SET` and `WHERE`.
 - Use `executeUpdate()`—returns updated row count.
+- Check result: `> 0` means success.
 
 #### Example
 
 ```java
-String updateQuery = "UPDATE student SET sname = 'John' WHERE sid = 111";
-int rows = stmt.executeUpdate(updateQuery);
-if (rows > 0) System.out.println(rows + " records updated");
+String uq = "UPDATE student SET sname = 'Jane' WHERE sid = 212";
+int y = stmt.executeUpdate(uq);
+if (y > 0) System.out.println(y + " Record(s) Updated");
 ```
 
 ### 2.5 Delete: Removing Data
@@ -173,19 +173,20 @@ Removes records using `DELETE`.
 
 #### Why Use It?
 
-Cleans up data (e.g., removing low-CGPA students).
+Cleans up data (e.g., removing students with CGPA < 7).
 
 #### Instructions
 
-- Write a `DELETE` query with `WHERE` (or all rows if omitted).
+- Write a `DELETE` query with a `WHERE` clause.
 - Use `executeUpdate()`—returns deleted row count.
+- Check result: `> 0` means success.
 
 #### Example
 
 ```java
-String deleteQuery = "DELETE FROM student WHERE cgpa <= 7.5";
-int rows = stmt.executeUpdate(deleteQuery);
-if (rows > 0) System.out.println(rows + " records deleted");
+String dq = "DELETE FROM student WHERE cgpa < 7";
+int z = stmt.executeUpdate(dq);
+if (z > 0) System.out.println(z + " Record(s) Deleted");
 ```
 
 ### 2.6 Bonus: Creating a Table
@@ -196,19 +197,20 @@ Sets up a table for CRUD using `CREATE TABLE`.
 
 #### Why Use It?
 
-Prepares the database structure (run once).
+Prepares the database structure (e.g., `student` table with `sid`, `sname`, `cgpa`).
 
 #### Instructions
 
-- Write a `CREATE TABLE` query.
+- Write a `CREATE TABLE` query with column definitions.
 - Use `executeUpdate()`—returns 0 on success.
+- Check result: `>= 0` means success.
 
 #### Example
 
 ```java
-String createQuery = "CREATE TABLE student (sid INT PRIMARY KEY, sname VARCHAR(20), cgpa FLOAT)";
-int result = stmt.executeUpdate(createQuery);
-if (result >= 0) System.out.println("Table created");
+String cq = "CREATE TABLE student (sid INT PRIMARY KEY, sname VARCHAR(20), cgpa FLOAT)";
+int c = stmt.executeUpdate(cq);
+if (c >= 0) System.out.println("Table Created!");
 ```
 
 ---
@@ -217,97 +219,22 @@ if (result >= 0) System.out.println("Table created");
 
 ### 3.1 Setting Up the Database
 
-- **Database**: `sample_db`.
-- **Existing Tables**: `account`, `book`.
+- **Database**: Replace `YOUR_DATABASE_NAME` with your database name (e.g., `sample_db`).
+- **Existing Tables**: Assume others like `account` or `book` may exist.
 - **New Table**: `student` (created via JDBC):
   - `sid` (INT, PRIMARY KEY), `sname` (VARCHAR(20)), `cgpa` (FLOAT).
 - **Verification**:
   ```sql
-  USE sample_db;
+  USE YOUR_DATABASE_NAME;
   SHOW TABLES; -- Includes student
-  DESCRIBE student; -- sid (int), sname (varchar), cgpa (float)
+  DESCRIBE student; -- sid (int), sname (varchar(20)), cgpa (float)
   ```
 
 ### 3.2 Performing CRUD in NetBeans
 
-- **Project**: `JDBCDemo` (from prior setup).
+- **Project**: `JDBCDemo` (assumed from prior setup).
 - **Driver**: `mysql-connector-j-8.1.0.jar` in Libraries.
-- **Code**:
-```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-public class CRUDOps {
-	public static void main(String[] args) throws Exception {
-//		------------- Step 1: Loading Drivers -------------
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-//		------------- Step 2: Establishing Connections-------------
-		String url = "jdbc:mysql://localhost:3306/YOUR_DATABASE_NAME";
-		String uname = "DATABASE_USERNAME";
-		String pwd = "DATABASE_PASSWORD";
-
-		Connection con = DriverManager.getConnection(url, uname, pwd);
-
-//		------------- Step 3: Checking Connections-------------
-		if (con != null) {
-			System.out.println("------------- Connection Established -------------");
-		} else {
-			System.out.println("------------- Connection Failure -------------");
-		}
-
-//		------------- Step 4:Creating Statements -------------
-		Statement st = con.createStatement();
-
-//		------------- Step 5:Creating Table(only be run once) -------------
-		String cq = "CREATE TABLE STUDENT(sID INT PRIMARY KEY, sName VARCHAR(20), CGPA FLOAT)";
-		int c = st.executeUpdate(cq);
-		if (c >= 0) {
-			System.out.println("Table Created!");
-		} else {
-			System.out.println("Table Creation Failure");
-		}
-
-//		------------- Step 6:CURD Operations -------------
-//		Note:Table must be created first and only once and table should be available prior to CRUD Operations.
-
-//		------------- INSERT -------------
-		String iq = "INSERT INTO STUDENT VALUES(123, 'Sara', 9.5), (212, 'Bob', 7.8), (111, 'Steve', 6.5), (101, 'Kris', 8.7), (321, 'Samuel', 7.4),(411, 'Eon', 5)";
-		int x = st.executeUpdate(iq);
-		if (x > 0) {
-			System.out.println(x + " Record(s) Inserted");
-		}
-
-//		------------- UPDATE -------------
-		String uq = "UPDATE STUDENT SET sName = 'Jane' WHERE sID = 212";
-		int y = st.executeUpdate(uq);
-
-		if (y > 0) {
-			System.out.println(y + " Record(s) Updated");
-		}
-
-//		------------- DELETE -------------
-		String dq = "DELETE FROM STUDENT WHERE CGPA<7";
-		int z = st.executeUpdate(dq);
-
-		if (z > 0) {
-			System.out.println(z + " Record(s) Deleted");
-		}
-
-//		------------- READ -------------
-		ResultSet rs = st.executeQuery("SELECT * FROM STUDENT");
-		System.out.println("-------------------------------- Student Records --------------------------------");
-		System.out.println("ID" + "\t" + "Name" + "\t" + "CGPA");
-
-		while (rs.next()) {
-			System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getFloat(3));
-		}
-		con.close();
-	}
-}
-```
+- **Code**: See [5.3 Complete Code Reference](#53-complete-code-reference).
 - **Output** (First Run):
 ```
 ------------- Connection Established -------------
@@ -323,14 +250,13 @@ ID	Name	CGPA
 321	Samuel	7.4
 ```
 
-> [!Note]
-> Second run comment down `CREATE TABLE` code  to avoid   existing  table error.
-
+>[!NOTE]
+>On second run, comment out the `CREATE TABLE` code to avoid "table already exists" errors.
 
 #### Verification
 
 ```sql
-SELECT * FROM student; -- Shows 4 rows (e.g., 101, 105, 111, 122)
+SELECT * FROM student; -- Shows 4 rows: 101 (Kris), 123 (Sara), 212 (Jane), 321 (Samuel)
 ```
 
 ---
@@ -339,25 +265,25 @@ SELECT * FROM student; -- Shows 4 rows (e.g., 101, 105, 111, 122)
 
 ### 4.1 Best Practices for CRUD
 
-- **Run `CREATE` Once**: Comment out after table creation.
-- **Unique Keys**: Avoid primary key conflicts (e.g., increment `sid`).
-- **Check Results**: Use `> 0` for `INSERT`, `UPDATE`, `DELETE`; `>= 0` for `CREATE`.
-- **Close Connections**: Always call `conn.close()` to free resources.
-- **Quote Strings**: Use single quotes in SQL (e.g., `'Sarah'`).
+- Run `CREATE` only once and comment it out afterward.
+- Ensure `sid` values are unique to avoid primary key conflicts.
+- Check results: `>= 0` for `CREATE` (0 on success), `> 0` for `INSERT`, `UPDATE`, `DELETE`.
+- Always call `con.close()` to free resources.
+- Use single quotes for SQL strings (e.g., `'Sara'`).
 
 ### 4.2 Common Mistakes to Avoid
 
-- **Duplicate Keys**: Re-running `INSERT` without changing `sid` causes errors.
-- **Syntax Errors**: Typos (e.g., `SELECT star from studentn`) break queries.
+- **Duplicate Keys**: Re-running `INSERT` with the same `sid` (e.g., 123) causes errors.
+- **Syntax Errors**: Typos (e.g., `SELECT * FROM studnet`) break queries.
 - **Missing Table**: CRUD fails if `student` isn’t created first.
-- **Unclosed Connections**: Locks database resources.
+- **Unclosed Connections**: Can lock database resources.
 
 ### 4.3 Hands-On Exercises
 
-1. **Create**: Insert 2 new students into `student`.
+1. **Create**: Insert 2 new students into `student` (e.g., `130, 'Alice', 8.2`).
 2. **Read**: Fetch and print all students with CGPA > 8.0.
-3. **Update**: Change `Diva`’s CGPA to 8.5.
-4. **Delete**: Remove students with `sid` < 110.
+3. **Update**: Change Samuel’s CGPA to 7.9.
+4. **Delete**: Remove students with `sid` < 200.
 5. **Full CRUD**: Combine all operations in one program, verify with MySQL.
 
 ---
@@ -366,24 +292,20 @@ SELECT * FROM student; -- Shows 4 rows (e.g., 101, 105, 111, 122)
 
 ### 5.1 Resources for Further Learning
 
-- JDBC Tutorial: https://docs.oracle.com/javase/tutorial/jdbc/
-- MySQL Reference: https://dev.mysql.com/doc/refman/8.0/en/
+- **JDBC Tutorial**: [https://docs.oracle.com/javase/tutorial/jdbc/](https://docs.oracle.com/javase/tutorial/jdbc/)
+- **MySQL Reference**: [https://dev.mysql.com/doc/refman/8.0/en/](https://dev.mysql.com/doc/refman/8.0/en/)
 
 ### 5.2 Summary of Key Takeaways
 
-This guide performs CRUD on `sample_db`’s `student` table:
+This guide performs CRUD on the `student` table using your code:
+- **Create**: Inserted 6 students (`123, 'Sara', 9.5`, etc.), returned 6 rows.
+- **Read**: Retrieved 4 remaining students (Kris, Sara, Jane, Samuel) using `ResultSet`.
+- **Update**: Renamed Bob to Jane (1 row).
+- **Delete**: Removed Steve and Eon (CGPA < 7, 2 rows).
+- **Bonus**: Created `student` table (run once, returns 0).
 
-- **Create**: Inserted 3 students (`sid`, `sname`, `cgpa`), returned 3 rows.
-- **Read**: Retrieved remaining students using `ResultSet`.
-- **Update**: Renamed Jane to John (1 row).
-- **Delete**: Removed Sarah (CGPA ≤ 7.5, 1 row).
-- **Bonus**: Created `student` table (run once).
-
-#### Highlights
-
-- **Versatility**: JDBC handles all CRUD via `executeUpdate` and `executeQuery`.
-- **Practicality**: NetBeans demo shows real-time results.
-- **Tip**: Adjust `sid` to avoid duplicates on re-runs.
+>[!TIP]
+>Adjust `sid` values on re-runs to avoid duplicate key errors.
 
 ### 5.3 Complete Code Reference
 
@@ -465,4 +387,4 @@ public class CRUDOps {
 
 ---
 
-_This Readme covers the CRUD Operations using JDBC and MYSQL Server_
+_This readme covers in depth illustration of CRUD Operations using JDBC_ 
