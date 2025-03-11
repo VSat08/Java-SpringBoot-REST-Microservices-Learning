@@ -1,6 +1,6 @@
 # 🚀 Java-SpringBoot-REST-Microservices-Learning
 
-> An Open Source Initiative for Collaborative Learning
+> An Open Source Initiative for Collaborative Learning.
 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
