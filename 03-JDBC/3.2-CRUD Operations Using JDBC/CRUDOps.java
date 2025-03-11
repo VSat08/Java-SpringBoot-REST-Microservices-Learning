@@ -17,27 +17,27 @@ import java.sql.Statement;
 
 public class CRUDOps {
 	public static void main(String[] args) throws Exception {
-//		------------- Step 1: Loading Drivers -------------
+		// ------------- Step 1: Loading Drivers -------------
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		// ------------- Step 2: Establishing Connections-------------
-		String url = "jdbc:mysql://localhost:3306/YOUR_DATABASE_NAME";
-		String uname = "DATABASE_USERNAME";
-		String pwd = "DATABASE_PASSWORD";
+		String url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>";
+		String uname = "<USERNAME>";
+		String pwd = "<PASSWORD>";
 
 		Connection con = DriverManager.getConnection(url, uname, pwd);
 
-//		------------- Step 3: Checking Connections-------------
+		// ------------- Step 3: Checking Connections-------------
 		if (con != null) {
 			System.out.println("------------- Connection Established -------------");
 		} else {
 			System.out.println("------------- Connection Failure -------------");
 		}
 
-//		------------- Step 4:Creating Statements -------------
+		// ------------- Step 4:Creating Statements -------------
 		Statement st = con.createStatement();
 
-//		------------- Step 5:Creating Table(only be run once) -------------
+		// ------------- Step 5:Creating Table(only be run once) -------------
 		String cq = "CREATE TABLE STUDENT(sID INT PRIMARY KEY, sName VARCHAR(20), CGPA FLOAT)";
 		int c = st.executeUpdate(cq);
 		if (c >= 0) {
@@ -46,17 +46,18 @@ public class CRUDOps {
 			System.out.println("Table Creation Failure");
 		}
 
-//		------------- Step 6:CURD Operations -------------
-//		Note:Table must be created first and only once and table should be available prior to CRUD Operations. 
+		// ------------- Step 6:CURD Operations -------------
+		// Note:Table must be created first and only once and table should be available
+		// prior to CRUD Operations.
 
-//		------------- INSERT -------------
+		// ------------- INSERT -------------
 		String iq = "INSERT INTO STUDENT VALUES(123, 'Sara', 9.5), (212, 'Bob', 7.8), (111, 'Steve', 6.5), (101, 'Kris', 8.7), (321, 'Samuel', 7.4),(411, 'Eon', 5)";
 		int x = st.executeUpdate(iq);
 		if (x > 0) {
 			System.out.println(x + " Record(s) Inserted");
 		}
 
-//		------------- UPDATE -------------
+		// ------------- UPDATE -------------
 		String uq = "UPDATE STUDENT SET sName = 'Jane' WHERE sID = 212";
 		int y = st.executeUpdate(uq);
 
@@ -64,7 +65,7 @@ public class CRUDOps {
 			System.out.println(y + " Record(s) Updated");
 		}
 
-//		------------- DELETE -------------
+		// ------------- DELETE -------------
 		String dq = "DELETE FROM STUDENT WHERE CGPA<7";
 		int z = st.executeUpdate(dq);
 
@@ -72,7 +73,7 @@ public class CRUDOps {
 			System.out.println(z + " Record(s) Deleted");
 		}
 
-//		------------- READ -------------
+		// ------------- READ -------------
 		ResultSet rs = st.executeQuery("SELECT * FROM STUDENT");
 		System.out.println("-------------------------------- Student Records --------------------------------");
 		System.out.println("ID" + "\t" + "Name" + "\t" + "CGPA");

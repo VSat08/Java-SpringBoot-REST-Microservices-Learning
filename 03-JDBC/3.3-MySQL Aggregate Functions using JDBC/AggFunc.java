@@ -19,28 +19,29 @@ import java.sql.Statement;
 public class AggFunc {
 
 	public static void main(String[] args) throws Exception {
-//		------------- Step 1: Loading Drivers -------------
+		// ------------- Step 1: Loading Drivers -------------
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
-//		------------- Step 2: Establishing Connections-------------
-		String url = "jdbc:mysql://localhost:3306/sampledb";
-		String uname = "root";
-		String pwd = "Sanchii@1803";
+		// ------------- Step 2: Establishing Connections-------------
+		String url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>";
+		String uname = "<USERNAME>";
+		String pwd = "<PASSWORD>";
 
 		Connection con = DriverManager.getConnection(url, uname, pwd);
 
-//		------------- Step 3: Checking Connections-------------
+		// ------------- Step 3: Checking Connections-------------
 		if (con != null) {
 			System.out.println("------------- Connection Established -------------");
 		} else {
 			System.out.println("------------- Connection Failure -------------");
 		}
 
-//		------------- Step 4:Creating Statements -------------
+		// ------------- Step 4:Creating Statements -------------
 		Statement st = con.createStatement();
 
-//		------------- Step 5:Aggregate Functions-------------
-//		Note:Table must be created first and only once and table should be available prior to CRUD Operations. 
+		// ------------- Step 5:Aggregate Functions-------------
+		// Note:Table must be created first and only once and table should be available
+		// prior to CRUD Operations.
 
 		String query = "SELECT COUNT(*), MIN(CGPA), MAX(CGPA), AVG(CGPA), SUM(CGPA) FROM STUDENT";
 		System.out.println("Student'sCount\tMIN(CGPA)\tMAX(CGPA)\tAVG(CGPA)\tSUM(CGPA)");
