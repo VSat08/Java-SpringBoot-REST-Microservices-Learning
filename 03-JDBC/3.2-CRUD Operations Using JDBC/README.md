@@ -1,4 +1,4 @@
-# 3.2-CRUD Operations Using JDBC - A Beginner's Guide to Database Manipulation in Java
+# 3.2-CRUD Operations Using JDBC 
 
 ## Introduction
 
