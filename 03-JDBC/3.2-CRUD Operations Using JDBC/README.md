@@ -160,7 +160,7 @@ Adjusts data (e.g., renaming Bob to Jane).
 #### Example
 
 ```java
-String uq = "UPDATE student SET sname = 'Jane' WHERE sid = 212";
+String uq = "UPDATE student SET sname = 'Jane' WHERE sID = 212";
 int y = stmt.executeUpdate(uq);
 if (y > 0) System.out.println(y + " Record(s) Updated");
 ```
@@ -197,7 +197,7 @@ Sets up a table for CRUD using `CREATE TABLE`.
 
 #### Why Use It?
 
-Prepares the database structure (e.g., `student` table with `sid`, `sname`, `cgpa`).
+Prepares the database structure (e.g., `student` table with `sID`, `sname`, `cgpa`).
 
 #### Instructions
 
@@ -208,7 +208,7 @@ Prepares the database structure (e.g., `student` table with `sid`, `sname`, `cgp
 #### Example
 
 ```java
-String cq = "CREATE TABLE student (sid INT PRIMARY KEY, sname VARCHAR(20), cgpa FLOAT)";
+String cq = "CREATE TABLE student (sID INT PRIMARY KEY, sname VARCHAR(20), cgpa FLOAT)";
 int c = stmt.executeUpdate(cq);
 if (c >= 0) System.out.println("Table Created!");
 ```
@@ -222,12 +222,12 @@ if (c >= 0) System.out.println("Table Created!");
 - **Database**: Replace `YOUR_DATABASE_NAME` with your database name (e.g., `sample_db`).
 - **Existing Tables**: Assume others like `account` or `book` may exist.
 - **New Table**: `student` (created via JDBC):
-  - `sid` (INT, PRIMARY KEY), `sname` (VARCHAR(20)), `cgpa` (FLOAT).
+  - `sID` (INT, PRIMARY KEY), `sname` (VARCHAR(20)), `cgpa` (FLOAT).
 - **Verification**:
   ```sql
   USE YOUR_DATABASE_NAME;
   SHOW TABLES; -- Includes student
-  DESCRIBE student; -- sid (int), sname (varchar(20)), cgpa (float)
+  DESCRIBE student; -- sID (int), sname (varchar(20)), cgpa (float)
   ```
 
 ### 3.2 Performing CRUD in NetBeans
@@ -266,14 +266,14 @@ SELECT * FROM student; -- Shows 4 rows: 101 (Kris), 123 (Sara), 212 (Jane), 321 
 ### 4.1 Best Practices for CRUD
 
 - Run `CREATE` only once and comment it out afterward.
-- Ensure `sid` values are unique to avoid primary key conflicts.
+- Ensure `sID` values are unique to avoid primary key conflicts.
 - Check results: `>= 0` for `CREATE` (0 on success), `> 0` for `INSERT`, `UPDATE`, `DELETE`.
 - Always call `con.close()` to free resources.
 - Use single quotes for SQL strings (e.g., `'Sara'`).
 
 ### 4.2 Common Mistakes to Avoid
 
-- **Duplicate Keys**: Re-running `INSERT` with the same `sid` (e.g., 123) causes errors.
+- **Duplicate Keys**: Re-running `INSERT` with the same `sID` (e.g., 123) causes errors.
 - **Syntax Errors**: Typos (e.g., `SELECT * FROM studnet`) break queries.
 - **Missing Table**: CRUD fails if `student` isn’t created first.
 - **Unclosed Connections**: Can lock database resources.
@@ -283,7 +283,7 @@ SELECT * FROM student; -- Shows 4 rows: 101 (Kris), 123 (Sara), 212 (Jane), 321 
 1. **Create**: Insert 2 new students into `student` (e.g., `130, 'Alice', 8.2`).
 2. **Read**: Fetch and print all students with CGPA > 8.0.
 3. **Update**: Change Samuel’s CGPA to 7.9.
-4. **Delete**: Remove students with `sid` < 200.
+4. **Delete**: Remove students with `sID` < 200.
 5. **Full CRUD**: Combine all operations in one program, verify with MySQL.
 
 ---
@@ -305,7 +305,7 @@ This guide performs CRUD on the `student` table using your code:
 - **Bonus**: Created `student` table (run once, returns 0).
 
 >[!TIP]
->Adjust `sid` values on re-runs to avoid duplicate key errors.
+>Adjust `sID` values on re-runs to avoid duplicate key errors.
 
 ### 5.3 Complete Code Reference
 
