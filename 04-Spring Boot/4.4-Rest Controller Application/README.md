@@ -102,7 +102,7 @@ Let’s build and test a REST API—hands-on fun!
 
 ### 3.1 Creating the Spring Boot Project
 
-- **Pre-Check**: Eclipse and Spring Tools 4 installed (from [4.1](#4.1---development-environment-setup)).
+- **Pre-Check**: Eclipse and Spring Tools 4 installed.
 - **Steps**:
   1. **New Project**: In Eclipse, go `File > New > Spring Starter Project`.
   2. **Set Options**:
