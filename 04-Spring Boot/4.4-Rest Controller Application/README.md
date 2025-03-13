@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Welcome to **4.4 - Rest Controller Application** 🌟! If you’re new to coding, this is your chance to build something cool—a REST API! Based on the "A Simple Rest Controller Application" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll create a Spring Boot app that serves simple messages (like "Hello World!") via the web. Think of it as setting up a tiny online service anyone can visit. By the end, you’ll ditch that error page from [4.3](#4.3---spring-initializr) and see your words on screen—let’s get started! 🚀
+Welcome to **4.4 - Rest Controller Application** 
+
+ If you’re new to coding, this is your chance to build something cool—a REST API! Based on the "A Simple Rest Controller Application" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll create a Spring Boot app that serves simple messages (like "Hello World!") via the web. Think of it as setting up a tiny online service anyone can visit—let’s get started! 🚀
 
 ---
 
