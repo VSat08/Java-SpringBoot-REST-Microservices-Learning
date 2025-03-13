@@ -184,7 +184,7 @@ Try these to feel ready—no coding yet, just prep!
    - From [4.1](#4.1---development-environment-setup), ensure Eclipse and Java 17/21 are ready—Spring Boot needs them!
 
 >[!TIP]
->These are warm-ups—next, we’ll code with Spring Initializr!
+>These are warm-ups—next, we’ll code with Spring Initializer!
 
 ---
 
@@ -212,6 +212,6 @@ Grow your Spring knowledge here:
 
 ### 5.3 What’s Next
 
-Get excited for **4.3 - Spring Initializr**! You’ll use [start.spring.io](https://start.spring.io/) to create your first Spring Boot project—coding starts soon!
+Get excited for **4.3 - Spring Initializer**! You’ll use [start.spring.io](https://start.spring.io/) to create your first Spring Boot project—coding starts soon!
 
 ---
