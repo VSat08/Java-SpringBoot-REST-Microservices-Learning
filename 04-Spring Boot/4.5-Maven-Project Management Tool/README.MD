@@ -99,11 +99,11 @@ Your path to mastering Maven!
 
 ## 3. Practical Demonstration
 
-Let’s explore Maven in action using your project from [4.4](#4.4---rest-controller-application)!
+Let’s explore Maven in action using your project.
 
 ### 3.1 Exploring a Maven Project
 
-- **Pre-Check**: Open your `restapp` project from [4.4](#4.4---rest-controller-application) in Eclipse.
+- **Pre-Check**: Open your `Restapp` project from [4.4-Rest Controller Application](#4.4---rest-controller-application) in Eclipse.
 - **Steps**:
   1. **Look Around**: In Project Explorer, expand `restapp`.
   2. **Spot the Structure**:
@@ -177,7 +177,7 @@ Let’s explore Maven in action using your project from [4.4](#4.4---rest-contro
      server.port=8585
      ```
   3. **Run Again**: Stop the app (red square in Console), rerun `RestappApplication.java`.
-  4. **Test**: Open `localhost:8585/`—see "Hello World!" (from [4.4](#4.4---rest-controller-application)).
+  4. **Test**: Open `localhost:8585/`—see "Hello World!" (from [4.4-Rest Controller Application](#4.4---rest-controller-application)).
 
 - **What’s Happening**:
   - `application.properties` overrides defaults (Tomcat’s 8080 → 8585).
@@ -202,7 +202,7 @@ Let’s make Maven yours with tips and practice!
 
 - **Missing Dependency**: No `spring-boot-starter-web`? No web app—check `pom.xml`!
 - **Wrong Folder**: Code outside `src/main/java`? Maven won’t see it!
-- **Old Java**: Java < 17 with Spring Boot 3? Update it (from [4.1](#4.1---development-environment-setup)).
+- **Old Java**: Java < 17 with Spring Boot 3? Update it (from [4.1-Development Environment Setup](#4.1---development-environment-setup)).
 - **Ignoring Downloads**: First run slow? Maven’s grabbing JARs—wait it out.
 
 ### 4.3 Hands-On Exercises
