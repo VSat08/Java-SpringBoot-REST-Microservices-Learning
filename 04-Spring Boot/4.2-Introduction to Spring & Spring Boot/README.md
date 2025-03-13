@@ -60,13 +60,13 @@ With Spring Boot, you can make a webpage in minutes instead of hours of fiddling
 
 Here’s your newbie dictionary—don’t worry, we’ll explain these as we go!
 
-| Term              | Meaning                                      | Example                     |
-|-------------------|----------------------------------------------|-----------------------------|
-| **Framework**     | A set of tools and rules to help code        | Spring—your Java helper      |
-| **POJO**          | Plain Old Java Object—a simple Java class    | `class Customer { String name; }` |
-| **Dependency Injection** | Letting the framework make objects for you | `@Autowired` gives you a tool |
-| **Spring Boot**   | Spring with auto-setup and extras            | Runs a web server for you   |
-| **Maven**         | A tool to manage project files and downloads | Adds Spring jars automatically |
+| Term                     | Meaning                                      | Example                           |
+| ------------------------ | -------------------------------------------- | --------------------------------- |
+| **Framework**            | A set of tools and rules to help code        | Spring—your Java helper           |
+| **POJO**                 | Plain Old Java Object—a simple Java class    | `class Customer { String name; }` |
+| **Dependency Injection** | Letting the framework make objects for you   | `@Autowired` gives you a tool     |
+| **Spring Boot**          | Spring with auto-setup and extras            | Runs a web server for you         |
+| **Maven**                | A tool to manage project files and downloads | Adds Spring jars automatically    |
 
 ---
 
@@ -103,6 +103,7 @@ Let’s see Spring and Spring Boot in action—don’t code yet, just explore!
 ### 3.1 Exploring spring.io
 
 - **Steps**:
+
   1. Open your browser and go to [spring.io](https://spring.io/).
   2. Look at the homepage—see phrases like "Spring makes Java productive" or "modern"? That’s Spring’s promise!
   3. Spot sections like "Spring Boot," "Spring Framework," and "Spring Cloud"—these are parts of the Spring family.
@@ -113,12 +114,13 @@ Let’s see Spring and Spring Boot in action—don’t code yet, just explore!
   - It lists what Spring does: web apps, microservices, and more.
   - It’s where pros go for info and downloads.
 
->[!NOTE]
->This isn’t coding yet—it’s like window-shopping for tools you’ll use soon!
+> [!NOTE]
+> This isn’t coding yet—it’s like window-shopping for tools you’ll use soon!
 
 ### 3.2 Previewing Spring Boot Features
 
 - **What’s Cool About Spring Boot** (from spring.io/about):
+
   - **Standalone Apps**: Your app runs on its own—no extra server needed.
   - **Embedded Server**: Comes with Tomcat (a web server) built-in—type code, hit run, see a webpage!
   - **Starter Dependencies**: Pre-made kits (e.g., "Spring Web") that grab everything you need.
@@ -128,8 +130,8 @@ Let’s see Spring and Spring Boot in action—don’t code yet, just explore!
 - **Example** (don’t code yet—just imagine):
   - A tiny app with one line (`@RestController`) could say "Hello" on `localhost:8080`.
 
->[!TIP]
->Spring Boot is like a magic wand—it sets up the stage so you can perform!
+> [!TIP]
+> Spring Boot is like a magic wand—it sets up the stage so you can perform!
 
 ---
 
@@ -148,23 +150,23 @@ Let’s lock in what you’ve learned with tips, clarifications, and practice!
 
 Newbies often mix up Spring and Spring Boot—let’s clear the fog with a table! This shows what’s true, what’s not, and why it matters.
 
-| **Misconception**                  | **Truth**                                                                 | **Why It Matters**                                                                 |
-|------------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| **Spring Boot replaces Spring**    | Nope! Spring Boot *uses* Spring—it’s built on top, not a replacement.     | You’ll use Spring’s power (e.g., dependency injection) through Spring Boot’s ease. |
-| **Spring Boot runs code faster**   | Not true! It speeds up *your setup*, not the app’s runtime—same Spring inside. | Focus on quick starts, not expecting miracles in performance.                    |
-| **Spring Boot is totally different**| False! It’s Spring with extras (e.g., auto-setup, embedded servers).      | Learn Spring basics—they apply to Spring Boot too!                               |
-| **You can’t use Spring without Boot** | Wrong! Spring works alone, but Boot makes it simpler for beginners.     | Boot’s optional—pros use plain Spring for custom control.                        |
-| **Boot throws out Spring projects** | No way! It uses Spring MVC, Data, etc., to build your app.                | Add one dependency (e.g., Spring Web), and you’re using Spring projects!         |
+| **Misconception**                     | **Truth**                                                                      | **Why It Matters**                                                                 |
+| ------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| **Spring Boot replaces Spring**       | Nope! Spring Boot _uses_ Spring—it’s built on top, not a replacement.          | You’ll use Spring’s power (e.g., dependency injection) through Spring Boot’s ease. |
+| **Spring Boot runs code faster**      | Not true! It speeds up _your setup_, not the app’s runtime—same Spring inside. | Focus on quick starts, not expecting miracles in performance.                      |
+| **Spring Boot is totally different**  | False! It’s Spring with extras (e.g., auto-setup, embedded servers).           | Learn Spring basics—they apply to Spring Boot too!                                 |
+| **You can’t use Spring without Boot** | Wrong! Spring works alone, but Boot makes it simpler for beginners.            | Boot’s optional—pros use plain Spring for custom control.                          |
+| **Boot throws out Spring projects**   | No way! It uses Spring MVC, Data, etc., to build your app.                     | Add one dependency (e.g., Spring Web), and you’re using Spring projects!           |
 
->[!NOTE]
->Spring is the foundation; Spring Boot is the fast-track layer. They’re best buddies, not rivals!
+> [!NOTE]
+> Spring is the foundation; Spring Boot is the fast-track layer. They’re best buddies, not rivals!
 
 ### 4.3 Common Misconceptions
 
 Beyond Spring vs. Spring Boot, here are other newbie traps:
 
 - **"Spring Boot Replaces Spring MVC?"**
-  - **Nope!** Spring Boot *uses* MVC (and others) to build apps faster—it’s a helper, not a replacement.
+  - **Nope!** Spring Boot _uses_ MVC (and others) to build apps faster—it’s a helper, not a replacement.
 - **"Need a Special IDE?"**
   - **No Way!** Any IDE (Eclipse, IntelliJ) works. Spring Tools 4 is a bonus, not a must.
 - **"Spring Boot Is Hard?"**
@@ -183,8 +185,8 @@ Try these to feel ready—no coding yet, just prep!
 4. **Check Your Setup**:
    - From [4.1](#4.1---development-environment-setup), ensure Eclipse and Java 17/21 are ready—Spring Boot needs them!
 
->[!TIP]
->These are warm-ups—next, we’ll code with Spring Initializer!
+> [!TIP]
+> These are warm-ups—next, we’ll code with Spring Initializr!
 
 ---
 
@@ -207,11 +209,11 @@ Grow your Spring knowledge here:
 - **Together**: Spring is the engine; Spring Boot is the easy-start button.
 - **Big Idea**: They make Java coding simple, modern, and ready for real-world apps.
 
->[!TIP]
->You’re now Spring-savvy—ready to build with Spring Boot next!
+> [!TIP]
+> You’re now Spring-savvy—ready to build with Spring Boot next!
 
 ### 5.3 What’s Next
 
-Get excited for **4.3 - Spring Initializer**! You’ll use [start.spring.io](https://start.spring.io/) to create your first Spring Boot project—coding starts soon!
+Get excited for **4.3 - Spring Initializr**! You’ll use [start.spring.io](https://start.spring.io/) to create your first Spring Boot project—coding starts soon!
 
 ---
