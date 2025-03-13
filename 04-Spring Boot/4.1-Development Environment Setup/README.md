@@ -27,8 +27,6 @@ Welcome to **4.1 - Development Environment Setup** 🌟! If you’re new to codi
 5. [Wrapping Up](#5-wrapping-up)
    - [5.1 Resources for Further Learning](#51-resources-for-further-learning)
    - [5.2 Summary of Key Takeaways](#52-summary-of-key-takeaways)
-
-
 ---
 
 ## 1. What Is This Setup About?
@@ -159,23 +157,27 @@ java version "21.0.1" 2025-01-01 LTS
 
 ### 3.2 Running a Hello World App
 
-Now, let’s test it with a tiny program—your first win!
+Now, let’s test it with a tiny program—your first win! In Java, we organize code into **packages** (like folders) to keep things neat. Eclipse lets you skip this and use a "default package," but it’s not a good habit—especially for Spring Boot projects later. Here’s why and how to do it right.
 
 - **Steps**:
   1. **Open Eclipse**: Double-click its icon (or find it in Start/Applications).
-  2. **New Project**: Click `File > New > Java Project`. Name it `FirstApp` (no spaces!).
+  2. **New Project**: Click `File > New > Java Project`. Name it `FirstApp` (no spaces!). 
   3. **Set Java Version**: In the "JRE" section, pick JDK 17 or 21 from the dropdown (it’ll say "JavaSE-17" or similar). Click "Finish."
-  4. **Add a Class**: In the left "Package Explorer," right-click `src` > `New > Class`. Name it `FirstClass`, check the box for `public static void main`, and click "Finish."
-  5. **Write Code**: Eclipse opens `FirstClass.java`. Replace it with:
+  4. **Create a Package**: In the left "Package Explorer," right-click `src` > `New > Package`. Name it `com.myfirstapp` (like an address for your code—use dots, no spaces). Click "Finish."
+     - **Why a Package?**: It’s like putting your files in a labeled folder instead of dumping them on your desk. You *could* skip this and add a class directly to `src` (default package), but it’s messy and can cause trouble in bigger projects (e.g., Spring Boot won’t like it). Always use a package—it’s the pro way!
+  5. **Add a Class**: Right-click your new package (`com.myfirstapp`) > `New > Class`. Name it `FirstClass`, check the box for `public static void main`, and click "Finish."
+  6. **Write Code**: Eclipse opens `FirstClass.java`. It’ll look like this with the package line added automatically:
      ```java
+     package com.myfirstapp;
+
      public class FirstClass {
          public static void main(String[] args) {
              System.out.println("Hello World!");
          }
      }
      ```
-     - **What This Does**: `System.out.println` tells Java to print "Hello World!" to the screen.
-  6. **Run It**: Right-click the file in Package Explorer > `Run As > Java Application`. Look at the bottom "Console" tab.
+     - **What This Does**: `package com.myfirstapp;` says where this file lives. `System.out.println` tells Java to print "Hello World!" to the screen.
+  7. **Run It**: Right-click the file in Package Explorer > `Run As > Java Application`. Look at the bottom "Console" tab.
 
 - **Output**:
 ```
@@ -183,10 +185,10 @@ Hello World!
 ```
 
 >[!NOTE]
->If nothing shows, don’t panic! Check: Did you save the file (`Ctrl+S`)? Is JDK 17/21 selected? Retry the run.
+>If nothing shows, don’t panic! Check: Did you save the file (`Ctrl+S`)? Is JDK 17/21 selected? Did you use a package (not the default)? Retry the run.
 
 >[!TIP]
->This is your first Java program—feel proud! It’s a tiny step to bigger things.
+>This is your first Java program—feel proud! Packages keep your code tidy, like organizing toys in boxes instead of scattering them everywhere.
 
 ---
 
@@ -199,14 +201,14 @@ Let’s make this stick with tips and practice!
 - **Order Matters**: Install Java first, then Eclipse, MySQL, and plugins—think of it like building a house (foundation first!).
 - **Pick LTS Versions**: Java 17 or 21 are "Long-Term Support," meaning they’re stable and won’t change much.
 - **Check as You Go**: After each install, test it (e.g., `java -version`) to catch problems early.
-- **Stay Tidy**: Use a clear workspace name like `workspace_01` so you can find your projects later.
+- **Stay Tidy**: Use a clear workspace name like `workspace_01` and always use packages (e.g., `com.myapp`) for classes.
 
 ### 4.2 Common Mistakes to Avoid
 
 - **Old Java**: Java 8 (an older version) won’t work with Spring Boot 3. Stick to 17 or 21.
 - **Skipping Tests**: Don’t rush—missing a step (like PATH setup) means your tools won’t talk to each other.
 - **No Spring Tools**: Without the plugin, starting Spring Boot is trickier—save yourself the hassle.
-- **PATH Mix-Up**: If `java -version` says "not recognized," Java isn’t in your PATH. Fix it with the steps above.
+- **Default Package**: Skipping a package works for tiny tests but messes up bigger projects. Always create one!
 
 ### 4.3 Hands-On Exercises
 
@@ -218,7 +220,7 @@ Try these to feel like a setup pro:
 
 2. **Eclipse Test**:
    - Make a new project called `HelloYou`.
-   - Add a class `SayHi`, write `System.out.println("Hi, [Your Name]!");`, and run it.
+   - Add a package `com.helloyou`, then a class `SayHi` in it. Write `System.out.println("Hi, [Your Name]!");`, and run it.
 
 3. **Spring Tools**:
    - In Eclipse, click `File > New > Spring Starter Project`. Don’t finish it—just peek at the options!
@@ -250,11 +252,11 @@ Don’t stop here—explore these to grow:
 
 - **Setup Done**: You’ve got Java 17/21, Eclipse, MySQL, and Spring Tools 4 installed.
 - **Test Passed**: Your "Hello World!" app ran—proof it works!
-- **Skills Ready**: You’ve got basic Java skills to tackle Spring Boot next.
+- **Skills Ready**: You’ve got basic Java skills (and packages!) to tackle Spring Boot next.
 - **Big Idea**: A good setup is like a strong root—it holds up everything you’ll build.
 
 >[!TIP]
 >Keep your tools fresh—update them every few months for new goodies!
 
----
 
+---
