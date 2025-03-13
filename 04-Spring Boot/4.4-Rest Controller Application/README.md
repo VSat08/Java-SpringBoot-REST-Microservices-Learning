@@ -1,4 +1,4 @@
-# 04-Spring Boot\4.4 - Rest Controller Application
+# 4.4 - Rest Controller Application
 
 ## Introduction
 
