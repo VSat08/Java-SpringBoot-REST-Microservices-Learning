@@ -294,6 +294,13 @@ This mini project demonstrates:
 
 Below is a synthesized version based on the transcript, as the full code wasn’t provided. Replace placeholders with your actual credentials.
 
+> [!WARNING]
+> Make sure to create the `library` Database and all the required `Tables` in MySQL server before running this app.
+> 
+> Also, the code attached is  `Eclipse IDE Based code`, so avoid direct copying and running.
+>
+>  First setup your Project in the relevant IDE and then copy the codes. Make sure to connect `MYSQL Connector` for JDBC integration.
+
 ```java
 // DBConnector.java
 package librarymanagementsystem;
@@ -498,10 +505,6 @@ public class Main {
 
 ---
 
-> [NOTE!]
-> Make sure to create the `library` Dtabase and all the required `Tables` in MySQL server before running this app.
-> Also the code attached is a `Ecilipse IDE Based code`, so avoid direct copying and running. First setup you Project in the relevant IDE and then copy the codes. Make sure to connect SQL `MYSQL Connector` for JDBC integration.
-
-_This project focuses on the JDBC library usage and implemnetation exposing alll the possible operation performed for development. This project is a basic implementation of Library mangement._
+_This project focuses on the JDBC library usage and implementation exposing all the possible operations performed for development. This project is just a basic implementation of Library management._
 
 ---
