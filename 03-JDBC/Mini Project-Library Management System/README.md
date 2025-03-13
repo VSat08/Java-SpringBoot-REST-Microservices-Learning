@@ -317,7 +317,8 @@ public class DBConnector {
         cn = DriverManager.getConnection(url, uname, pwd);
     }
     public Connection getConnection() { return cn; }
-    public void closeConnection() throws Exception { cn.close(); }
+    public void closeConnection() throws Exception { cn.close();
+    }
 }
 
 // Author.java
@@ -498,7 +499,7 @@ public class Main {
             }
         }
         scanner.close();
-		connector.closeConnection();
+        connector.closeConnection();
     }
 }
 ```
