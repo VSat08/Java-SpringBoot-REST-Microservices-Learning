@@ -265,6 +265,6 @@ Grow your Maven skills here:
 
 ### 5.3 What’s Next
 
-Next up: **4.6 - Spring Boot Starters and Spring Dev Tools**! You’ll dive into starter packs and speed-up tricks—see you soon!
+Next up: **4.6 - Spring Boot Starters and Spring Dev Tools**. You’ll dive into starter packs and speed-up tricks—see you soon!
 
 ---
