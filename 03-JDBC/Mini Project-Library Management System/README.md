@@ -296,10 +296,10 @@ Below is a synthesized version based on the transcript, as the full code wasn’
 
 > [!WARNING]
 > Make sure to create the `library` Database and all the required `Tables` in MySQL server before running this app.
-> 
-> Also, the code attached is  `Eclipse IDE Based code`, so avoid direct copying and running.
 >
->  First setup your Project in the relevant IDE and then copy the codes. Make sure to connect `MYSQL Connector` for JDBC integration.
+> Also, the code attached is `Eclipse IDE Based code`, so avoid direct copying and running.
+>
+> First setup your Project in the relevant IDE and then copy the codes. Make sure to connect `MYSQL Connector` for JDBC integration.
 
 ```java
 // DBConnector.java
@@ -311,9 +311,9 @@ public class DBConnector {
     private Connection cn;
     public DBConnector() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
-    		String url = "jdbc:mysql://localhost:3306/library";
-			String uname = "<USERNAME>";
-			String pwd = "<PASSWORD>";
+        String url = "jdbc:mysql://localhost:3306/library";
+        String uname = "<USERNAME>";
+        String pwd = "<PASSWORD>";
         cn = DriverManager.getConnection(url, uname, pwd);
     }
     public Connection getConnection() { return cn; }
