@@ -336,7 +336,6 @@ Level up:
 - **HTTP**: [developer.mozilla.org/en-US/docs/Web/HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) - Basics.
 - **Postman**: [learning.postman.com](https://learning.postman.com/) - Tutorials.
 - **Spring**: [spring.io/guides/gs/rest-service](https://spring.io/guides/gs/rest-service/) - REST guide.
-- **Udemy**: [Course Link](#) - Full lecture (placeholder).
 
 ### 5.2 Summary of Key Takeaways
 
