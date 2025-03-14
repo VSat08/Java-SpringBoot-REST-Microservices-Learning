@@ -1,4 +1,4 @@
-# Introduction to SQL Fundamentals - Beginner's Guide
+# 02 - Introduction to SQL Fundamentals - Beginner's Guide
 
 ## Welcome to  SQL Fundamentals
 

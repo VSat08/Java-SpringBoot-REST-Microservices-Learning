@@ -1,4 +1,4 @@
-# 03-JDBC - A Comprehensive Guide to Java Database Connectivity with MySQL
+# 03 - JDBC - A Comprehensive Guide to Java Database Connectivity with MySQL
 
 ## Introduction
 Welcome to **03-JDBC** 🌟! This directory dives into Java Database Connectivity (JDBC), a powerful technology for connecting Java applications to databases like MySQL. Starting with environment setup, this guide covers everything you need to link a Java program to MySQL, from understanding JDBC’s basics to installing drivers and configuring tools like NetBeans and Eclipse. Designed for beginners, it provides detailed steps, practical examples (e.g., using `sample_db`), and a foundation for future JDBC topics like database connections. Let’s set up your JDBC journey! 🚀
