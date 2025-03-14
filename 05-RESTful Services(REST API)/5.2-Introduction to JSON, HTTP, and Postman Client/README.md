@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Welcome to **5.2 - Introduction to JSON, HTTP, and Postman Client**! If you’re new to coding, this is your guide to how REST APIs communicate! Based on the "Introduction to JSON, HTTP and Postman Client" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll dive into **JSON** (the data format), **HTTP** (the web’s messenger), and **Postman** (your API testing tool). Think of this as learning how apps send messages (HTTP), what they say (JSON), and how to test them (Postman). We’ll build on `restdemo` from [5.1](#51-introduction-to-restful-web-services)—let’s get started! 🚀
+Welcome to **5.2 - Introduction to JSON, HTTP, and Postman Client**!
+
+If you’re new to coding, this is your guide to how REST APIs communicate! We’ll dive into **JSON** (the data format), **HTTP** (the web’s messenger), and **Postman** (your API testing tool). Think of this as learning how apps send messages (HTTP), what they say (JSON), and how to test them (Postman). We’ll build on `restdemo` from [5.1](#51-introduction-to-restful-web-services)—let’s get started! 🚀
 
 ---
 

@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Welcome to **4.1 - Development Environment Setup** 🌟! If you’re new to coding, don’t worry—this guide is your friendly starting point for building Spring Boot apps, which are like super-powered Java programs for websites and more. Based on the "Development Environment Setup" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll set up your computer step-by-step with all the tools you need: Java, an editor (Eclipse), a database (MySQL), and some extras. Think of this as preparing your toolbox before crafting something awesome. Let’s create your coding playground together! 🚀
+Welcome to **4.1 - Development Environment Setup** 
+
+ If you’re new to coding, don’t worry—this guide is your friendly starting point for building Spring Boot apps, which are like super-powered Java programs for websites and more. We’ll set up your computer step-by-step with all the tools you need: Java, an editor (Eclipse), a database (MySQL), and some extras. Think of this as preparing your toolbox before crafting something awesome. Let’s create your coding playground together! 🚀
 
 ---
 

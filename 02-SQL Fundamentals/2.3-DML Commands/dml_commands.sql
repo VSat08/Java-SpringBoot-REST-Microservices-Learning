@@ -1,5 +1,5 @@
 
--- Create 'employee' table for demonstration (assumed structure from transcript)
+-- Create 'employee' table for demonstration
 CREATE TABLE employee (
     emp_id INT,
     emp_name VARCHAR(20),

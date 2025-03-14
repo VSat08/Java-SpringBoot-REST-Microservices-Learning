@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Welcome to **5.3 - Java - JSON Binding - Jackson Project** 
+Welcome to **5.3 - Java - JSON Binding - Jackson Project**
 
- If you’re new to coding, this is your guide to connecting JSON data with Java using the Jackson library! Based on the "Java - JSON Binding - Jackson Project" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll explore **JSON binding** (turning JSON into Java objects and back), the **Jackson project** (the magic behind it), and build a simple app to see it in action. Think of this as teaching your Java app to read and write JSON letters—building on `restdemo` from [5.1](#51-introduction-to-restful-web-services) and JSON/HTTP from [5.2](#52-introduction-to-json-http-and-postman-client). Let’s dive in! 🚀
+If you’re new to coding, this is your guide to connecting JSON data with Java using the Jackson library! We’ll explore **JSON binding** (turning JSON into Java objects and back), the **Jackson project** (the magic behind it), and build a simple app to see it in action. Think of this as teaching your Java app to read and write JSON letters—building on `restdemo` from [5.1](#51-introduction-to-restful-web-services) and JSON/HTTP from [5.2](#52-introduction-to-json-http-and-postman-client). Let’s dive in! 🚀
 
 ---
 
@@ -57,14 +57,14 @@ Jackson’s your translator—turns JSON into Java objects and back, fast and ea
 
 Your newbie glossary:
 
-| Term          | Meaning                                      | Example                     |
-|---------------|----------------------------------------------|-----------------------------|
-| **JSON Binding** | Converting JSON to Java or Java to JSON   | `{"name": "Liam"}` → Object |
-| **POJO**      | Plain Old Java Object—simple class          | `Student` with `firstName`  |
-| **Jackson**   | Library for JSON binding                    | Auto-converts JSON          |
-| **Serialization** | Java to JSON (sending data)              | Object → `{"name": "Liam"}` |
-| **Deserialization** | JSON to Java (receiving data)          | `{"name": "Liam"}` → Object |
-| **Getter/Setter** | Methods to get or set data              | `getFirstName()`, `setFirstName()` |
+| Term                | Meaning                                 | Example                            |
+| ------------------- | --------------------------------------- | ---------------------------------- |
+| **JSON Binding**    | Converting JSON to Java or Java to JSON | `{"name": "Liam"}` → Object        |
+| **POJO**            | Plain Old Java Object—simple class      | `Student` with `firstName`         |
+| **Jackson**         | Library for JSON binding                | Auto-converts JSON                 |
+| **Serialization**   | Java to JSON (sending data)             | Object → `{"name": "Liam"}`        |
+| **Deserialization** | JSON to Java (receiving data)           | `{"name": "Liam"}` → Object        |
+| **Getter/Setter**   | Methods to get or set data              | `getFirstName()`, `setFirstName()` |
 
 ---
 
@@ -120,13 +120,14 @@ Let’s build and test JSON binding with Jackson!
   - **POJO**: `Student` class with `setId(1)`, `setFirstName("Liam")`, etc.
   - **Reverse**: `getId()`, `getFirstName()` → JSON.
 
->[!NOTE]
->Jackson’s your bridge—JSON and Java speak the same language now!
+> [!NOTE]
+> Jackson’s your bridge—JSON and Java speak the same language now!
 
 ### 3.2 Creating the `jacksondemo` App
 
 - **Goal**: Build a REST service returning a list of students as a JSON array.
 - **Steps**:
+
   1. **Create Project**:
      - In Eclipse: `File > New > Spring Starter Project`.
      - Name: `jacksondemo` (Java + JSON demo).
@@ -134,9 +135,11 @@ Let’s build and test JSON binding with Jackson!
      - Dependencies: `Spring Web` (includes Jackson), `Spring Boot DevTools` (live reload).
      - Click "Next" > "Finish"—wait for build.
   2. **Create POJO**:
+
      - In `src/main/java/com.example.jacksondemo`, right-click > `New > Package` > `com.example.jacksondemo.entity`.
      - Right-click `entity` > `New > Class` > Name: `Student`.
      - Add fields, constructors, getters/setters:
+
        ```java
        package com.example.jacksondemo.entity;
 
@@ -160,11 +163,15 @@ Let’s build and test JSON binding with Jackson!
            public void setLastName(String lastName) { this.lastName = lastName; }
        }
        ```
+
      - Note: Boilerplate code—Lombok (later topic) could simplify this.
+
   3. **Create Controller**:
+
      - Right-click `src/main/java/com.example.jacksondemo` > `New > Package` > `com.example.jacksondemo.controller`.
      - Right-click `controller` > `New > Class` > Name: `StudentRestController`.
      - Add REST logic:
+
        ```java
        package com.example.jacksondemo.controller;
 
@@ -190,7 +197,9 @@ Let’s build and test JSON binding with Jackson!
            }
        }
        ```
+
      - Hardcoded 4 students—later, we’ll use a database for CRUD.
+
   4. **Run App**:
      - Right-click `JacksondemoApplication.java` > `Run As > Spring Boot App`.
      - Console: "Tomcat started on port(s): 8080."
@@ -201,15 +210,15 @@ Let’s build and test JSON binding with Jackson!
   - **JSON Output**:
     ```json
     [
-      {"firstName": "Liam", "lastName": "Neeson"},
-      {"firstName": "Mario", "lastName": "Rossi"},
-      {"firstName": "Ram", "lastName": "Charan"},
-      {"firstName": "Amir", "lastName": "Khan"}
+      { "firstName": "Liam", "lastName": "Neeson" },
+      { "firstName": "Mario", "lastName": "Rossi" },
+      { "firstName": "Ram", "lastName": "Charan" },
+      { "firstName": "Amir", "lastName": "Khan" }
     ]
     ```
 
->[!TIP]
->Jackson auto-magically turns your Java list into a JSON array—no extra code!
+> [!TIP]
+> Jackson auto-magically turns your Java list into a JSON array—no extra code!
 
 ### 3.3 Testing with Browser and Postman
 
@@ -232,8 +241,8 @@ Let’s build and test JSON binding with Jackson!
   - `List<Student>` → Jackson → JSON array → Client sees it.
   - Postman shows all views; browser shows raw JSON.
 
->[!NOTE]
->Jackson’s working behind the scenes—your app’s JSON-ready!
+> [!NOTE]
+> Jackson’s working behind the scenes—your app’s JSON-ready!
 
 ---
 
@@ -270,8 +279,8 @@ Try these:
 5. **Theme Play**:
    - Switch Postman to Light theme—screenshot the difference.
 
->[!TIP]
->These tasks make Jackson yours—tweak and test!
+> [!TIP]
+> These tasks make Jackson yours—tweak and test!
 
 ---
 
@@ -293,12 +302,11 @@ Level up:
 - **Demo**: Built `jacksondemo`, returned `List<Student>` as JSON array via `/api/students`.
 - **Test**: Worked in browser and Postman—Jackson did the heavy lifting!
 
->[!TIP]
->You’re a JSON-Java pro now—Jackson’s got your back!
+> [!TIP]
+> You’re a JSON-Java pro now—Jackson’s got your back!
 
 ### 5.3 What’s Next
 
 - **5.4 - Path Variables**: Add dynamic URLs (e.g., `/students/1`).
 
 ---
-

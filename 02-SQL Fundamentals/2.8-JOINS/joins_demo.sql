@@ -21,7 +21,7 @@ CREATE TABLE orders (
     FOREIGN KEY (customer_id) REFERENCES customers(cid)
 );
 
--- Insert Data (from transcript: 7 customers, 4 orders)
+-- Insert Data
 INSERT INTO customers (cid, cname, country) VALUES
     (1, 'Ram', 'India'),
     (2, 'David', 'UK'),
@@ -35,8 +35,8 @@ INSERT INTO orders (order_id, order_amount, order_date, customer_id) VALUES
     (14, 25000, '2023-02-20', 3),
     (15, 30000, '2023-03-10', 5),
     (16, 40000, '2023-04-05', 104); -- 104 doesn’t exist in customers
-UPDATE orders SET customer_id = 5 WHERE order_id = 15; -- Match transcript
-UPDATE orders SET customer_id = 3 WHERE order_id = 16; -- Match transcript
+UPDATE orders SET customer_id = 5 WHERE order_id = 15; 
+UPDATE orders SET customer_id = 3 WHERE order_id = 16; 
 
 -- Section 3.1: INNER JOIN
 -- Example 1: Full Data

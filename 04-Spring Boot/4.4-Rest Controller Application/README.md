@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Welcome to **4.4 - Rest Controller Application** 
+Welcome to **4.4 - Rest Controller Application**
 
- If you’re new to coding, this is your chance to build something cool—a REST API! Based on the "A Simple Rest Controller Application" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll create a Spring Boot app that serves simple messages (like "Hello World!") via the web. Think of it as setting up a tiny online service anyone can visit—let’s get started! 🚀
+If you’re new to coding, this is your chance to build something cool—a REST API! We’ll create a Spring Boot app that serves simple messages (like "Hello World!") via the web. Think of it as setting up a tiny online service anyone can visit—let’s get started! 🚀
 
 ---
 
@@ -62,13 +62,13 @@ Type `localhost:8080/hello` and see "Hello World!"—no error page anymore!
 
 Your newbie dictionary—explained simply:
 
-| Term              | Meaning                                      | Example                     |
-|-------------------|----------------------------------------------|-----------------------------|
-| **REST**          | A way apps talk over the web (Representational State Transfer) | Uses URLs like `/hello`     |
-| **Rest Controller** | A class that handles web requests          | `@RestController` class     |
-| **Endpoint**      | The web address for a service                | `/hello` or `/hi`           |
-| **Get Mapping**   | Links a GET request to a method              | `@GetMapping("/hello")`     |
-| **Postman**       | A tool to test your API                      | Tests `localhost:8080/hi`   |
+| Term                | Meaning                                                        | Example                   |
+| ------------------- | -------------------------------------------------------------- | ------------------------- |
+| **REST**            | A way apps talk over the web (Representational State Transfer) | Uses URLs like `/hello`   |
+| **Rest Controller** | A class that handles web requests                              | `@RestController` class   |
+| **Endpoint**        | The web address for a service                                  | `/hello` or `/hi`         |
+| **Get Mapping**     | Links a GET request to a method                                | `@GetMapping("/hello")`   |
+| **Postman**         | A tool to test your API                                        | Tests `localhost:8080/hi` |
 
 ---
 
@@ -106,6 +106,7 @@ Let’s build and test a REST API—hands-on fun!
 
 - **Pre-Check**: Eclipse and Spring Tools 4 installed.
 - **Steps**:
+
   1. **New Project**: In Eclipse, go `File > New > Spring Starter Project`.
   2. **Set Options**:
      - **Name**: `RestApp`.
@@ -121,15 +122,16 @@ Let’s build and test a REST API—hands-on fun!
 - **What You Get**:
   - `RestAppApplication.java` (main class) and `pom.xml` with "spring-boot-starter-web."
 
->[!NOTE]
->`Spring Web` adds web powers—Tomcat runs your app at `8080`!
+> [!NOTE] >`Spring Web` adds web powers—Tomcat runs your app at `8080`!
 
 ### 3.2 Adding a Rest Controller
 
 - **Steps**:
+
   1. **New Package**: In `src/main/java > com.example.rest`, right-click > `New > Package`, name it `com.example.rest.controller`.
   2. **New Class**: Right-click the new package > `New > Class`, name it `MyController`, click "Finish."
   3. **Make It a Rest Controller**: Edit `MyController.java`:
+
      ```java
      package com.example.rest.controller;
 
@@ -150,17 +152,19 @@ Let’s build and test a REST API—hands-on fun!
          }
      }
      ```
+
      - **What’s Happening**:
        - `@RestController`: Marks this as a web service handler.
        - `@GetMapping("/")`: Links `sayHello()` to `localhost:8080/`.
        - `@GetMapping("/hi")`: Links `sayHi()` to `localhost:8080/hi`.
 
->[!TIP]
->Packages keep code tidy—`controller` holds all your web handlers!
+> [!TIP]
+> Packages keep code tidy—`controller` holds all your web handlers!
 
 ### 3.3 Running and Testing with Browser
 
 - **Steps**:
+
   1. **Run It**: Right-click `RestappApplication.java` > `Run As > Spring Boot App`.
   2. **Check Console**: See "Tomcat started on port(s): 8080"—it’s live!
   3. **Test in Browser**:
@@ -170,16 +174,18 @@ Let’s build and test a REST API—hands-on fun!
 - **What’s Happening**:
   - Browser sends a GET request; your controller replies with text.
 
->[!NOTE]
->No error page now—your API works!
+> [!NOTE]
+> No error page now—your API works!
 
 ### 3.4 Testing with Postman
 
 - **Setup Postman**:
+
   1. **Download**: Go to [postman.com/downloads](https://www.postman.com/downloads/), pick Windows/Mac, download, and install (no account needed—skip login).
   2. **Open**: Launch Postman from your desktop.
 
 - **Steps**:
+
   1. **New Request**: In Postman, click "New" > "HTTP Request" (or use the default tab).
   2. **Set URL**: Type `localhost:8080/` in the address bar, keep "GET" selected, click "Send."
   3. **Check Response**: See "Hello World!" in the bottom pane.
@@ -188,8 +194,8 @@ Let’s build and test a REST API—hands-on fun!
 - **Why Postman?**:
   - Tests more than browsers—supports POST, PUT, etc., later.
 
->[!TIP]
->Postman’s like a super-browser—great for API pros!
+> [!TIP]
+> Postman’s like a super-browser—great for API pros!
 
 ---
 
@@ -226,8 +232,8 @@ Try these to become a REST rookie:
 5. **Explore POM**:
    - Open `pom.xml`, find "spring-boot-starter-web"—why’s it there?
 
->[!TIP]
->Each test builds your API skills—small wins rock!
+> [!TIP]
+> Each test builds your API skills—small wins rock!
 
 ---
 
@@ -241,7 +247,6 @@ Level up with these:
 - **Postman**: [postman.com/learning](https://learning.postman.com/) - Free tutorials.
 - **REST Intro**: [restfulapi.net](https://restfulapi.net/) - What’s REST?
 - **Java Basics**: [docs.oracle.com/javase/tutorial](https://docs.oracle.com/javase/tutorial/) - Brush up.
-- **Udemy Course**: [Course Link](#) - Full lecture (placeholder).
 
 ### 5.2 Summary of Key Takeaways
 
@@ -250,12 +255,11 @@ Level up with these:
 - **Testing**: Browser or Postman shows your API live at `localhost:8080`.
 - **Big Idea**: You’ve built a web service—your app talks to the world!
 
->[!TIP]
->You’re now a REST rookie—ready for more API adventures!
+> [!TIP]
+> You’re now a REST rookie—ready for more API adventures!
 
 ### 5.3 What’s Next
 
 Next up: **4.5 - Maven - Project Management Tool**! You’ll dig into Maven and how it powers your project—see you there!
 
 ---
-

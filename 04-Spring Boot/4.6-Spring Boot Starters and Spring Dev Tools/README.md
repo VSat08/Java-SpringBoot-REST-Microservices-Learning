@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Welcome to **4.6 - Spring Boot Starters and Spring Dev Tools** 🌟! If you’re new to coding, this is your ticket to making Spring Boot projects easier and faster! Based on the "Spring Boot Starters and Spring Dev Tools" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll explore two game-changers: **Starters** (pre-made dependency packs) and **DevTools** (auto-restart magic). Think of Starters as a lunch combo—no need to pick every ingredient—and DevTools as a time-saver that keeps your app fresh without manual restarts. Let’s dive in and simplify your coding life! 🚀
+Welcome to **4.6 - Spring Boot Starters and Spring Dev Tools** 
+
+If you’re new to coding, this is your ticket to making Spring Boot projects easier and faster! We’ll explore two game-changers: **Starters** (pre-made dependency packs) and **DevTools** (auto-restart magic). Think of Starters as a lunch combo—no need to pick every ingredient—and DevTools as a time-saver that keeps your app fresh without manual restarts. Let’s dive in and simplify your coding life! 🚀
 
 ---
 
@@ -230,7 +232,6 @@ Level up with these:
 - **Maven Repo**: [mvnrepository.com](https://mvnrepository.com/) - Find starters.
 - **DevTools Guide**: [docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools) - Deep dive.
 - **Java Basics**: [docs.oracle.com/javase/tutorial](https://docs.oracle.com/javase/tutorial/) - Brush up.
-- **Udemy Course**: [Course Link](#) - Full lecture (placeholder).
 
 ### 5.2 Summary of Key Takeaways
 

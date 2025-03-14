@@ -292,7 +292,7 @@ This mini project demonstrates:
 
 ### 5.3 Complete Code Reference
 
-Below is a synthesized version based on the transcript, as the full code wasn’t provided. Replace placeholders with your actual credentials.
+Below is a synthesized version. Replace placeholders with your actual credentials.
 
 > [!WARNING]
 > Make sure to create the `library` Database and all the required `Tables` in MySQL server before running this app.

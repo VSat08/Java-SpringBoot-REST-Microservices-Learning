@@ -6,7 +6,7 @@ CREATE TABLE employee (
     emp_pay FLOAT
 );
 
--- Insert 10 rows as per transcript context
+-- Insert 10 rows 
 INSERT INTO employee VALUES (123, 'Ram', 'New Delhi', 78000);
 INSERT INTO employee VALUES (112, 'Sita', 'Mumbai', 56000);
 INSERT INTO employee VALUES (100, 'Sam', 'Mumbai', 86000);
@@ -18,7 +18,7 @@ INSERT INTO employee VALUES (111, 'Anil', 'Hyderabad', 86000);
 INSERT INTO employee VALUES (129, 'Ramesh', 'Hyderabad', 66000);
 INSERT INTO employee VALUES (150, 'Suresh', 'New Delhi', 66000);
 
--- Updates from transcript
+-- Updates 
 UPDATE employee SET emp_pay = 86000 WHERE emp_id = 211;
 UPDATE employee SET emp_pay = 66000 WHERE emp_id = 150;
 

@@ -4,7 +4,7 @@
 
 Welcome to **4.5 - Maven - Project Management Tool** 
 
- If you’re new to coding, this is your guide to understanding Maven—a super helper for building Spring Boot projects! Based on the "Maven - Project Management Tool - Introduction" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll explore how Maven saves you from manual work, organizes your project, and makes coding easier. Think of it as your project’s personal assistant—handling the boring stuff so you can focus on the fun part. Let’s dive in and see how it works! 🚀
+ If you’re new to coding, this is your guide to understanding Maven—a super helper for building Spring Boot projects! We’ll explore how Maven saves you from manual work, organizes your project, and makes coding easier. Think of it as your project’s personal assistant—handling the boring stuff so you can focus on the fun part. Let’s dive in and see how it works! 🚀
 
 ---
 

@@ -240,7 +240,7 @@ SHOW CREATE TABLE employee;
 *Output*: Shows columns (e.g., `emp_id INT NULL`) and engine (e.g., InnoDB).
 
 ### 2.7 Inserting Data (DML Context)
-The transcripts use `INSERT` (DML) to populate tables for context:
+
 - **Syntax**: `INSERT INTO table_name VALUES (value1, value2, ...);`.
 
 ##### Snippet: Inserting Records

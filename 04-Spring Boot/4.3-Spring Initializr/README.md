@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Welcome to **4.3 - Spring Initializr** 🌟! If you’re new to coding, this is your exciting first step into building real Spring Boot projects! Based on the "Spring Initializr" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll learn how to use Spring Initializr—a super tool that creates a ready-to-code Spring Boot project in minutes. Think of it as a magic project starter kit: pick what you need, and it sets everything up for you. By the end, you’ll have your own app running—let’s jump in and make it happen! 🚀
+Welcome to **4.3 - Spring Initializr**
+
+If you’re new to coding, this is your exciting first step into building real Spring Boot projects! We’ll learn how to use Spring Initializr—a super tool that creates a ready-to-code Spring Boot project in minutes. Think of it as a magic project starter kit: pick what you need, and it sets everything up for you. By the end, you’ll have your own app running—let’s jump in and make it happen! 🚀
 
 ---
 
@@ -131,7 +133,7 @@ Let’s make and run a project—hands-on time!
 
 ### 3.2 Creating a Project via Eclipse Plugin
 
-- **Pre-Check**: Ensure Spring Tools 4 is installed (from  `Help > Eclipse Marketplace > "Spring Tools 4"`).
+- **Pre-Check**: Ensure Spring Tools 4 is installed (from `Help > Eclipse Marketplace > "Spring Tools 4"`).
 - **Steps**:
 
   1. **Start in Eclipse**: Go `File > New > Spring Starter Project`.
@@ -228,7 +230,6 @@ Keep growing with these:
 - **Spring Boot Docs**: [spring.io/projects/spring-boot](https://spring.io/projects/spring-boot) - Official guide.
 - **Maven Basics**: [maven.apache.org](https://maven.apache.org/) - Learn more.
 - **Eclipse Help**: [help.eclipse.org](https://help.eclipse.org/) - IDE tips.
-- **Udemy Course**: [Course Link](#) - Full lecture (placeholder).
 
 ### 5.2 Summary of Key Takeaways
 

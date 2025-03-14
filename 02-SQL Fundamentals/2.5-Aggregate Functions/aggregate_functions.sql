@@ -8,7 +8,7 @@ CREATE TABLE employee (
     emp_pay FLOAT
 );
 
--- Insert 10 rows as per transcript
+-- Insert 10 rows 
 INSERT INTO employee VALUES (123, 'Ram', 'New Delhi', 78000);
 INSERT INTO employee VALUES (112, 'Sita', 'Mumbai', 56000);
 INSERT INTO employee VALUES (100, 'Sam', 'Mumbai', 86000);
@@ -20,7 +20,7 @@ INSERT INTO employee VALUES (111, 'Anil', 'Hyderabad', 78000);
 INSERT INTO employee VALUES (129, 'Ramesh', 'Hyderabad', NULL);
 INSERT INTO employee VALUES (140, 'Suresh', 'Pune', 65000);
 
--- Update Ramesh's pay (transcript says 150, but 129 matches context)
+-- Update Ramesh's pay
 UPDATE employee SET emp_pay = 62000 WHERE emp_id = 129;
 
 -- Basic SELECT for context

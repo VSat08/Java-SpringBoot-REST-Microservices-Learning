@@ -302,7 +302,7 @@ The following SQL scripts and resources are provided for hands-on practice with 
 Below are the SQL scripts to accompany the README, which you can include in your GitHub repository under the `sql/` directory.
 
 #### `world_database.sql`
-*Note*: The `world` database is typically pre-installed with MySQL Community Server. This script is a placeholder in case the database needs to be manually set up (creation details are not provided in the transcript, but usage is demonstrated).
+*Note*: The `world` database is typically pre-installed with MySQL Community Server. This script is a placeholder in case the database needs to be manually set up.
 
 ```sql
 -- Placeholder script for the world database

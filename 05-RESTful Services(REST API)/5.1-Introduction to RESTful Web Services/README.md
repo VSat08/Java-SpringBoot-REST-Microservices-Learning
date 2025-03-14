@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Welcome to **5.1 - Introduction to RESTful Web Services** 🌟! If you’re new to coding, this is your first step into the world of REST APIs! Based on the "Introduction to RESTful Web Services" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll explore what RESTful web services (or REST APIs) are and why they’re awesome. Think of them as a way for apps to chat with each other—like a weather app asking a server, "What’s the forecast?" We’ll use a weather app example to understand REST, then build a simple "Hello Spring" service in Spring Boot. Let’s get started and make apps talk! 🚀
+Welcome to **5.1 - Introduction to RESTful Web Services** 
+
+ If you’re new to coding, this is your first step into the world of REST APIs! We’ll explore what RESTful web services (or REST APIs) are and why they’re awesome. Think of them as a way for apps to chat with each other—like a weather app asking a server, "What’s the forecast?" We’ll use a weather app example to understand REST, then build a simple "Hello Spring" service in Spring Boot. Let’s get started and make apps talk! 🚀
 
 ---
 

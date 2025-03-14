@@ -1,6 +1,6 @@
 
 
--- Create 'employee' table and populate with data (10 rows from transcript)
+-- Create 'employee' table and populate with data 
 CREATE TABLE employee (
     emp_id INT,
     emp_name VARCHAR(20),

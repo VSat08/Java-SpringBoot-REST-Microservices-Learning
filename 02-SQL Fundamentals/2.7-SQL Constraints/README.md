@@ -1,7 +1,7 @@
 # 2.7: SQL Constraints - A Beginner's Manual to Mastering Data Integrity in MySQL
 
 ## Introduction
-Welcome to **Section 2.7: SQL Constraints** 🚀! This section, part of "Introduction to Databases and SQL" from *Mastering Java + Spring Boot: REST APIs and Microservices* on Udemy, is your gateway to understanding how MySQL ensures data stays accurate, consistent, and reliable. We'll explore six key constraints—`NOT NULL`, `UNIQUE`, `PRIMARY KEY`, `FOREIGN KEY`, `CHECK`, and `DEFAULT`—across six lectures (79–84). Using practical examples from the `my_db` and `world` databases, this manual is designed for beginners, breaking down complex ideas like referential actions into simple, digestible pieces. Whether you're new to SQL or brushing up, you'll master table design by the end! 🌟
+Welcome to **Section 2.7: SQL Constraints** 🚀! This section is your gateway to understanding how MySQL ensures data stays accurate, consistent, and reliable. We'll explore six key constraints—`NOT NULL`, `UNIQUE`, `PRIMARY KEY`, `FOREIGN KEY`, `CHECK`, and `DEFAULT`—across six lectures (79–84). Using practical examples from the `my_db` and `world` databases, this manual is designed for beginners, breaking down complex ideas like referential actions into simple, digestible pieces. Whether you're new to SQL or brushing up, you'll master table design by the end! 🌟
 
 ---
 

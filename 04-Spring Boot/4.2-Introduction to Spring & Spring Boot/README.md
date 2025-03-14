@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Welcome to **4.2 - Introduction to Spring & Spring Boot** 🌟! If you’re new to Java or coding, this is your friendly guide to understanding two big names: Spring and Spring Boot. Based on the "Introduction Spring Springboot - Spring vs Spring Boot" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll explore what Spring is, what Spring Boot adds, and how they team up to make Java coding easier and faster. Think of this as meeting two superhero tools that help you build awesome apps—like websites or microservices—without the headaches. Let’s dive in and get you ready to code! 🚀
+Welcome to **4.2 - Introduction to Spring & Spring Boot**
+
+ If you’re new to Java or coding, this is your friendly guide to understanding two big names: Spring and Spring Boot. We’ll explore what Spring is, what Spring Boot adds, and how they team up to make Java coding easier and faster. Think of this as meeting two superhero tools that help you build awesome apps—like websites or microservices—without the headaches. Let’s dive in and get you ready to code! 🚀
 
 ---
 
@@ -200,7 +202,6 @@ Grow your Spring knowledge here:
 - **Why Spring**: [spring.io/why-spring](https://spring.io/why-spring) - Spring’s benefits.
 - **Spring Boot**: [spring.io/projects/spring-boot](https://spring.io/projects/spring-boot) - Boot details.
 - **Java Basics**: [docs.oracle.com/javase/tutorial](https://docs.oracle.com/javase/tutorial/) - Brush up on POJOs.
-- **Udemy Course**: [Course Link](#) - Full lecture (placeholder).
 
 ### 5.2 Summary of Key Takeaways
 

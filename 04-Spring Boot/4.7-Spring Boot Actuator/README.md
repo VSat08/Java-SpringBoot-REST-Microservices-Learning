@@ -4,7 +4,7 @@
 
 Welcome to **4.7 - Spring Boot Actuator**
 
-If you’re new to coding, this is your guide to keeping tabs on your Spring Boot app! Based on the "Spring Boot Actuator" lecture from the Udemy course "Mastering Java + Spring Boot: REST APIs and Microservices," we’ll dive into **Actuator**—a free tool that lets you monitor and manage your app with special web endpoints. Imagine it as your app’s personal doctor—checking its pulse, stats, and more! We’ll add it to your `restapp` from [4.4-Rest Controller Application](#4.4---rest-controller-application), explore its features, secure it, and tweak it with custom settings. Let’s jump in and make your app talk! 🚀
+If you’re new to coding, this is your guide to keeping tabs on your Spring Boot app! We’ll dive into **Actuator**—a free tool that lets you monitor and manage your app with special web endpoints. Imagine it as your app’s personal doctor—checking its pulse, stats, and more! We’ll add it to your `restapp` from [4.4-Rest Controller Application](#4.4---rest-controller-application), explore its features, secure it, and tweak it with custom settings. Let’s jump in and make your app talk! 🚀
 
 ---
 
@@ -297,7 +297,6 @@ Level up with these:
 - **Endpoint List**: [docs.spring.io/spring-boot/docs/current/reference/html/actuator.html](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) - All 10+ endpoints.
 - **Security Basics**: [spring.io/guides/topicals/spring-security-architecture](https://spring.io/guides/topicals/spring-security-architecture) - Deep dive.
 - **Postman**: [learning.postman.com](https://learning.postman.com/) - Master testing.
-- **Udemy Course**: [Course Link](#) - Full lecture (placeholder).
 
 ### 5.2 Summary of Key Takeaways
 
@@ -312,9 +311,8 @@ Level up with these:
 
 ### 5.3 What’s Next in the Course
 
-The transcript teases what’s coming:
 
-- **Next Videos**: Build REST APIs with:
+- **Next Topic**: Build REST APIs with:
   - Security (more on `starter-security`).
   - Database connections (e.g., `spring.datasource.*`).
   - Mapping POJOs to JSON (entities to output).
