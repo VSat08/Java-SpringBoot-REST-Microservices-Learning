@@ -178,7 +178,9 @@ Let’s enhance `jacksondemo` with path variables!
   - **Path Variable**: `/students/{studentId}` binds to `studentId` (e.g., `0` → `students.get(0)`).
   - **Jackson**: Converts `Student` to JSON object (e.g., `{"firstName": "Liam", "lastName": "Neeson"}`).
 
-> [!TIP] >`@PostConstruct` is your setup buddy—loads data once, no repeats!
+
+> [!TIP] 
+>`@PostConstruct` is your setup buddy—loads data once, no repeats!
 
 ### 3.3 Testing with Browser and Postman
 
