@@ -269,6 +269,6 @@ Grow your skills:
 
 ### 5.3 What’s Next
 
-- **5. Exception Handling**: Handle errors (e.g., `/students/99`).
+- **5.5-REST Exception Handling**: Handle errors (e.g., `/students/99`).
 
 ---
