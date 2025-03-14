@@ -22,6 +22,7 @@ If you’re new to coding, this is your guide to understanding how REST APIs tal
 3. [Practical Demonstration](#3-practical-demonstration)
    - [3.1 JSON Examples](#31-json-examples)
    - [3.2 HTTP in Action](#32-http-in-action)
+     - [3.2.1 Types of Status Codes](#321-types-of-status-codes)
    - [3.3 Testing with Postman](#33-testing-with-postman)
 4. [Practical Application](#4-practical-application)
    - [4.1 Best Practices](#41-best-practices)
@@ -164,18 +165,48 @@ Let’s see these in action with `restdemo` from [5.1](#51-introduction-to-restf
   - **Line**: Protocol + Status (e.g., `HTTP/1.1 200 OK`).
   - **Headers**: Metadata (e.g., `Content-Type: text/plain`).
   - **Body**: Data returned (e.g., "Hello Spring").
-- **Status Codes**:
-  - **1xx**: Info (rare).
-  - **2xx**: Success (e.g., `200 OK`).
-  - **3xx**: Redirect (e.g., `301 Moved`).
-  - **4xx**: Client error (e.g., `404 Not Found`, `401 Unauthorized`).
-  - **5xx**: Server error (e.g., `500 Internal Server Error`).
+
+#### 3.2.1 Types of Status Codes
+
+HTTP status codes tell you what happened with your request—think of them as traffic lights for your API! Here’s a detailed breakdown in a table:
+
+| **Range** | **Category**  | **Meaning**                        | **Common Codes**            | **Examples**                                 |
+| --------- | ------------- | ---------------------------------- | --------------------------- | -------------------------------------------- |
+| **1xx**   | Informational | Request received, still processing | `100 Continue`              | "Keep going, I’m working on it!"             |
+|           |               |                                    | `101 Switching Protocols`   | "Switching to a new protocol."               |
+| **2xx**   | Success       | Request worked perfectly           | `200 OK`                    | "Got it! Here’s your data." (e.g., `/hello`) |
+|           |               |                                    | `201 Created`               | "New thing made!" (e.g., after `POST`)       |
+| **3xx**   | Redirection   | You’re being sent somewhere else   | `301 Moved Permanently`     | "Moved to a new URL forever."                |
+|           |               |                                    | `302 Found`                 | "Found it, but look over here for now."      |
+| **4xx**   | Client Error  | Your request messed up             | `400 Bad Request`           | "Something’s wrong with your ask."           |
+|           |               |                                    | `401 Unauthorized`          | "No permission—log in!"                      |
+|           |               |                                    | `404 Not Found`             | "Can’t find that!" (e.g., `/nope`)           |
+| **5xx**   | Server Error  | Server’s fault, not yours          | `500 Internal Server Error` | "Server broke—oops!"                         |
+|           |               |                                    | `503 Service Unavailable`   | "Server’s down—try later."                   |
+
+- **What’s Happening**:
+
+  - **1xx**: Rare, just info (e.g., "I’m thinking").
+  - **2xx**: Green light—success! (e.g., `200` for `/hello`).
+  - **3xx**: Yellow light—redirected (e.g., old URL moved).
+  - **4xx**: Red light—you goofed (e.g., `404` for typos).
+  - **5xx**: Server’s red light—it crashed (e.g., `500`).
+
 - **Demo** (Browser):
   - Open Firefox, go to `openweathermap.org`.
   - Press `Ctrl+Shift+I` > "Network" tab.
-  - Refresh page, see `GET` request, `200 OK`, headers (e.g., `Content-Type`).
+  - Refresh, see `GET` request, `200 OK`, headers (e.g., `Content-Type`).
+  - Try `localhost:8080/api/nope`—see `404 Not Found`.
 
 > [!TIP]
+> Status codes are your API’s report card—200 is an A+, 404 is a "try again"!
+
+- **Content Types** (MIME):
+  - `text/plain`: Plain text (e.g., "Hello Spring").
+  - `application/json`: JSON data (e.g., `{"name": "Spring"}`).
+  - `application/xml`: XML data.
+
+> [!NOTE]
 > HTTP’s your REST engine—methods drive actions, codes tell the story!
 
 ### 3.3 Testing with Postman
@@ -285,7 +316,7 @@ Grow your skills here:
 ### 5.2 Summary of Key Takeaways
 
 - **JSON**: Lightweight, key-value data (e.g., `{"name": "Spring"}`)—arrays, nesting OK.
-- **HTTP**: Powers REST with methods (GET, POST, PUT, DELETE) and codes (200, 404).
+- **HTTP**: Powers REST with methods (GET, POST, PUT, DELETE) and codes (200, 404, etc.).
 - **Postman**: Tests all API methods—not just `GET` like browsers.
 - **Demo**: Added `/api/bye` to `restdemo`, tested with Postman.
 
@@ -293,8 +324,6 @@ Grow your skills here:
 > You’re talking REST’s language now—JSON, HTTP, and Postman rock!
 
 ### 5.3 What’s Next
-
-Next up (from transcript):
 
 - **5.3 - Java - JSON Binding - Jackson Project**: Bind JSON to Java objects.
 
