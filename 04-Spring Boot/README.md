@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to **01 - Introduction to Spring Boot** 🌟! This is your first step into the world of Spring Boot, a powerful framework that simplifies Java development. In this section, we’ll explore what Spring Boot is, how it speeds up application creation, and set up everything you need to start coding. Perfect for beginners, this roadmap will guide you through foundational concepts and tools, preparing you for hands-on practice. Let’s kickstart your Spring Boot journey! 🚀
+Welcome to **04 - Introduction to Spring Boot** 🌟! This is your first step into the world of Spring Boot, a powerful framework that simplifies Java development. In this section, we’ll explore what Spring Boot is, how it speeds up application creation, and set up everything you need to start coding. Perfect for beginners, this roadmap will guide you through foundational concepts and tools, preparing you for hands-on practice. Let’s kickstart your Spring Boot journey! 🚀
 
 ---
 
