@@ -20,11 +20,11 @@ public class StudentRestController {
 	@PostConstruct
 	public void loadStudents() {
 
-		students.add(new Student("Leong", "Rizel"));
-		students.add(new Student("Mario", "Rossie"));
-		students.add(new Student("Razel", "Moore"));
-		students.add(new Student("Samson", "Clich"));
-		students.add(new Student("Amir", "Singh"));
+		students.add(new Student("Liam", "Neeson"));  
+        students.add(new Student("Mario", "Rossi")); 
+        students.add(new Student("Ram", "Charan"));   
+        students.add(new Student("Amir", "Khan"));    
+        students.add(new Student("Bruce", "Willis")); 
 	}
 
 	@GetMapping("/students")
