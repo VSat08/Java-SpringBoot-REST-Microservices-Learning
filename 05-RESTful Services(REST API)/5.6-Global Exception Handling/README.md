@@ -273,7 +273,6 @@ Level up:
 - **ControllerAdvice**: [docs.spring.io/spring-framework/docs/current/javadoc-api/](https://docs.spring.io/spring-framework/docs/current/javadoc-api/) - Spring docs.
 - **REST**: [spring.io/guides/gs/rest-service](https://spring.io/guides/gs/rest-service/) - REST guide.
 - **Postman**: [learning.postman.com](https://learning.postman.com/) - Tutorials.
-- **Udemy**: [Course Link](#) - Full lecture (placeholder).
 
 ### 5.2 Summary of Key Takeaways
 
@@ -287,7 +286,7 @@ Level up:
 
 ### 5.3 What’s Next
 
-- **5.7 - REST API Design**: Plan and structure your APIs.
+- **5.7 - REST API Design-Best Practises**: Plan and structure your APIs.
 - **Later**: CRUD, databases—REST grows bigger!
 
 ---
