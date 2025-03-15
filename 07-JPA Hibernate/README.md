@@ -1,8 +1,8 @@
-# 03-Spring Boot\04 - Spring Boot Data Access with JPA
+# 07 - Spring Boot Data Access with JPA and Hibernate
 
 ## Introduction
 
-Welcome to **04 - Spring Boot Data Access with JPA** 🌟! This section unlocks database power in Spring Boot using Java Persistence API (JPA) and Hibernate. Tailored for beginners, this roadmap guides you through mapping objects to tables and performing CRUD operations. Let’s store and retrieve data like pros! 🚀
+Welcome to **07 - Spring Boot Data Access with JPA and Hibernate** 🌟! This section unlocks database power in Spring Boot using Java Persistence API (JPA) and Hibernate. Tailored for beginners, this roadmap guides you through mapping objects to tables and performing CRUD operations. Let’s store and retrieve data like pros! 🚀
 
 ---
 
