@@ -224,7 +224,16 @@ Let’s build a `lombok-demo` app to see Lombok in action!
     ```
   - `@AllArgsConstructor` (optional here—`@Data` includes it): Explicit all-args constructor.
 
-  ![alt text](image.png)
+  ---
+
+### Employee.java
+![alt text](image-1.png)
+
+
+### MyController.java
+
+![alt text](image-2.png)
+
 
 >[!TIP]
 >Lombok keeps it simple and auto-updates—less work, more clarity!
