@@ -229,7 +229,5 @@ Level up:
 
 ### 5.3 What’s Next
 
-- **5.8 - Employee Directory Project**: Implement this design in code.
-- **Later**: Full CRUD, databases—REST comes alive!
-
+- **06-Lombok - A Bean Management Framework**
 ---
