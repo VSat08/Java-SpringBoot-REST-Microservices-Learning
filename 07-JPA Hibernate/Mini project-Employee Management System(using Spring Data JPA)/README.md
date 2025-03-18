@@ -1,10 +1,10 @@
- Mini Project - Employee Management System (EMS) (using Spring Data JPA)
+Mini Project - Employee Management System (EMS) (using Spring Data JPA)
 
 ## Introduction
 
 Welcome to the **Employee Management System (EMS) Mini Project (using Spring Data JPA)**
 
- In this real-time project, we’ll enhance our REST API for managing an employee directory, performing CRUD (Create, Read, Update, Delete) operations with Spring Boot and Spring Data JPA. Building on the JPA API version from "Mini Project - Employee Management System (using JPA API)," we’ll connect to a MySQL database and simplify our data access layer, slashing boilerplate code by 70%! This is perfect for beginners eager to see Spring’s magic in action! 🚀
+In this real-time project, we’ll enhance our REST API for managing an employee directory, performing CRUD (Create, Read, Update, Delete) operations with Spring Boot and Spring Data JPA. Building on the JPA API version from "Mini Project - Employee Management System (using JPA API)," we’ll connect to a MySQL database and simplify our data access layer, slashing boilerplate code by 70%! This is perfect for beginners eager to see Spring’s magic in action! 🚀
 
 ---
 
@@ -73,22 +73,21 @@ Think of this as upgrading from handcrafting furniture (JPA API) to using a pre-
 ![alt text](image.png)
 _<p align="center">Figure: Application Architecture with Spring Data JPA</p>_
 
->[!NOTE]
->`JpaRepository` = Spring’s magic wand—CRUD without the grind!
+> [!NOTE] >`JpaRepository` = Spring’s magic wand—CRUD without the grind!
 
 ### 1.4 Key Terms for Beginners
 
 Your newbie glossary:
 
-| Term             | Meaning                                      | Example                       |
-|------------------|----------------------------------------------|-------------------------------|
-| **EMS**          | Employee Management System                   | This project!                 |
-| **REST API**     | Web service for CRUD via HTTP                | GET `/api/employees`          |
-| **Repository**   | Interface replacing DAO—extends `JpaRepository` | `EmployeeRepository`       |
-| **Spring Data JPA** | Framework for simplified data access       | `extends JpaRepository`       |
-| **Lombok**       | Reduces boilerplate code (getters/setters)   | `@Data` on `Employee`         |
-| **`Optional`**   | Java 8 class to handle null values           | `Optional<Employee>`          |
-| **`@Transactional`** | Manages database transactions            | `@Transactional` on `save`    |
+| Term                 | Meaning                                         | Example                    |
+| -------------------- | ----------------------------------------------- | -------------------------- |
+| **EMS**              | Employee Management System                      | This project!              |
+| **REST API**         | Web service for CRUD via HTTP                   | GET `/api/employees`       |
+| **Repository**       | Interface replacing DAO—extends `JpaRepository` | `EmployeeRepository`       |
+| **Spring Data JPA**  | Framework for simplified data access            | `extends JpaRepository`    |
+| **Lombok**           | Reduces boilerplate code (getters/setters)      | `@Data` on `Employee`      |
+| **`Optional`**       | Java 8 class to handle null values              | `Optional<Employee>`       |
+| **`@Transactional`** | Manages database transactions                   | `@Transactional` on `save` |
 
 ---
 
@@ -177,33 +176,42 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
      - Spring Boot DevTools.
      - Lombok.
 - **POM.xml** (snippet):
+
   ```xml
   <dependencies>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-data-jpa</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-devtools</artifactId>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>com.mysql</groupId>
-          <artifactId>mysql-connector-j</artifactId>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <optional>true</optional>
-      </dependency>
-  </dependencies>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-data-jpa</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-web</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-devtools</artifactId>
+  			<scope>runtime</scope>
+  			<optional>true</optional>
+  		</dependency>
+  		<dependency>
+  			<groupId>com.mysql</groupId>
+  			<artifactId>mysql-connector-j</artifactId>
+  			<scope>runtime</scope>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.projectlombok</groupId>
+  			<artifactId>lombok</artifactId>
+  			<optional>true</optional>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-test</artifactId>
+  			<scope>test</scope>
+  		</dependency>
+  	</dependencies>
+
   ```
+
 - **application.properties**:
   ```properties
   spring.datasource.url=jdbc:mysql://localhost:3306/empdir
@@ -214,14 +222,14 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
   - No `ddl-auto`—table is manual.
   - Spring Data JPA is active via `spring-boot-starter-data-jpa`.
 
->[!TIP]
->`spring-boot-starter-data-jpa` = your key to Spring magic!
+> [!TIP] >`spring-boot-starter-data-jpa` = your key to Spring magic!
 
 ### 3.3 Employee Entity
 
 - **Purpose**: Reuse the `Employee` entity—unchanged from JPA API version.
 - **File**: `com.example.jpa.entity.Employee.java`.
 - **Code**:
+
   ```java
   package com.example.jpa.entity;
 
@@ -263,6 +271,7 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
 - **Purpose**: Replace DAO with a repository extending `JpaRepository`.
 - **File**: `com.example.jpa.repository.EmployeeRepository.java`.
 - **Code**:
+
   ```java
   package com.example.jpa.repository;
 
@@ -272,6 +281,7 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
   public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
   }
   ```
+
 - **Details**:
   - `@Repository` not needed—`JpaRepository` handles it.
   - `Employee`: Entity type.
@@ -279,13 +289,14 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
   - **Free Methods**: `findAll()`, `findById()`, `save()`, `deleteById()`, and more—no implementation required!
   - Replaces `EmployeeDAO` and `EmployeeDAOImpl`—cuts ~30+ lines of code.
 
->[!NOTE]
->One line = full CRUD—Spring Data JPA’s power!
+> [!NOTE]
+> One line = full CRUD—Spring Data JPA’s power!
 
 ### 3.5 Employee Service
 
 - **Purpose**: Update service to use `EmployeeRepository`.
 - **Interface**: `com.example.jpa.service.EmployeeService.java`.
+
   ```java
   package com.example.jpa.service;
 
@@ -300,7 +311,9 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
       void deleteById(int id);
   }
   ```
+
 - **Implementation**: `com.example.jpa.service.EmployeeServiceImpl.java`.
+
   ```java
   package com.example.jpa.service;
 
@@ -341,6 +354,7 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
       }
   }
   ```
+
 - **Details**:
   - `@Autowired`: Injects `EmployeeRepository` instead of `EmployeeDAO`.
   - **Changes**:
@@ -353,6 +367,7 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
 - **Purpose**: Adjust controller for `Optional` return type.
 - **File**: `com.example.jpa.controller.EmployeeRestController.java`.
 - **Code**:
+
   ```java
   package com.example.jpa.controller;
 
@@ -405,6 +420,7 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
       }
   }
   ```
+
 - **Details**:
   - **Changes**:
     - `getEmployee` and `deleteEmployee`: Use `Optional<Employee>`—check `.isEmpty()` instead of `null`.
@@ -427,9 +443,9 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
      - Body (`Raw` > `JSON`):
        ```json
        {
-           "firstName": "Nicolas",
-           "lastName": "Cage",
-           "email": "nicolas@cage.net"
+         "firstName": "Nicolas",
+         "lastName": "Cage",
+         "email": "nicolas@cage.net"
        }
        ```
      - Response: `{"id": 8, ...}` (ID varies).
@@ -438,10 +454,10 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
      - Body:
        ```json
        {
-           "id": 8,
-           "firstName": "Nicolas",
-           "lastName": "Cage",
-           "email": "nicolas@cage.com"
+         "id": 8,
+         "firstName": "Nicolas",
+         "lastName": "Cage",
+         "email": "nicolas@cage.com"
        }
        ```
      - Response: Updated object—email now `.com`.
@@ -453,8 +469,8 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
      - GET `/api/employees` → Updated list.
      - MySQL: `SELECT * FROM employee;` → Matches.
 
->[!TIP]
->Same results, less code—Spring Data JPA FTW!
+> [!TIP]
+> Same results, less code—Spring Data JPA FTW!
 
 ---
 
@@ -462,8 +478,7 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
 
 - **Next Session**: **Spring Data REST**—reduce code further (up to 90%) by auto-generating REST endpoints.
 
-
->[!NOTE]
->From 30+ lines to 1—next, cut even more with Spring Data REST!
+> [!NOTE]
+> From 30+ lines to 1—next, cut even more with Spring Data REST!
 
 ---

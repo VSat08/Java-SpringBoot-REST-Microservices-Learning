@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the **Employee Management System (EMS) Mini Project(using JPA API)** 
+Welcome to the **Employee Management System (EMS) Mini Project(using JPA API)**
 
 In this real-time project, we’ll build a REST API with Spring Boot to manage an employee directory, performing CRUD (Create, Read, Update, Delete) operations using JPA and Hibernate(using JPA API). Building on basics from [07](#07-jpa-and-hibernate), we’ll connect to a MySQL database, set up the project, and implement a full application across two parts. Phase 1 covers the database, entity, and DAO, while Phase 2 adds the service layer and REST controller. This is perfect for beginners ready to apply REST and database skills to a practical app! 🚀
 
@@ -75,23 +75,23 @@ Think of this as a digital HR system—add, view, update, or remove employee pro
 ![alt text](image.png)
 _<p align="center">Figure: Application Architecture Employee Management System Project</p>_
 
->[!NOTE]
->Service layer = middleman—keeps your app organized and scalable for bigger projects!
+> [!NOTE]
+> Service layer = middleman—keeps your app organized and scalable for bigger projects!
 
 ### 1.4 Key Terms for Beginners
 
 Your newbie glossary:
 
-| Term             | Meaning                                      | Example                       |
-|------------------|----------------------------------------------|-------------------------------|
-| **EMS**          | Employee Management System                   | This project!                 |
-| **REST API**     | Web service for CRUD via HTTP                | GET `/api/employees`          |
-| **DAO**          | Data Access Object—handles DB operations     | `EmployeeDAO`                 |
-| **Service**      | Business logic layer, delegates to DAO       | `EmployeeService`             |
-| **Lombok**       | Reduces boilerplate code (getters/setters)   | `@Data` on `Employee`         |
-| **`merge()`**    | Saves or updates an entity                   | `entityManager.merge(employee)` |
-| **`@Service`**   | Marks a service class for Spring scanning    | `@Service` on `EmployeeServiceImpl` |
-| **`@Transactional`** | Manages database transactions            | `@Transactional` on `save`    |
+| Term                 | Meaning                                    | Example                             |
+| -------------------- | ------------------------------------------ | ----------------------------------- |
+| **EMS**              | Employee Management System                 | This project!                       |
+| **REST API**         | Web service for CRUD via HTTP              | GET `/api/employees`                |
+| **DAO**              | Data Access Object—handles DB operations   | `EmployeeDAO`                       |
+| **Service**          | Business logic layer, delegates to DAO     | `EmployeeService`                   |
+| **Lombok**           | Reduces boilerplate code (getters/setters) | `@Data` on `Employee`               |
+| **`merge()`**        | Saves or updates an entity                 | `entityManager.merge(employee)`     |
+| **`@Service`**       | Marks a service class for Spring scanning  | `@Service` on `EmployeeServiceImpl` |
+| **`@Transactional`** | Manages database transactions              | `@Transactional` on `save`          |
 
 ---
 
@@ -185,30 +185,36 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
 - **POM.xml** (snippet):
   ```xml
   <dependencies>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-data-jpa</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-devtools</artifactId>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>com.mysql</groupId>
-          <artifactId>mysql-connector-j</artifactId>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <optional>true</optional>
-      </dependency>
-  </dependencies>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-data-jpa</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-web</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-devtools</artifactId>
+  			<scope>runtime</scope>
+  			<optional>true</optional>
+  		</dependency>
+  		<dependency>
+  			<groupId>com.mysql</groupId>
+  			<artifactId>mysql-connector-j</artifactId>
+  			<scope>runtime</scope>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.projectlombok</groupId>
+  			<artifactId>lombok</artifactId>
+  			<optional>true</optional>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-test</artifactId>
+  			<scope>test</scope>
+  		</dependency>
+  	</dependencies>
   ```
 - **application.properties**:
   ```properties
@@ -220,14 +226,15 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
   - No `spring.jpa.hibernate.ddl-auto`—table created manually (unlike [7.5](#75-jpa-hibernate---creating-tables-from-the-code)).
   - DevTools enables live reload—code changes apply without restarts.
 
->[!TIP]
->Dependencies = your toolkit—Spring Web for REST, JPA for DB magic!
+> [!TIP]
+> Dependencies = your toolkit—Spring Web for REST, JPA for DB magic!
 
 ### 3.3 Employee Entity
 
 - **Purpose**: Define `Employee` to map to the `employee` table.
 - **File**: `com.example.jpa.entity.Employee.java`.
 - **Code**:
+
   ```java
   package com.example.jpa.entity;
 
@@ -263,6 +270,7 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
       private String email;
   }
   ```
+
 - **Details**:
   - `@Entity` + `@Table`: Maps to `employee` table.
   - `@Id` + `@GeneratedValue`: `id` is auto-incremented primary key.
@@ -277,6 +285,7 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
 
 - **Purpose**: Define and implement CRUD operations for `Employee`.
 - **Interface**: `com.example.jpa.dao.EmployeeDAO.java`.
+
   ```java
   package com.example.jpa.dao;
 
@@ -290,7 +299,9 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
       void deleteById(int id);
   }
   ```
+
 - **Implementation**: `com.example.jpa.dao.EmployeeDAOImpl.java`.
+
   ```java
   package com.example.jpa.dao;
 
@@ -330,6 +341,7 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
       }
   }
   ```
+
 - **Details**:
   - `@Repository`: Marks as DAO—Spring handles JDBC exceptions.
   - `@Autowired`: Injects `EntityManager` (property injection—alternative: constructor injection).
@@ -343,13 +355,13 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
     - `deleteById`: `find()` then `remove()`—deletes by `id`.
   - No `@Transactional`—moved to service layer (below).
 
->[!NOTE]
->`merge` = save or update—smart and reusable!
+> [!NOTE] >`merge` = save or update—smart and reusable!
 
 ### 3.5 Employee Service
 
 - **Purpose**: Add a service layer to delegate DAO calls and manage transactions.
 - **Interface**: `com.example.jpa.service.EmployeeService.java`.
+
   ```java
   package com.example.jpa.service;
 
@@ -363,7 +375,9 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
       void deleteById(int id);
   }
   ```
+
 - **Implementation**: `com.example.jpa.service.EmployeeServiceImpl.java`.
+
   ```java
   package com.example.jpa.service;
 
@@ -403,6 +417,7 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
       }
   }
   ```
+
 - **Details**:
   - `@Service`: Registers with Spring—enables component scanning, like `@Repository`.
   - `@Autowired`: Injects `EmployeeDAO`.
@@ -412,19 +427,20 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
     - `save`: Calls `employeeDAO.save(employee)`—handles both add and update.
     - `deleteById`: Calls `employeeDAO.deleteById(id)`.
   - `@Transactional`: Applied to write operations (`save`, `deleteById`)—best practice over DAO-level transactions.
-  - **Why Service?**: 
+  - **Why Service?**:
     - Separates business logic from controller.
     - Can integrate multiple DAOs (e.g., payroll, skills) in larger apps.
     - Keeps controller simple—handles only web requests.
 
->[!TIP]
->Service delegates calls—simple yet powerful for scalability!
+> [!TIP]
+> Service delegates calls—simple yet powerful for scalability!
 
 ### 3.6 Employee REST Controller
 
 - **Purpose**: Expose CRUD operations via REST endpoints.
 - **File**: `com.example.jpa.controller.EmployeeRestController.java`.
 - **Code**:
+
   ```java
   package com.example.jpa.controller;
 
@@ -477,6 +493,7 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
       }
   }
   ```
+
 - **Details**:
   - `@RestController` + `@RequestMapping("/api")`: Base endpoint `/api`.
   - `@Autowired`: Injects `EmployeeService` interface—Spring uses `EmployeeServiceImpl` via component scanning.
@@ -506,18 +523,18 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
      - Body (`Raw` > `JSON`):
        ```json
        {
-           "firstName": "Angelina",
-           "lastName": "Jolie",
-           "email": "angelina@jolie.com"
+         "firstName": "Angelina",
+         "lastName": "Jolie",
+         "email": "angelina@jolie.com"
        }
        ```
      - Response: `{"id": 6, "firstName": "Angelina", ...}` (ID may vary due to prior deletes).
      - Add another:
        ```json
        {
-           "firstName": "Nicolas",
-           "lastName": "Cage",
-           "email": "nicolas@cage.com"
+         "firstName": "Nicolas",
+         "lastName": "Cage",
+         "email": "nicolas@cage.com"
        }
        ```
      - Response: `{"id": 7, ...}`.
@@ -526,10 +543,10 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
      - Body:
        ```json
        {
-           "id": 7,
-           "firstName": "Nicolas",
-           "lastName": "Cage",
-           "email": "nicolas@cage.net"
+         "id": 7,
+         "firstName": "Nicolas",
+         "lastName": "Cage",
+         "email": "nicolas@cage.net"
        }
        ```
      - Response: Updated object—email now `.net`.
@@ -541,8 +558,8 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
      - GET `/api/employees` → 4 employees (ids 1-3, 6—no 7).
      - MySQL: `SELECT * FROM employee;` → Matches.
 
->[!NOTE]
->From DB to REST—full CRUD in action with service layer magic!
+> [!NOTE]
+> From DB to REST—full CRUD in action with service layer magic!
 
 ---
 
@@ -554,7 +571,7 @@ Let’s build the complete `rest-api-crud-ems` project—covering Phase 1 (datab
 - **Upcoming**: Add exception handling or security (e.g., [08-Security](#08-spring-boot-and-security)).
 - **Why**: Understand this JPA version first—then see Spring’s magic minimize code!
 
->[!TIP]
->EMS complete—next, simplify it with Spring Data!
+> [!TIP]
+> EMS complete—next, simplify it with Spring Data!
 
 ---
