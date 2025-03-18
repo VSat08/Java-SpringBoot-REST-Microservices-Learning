@@ -226,7 +226,6 @@ Let’s build `rest-api-spring-data-rest-ems` by refactoring `rest-api-spring-da
   spring.datasource.url=jdbc:mysql://localhost:3306/empdir
   spring.datasource.username=root
   spring.datasource.password=your_password
-  spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
   ```
 
 > [!TIP] >`spring-boot-starter-data-rest` = your REST API genie!

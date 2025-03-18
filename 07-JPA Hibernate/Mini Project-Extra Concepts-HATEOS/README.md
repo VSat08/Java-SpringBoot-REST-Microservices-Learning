@@ -210,7 +210,6 @@ Let’s enhance `rest-api-spring-data-rest-ems` with HATEOAS customizations!
   spring.datasource.url=jdbc:mysql://localhost:3306/empdir
   spring.datasource.username=root
   spring.datasource.password=your_password
-  spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
   # HATEOAS Customizations
   spring.data.rest.base-path=/magic-api
