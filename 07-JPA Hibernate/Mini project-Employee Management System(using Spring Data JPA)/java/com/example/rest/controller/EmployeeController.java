@@ -1,6 +1,7 @@
 package com.example.rest.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +28,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/employees/{id}")
-	public Employee getEmployee(@PathVariable int id) {
+	public Optional<Employee> getEmployee(@PathVariable int id) {
 		return employeeService.findById(id);
 	}
 
@@ -43,7 +44,7 @@ public class EmployeeController {
 
 	@DeleteMapping("/employees/{id}")
 	public String deleteEmployee(@PathVariable int id) {
-		Employee employee = employeeService.findById(id);
+		Optional<Employee> employee = employeeService.findById(id);
 
 		if (employee == null) {
 			throw new RuntimeException("Employee not found with id: " + id);
