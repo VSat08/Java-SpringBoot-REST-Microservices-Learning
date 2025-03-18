@@ -1,59 +1,60 @@
- Mini Project - Employee Management System (EMS) (using Spring Data JPA)
+# Mini Project - Employee Management System (EMS) (using Spring Data REST)
 
 ## Introduction
 
-Welcome to the **Employee Management System (EMS) Mini Project (using Spring Data JPA)**
+Welcome to the **Employee Management System (EMS) Mini Project (using Spring Data REST)**
 
- In this real-time project, we’ll enhance our REST API for managing an employee directory, performing CRUD (Create, Read, Update, Delete) operations with Spring Boot and Spring Data JPA. Building on the JPA API version from "Mini Project - Employee Management System (using JPA API)," we’ll connect to a MySQL database and simplify our data access layer, slashing boilerplate code by 70%! This is perfect for beginners eager to see Spring’s magic in action! 🚀
+In this real-time project, we’ll supercharge our REST API for managing an employee directory, performing CRUD (Create, Read, Update, Delete) operations with Spring Boot and Spring Data REST. Building on the Spring Data JPA version, we’ll connect to a MySQL database and slash boilerplate code by 85-90%, auto-generating REST endpoints for free! This is an exciting step for beginners to witness Spring’s ultimate magic! 🚀
+
+We’ll also briefly explore a Student Management System (SMS) to show how reusable this approach is.
 
 ---
 
 ## Table of Contents
 
-1. [What Is the EMS Project with Spring Data JPA?](#1-what-is-the-ems-project-with-spring-data-jpa)
+1. [What Is the EMS Project with Spring Data REST?](#1-what-is-the-ems-project-with-spring-data-rest)
    - [1.1 Overview](#11-overview)
    - [1.2 Project Requirements](#12-project-requirements)
    - [1.3 Architecture Overview](#13-architecture-overview)
    - [1.4 Key Terms for Beginners](#14-key-terms-for-beginners)
 2. [Learning Roadmap](#2-learning-roadmap)
-   - [2.1 Reviewing the JPA API Version](#21-reviewing-the-jpa-api-version)
-   - [2.2 Setting Up Spring Data JPA](#22-setting-up-spring-data-jpa)
-   - [2.3 Replacing DAO with Repository](#23-replacing-dao-with-repository)
-   - [2.4 Updating the Service Layer](#24-updating-the-service-layer)
-   - [2.5 Keeping Entity and Controller](#25-keeping-entity-and-controller)
+   - [2.1 Reviewing the Spring Data JPA Version](#21-reviewing-the-spring-data-jpa-version)
+   - [2.2 Setting Up Spring Data REST](#22-setting-up-spring-data-rest)
+   - [2.3 Keeping Entity and Repository](#23-keeping-entity-and-repository)
+   - [2.4 Removing Service and Controller](#24-removing-service-and-controller)
+   - [2.5 Understanding Auto-Generated Endpoints](#25-understanding-auto-generated-endpoints)
    - [2.6 Testing the Application](#26-testing-the-application)
 3. [Practical Demonstration](#3-practical-demonstration)
    - [3.1 Database Setup](#31-database-setup)
    - [3.2 Project Setup](#32-project-setup)
    - [3.3 Employee Entity](#33-employee-entity)
    - [3.4 Employee Repository](#34-employee-repository)
-   - [3.5 Employee Service](#35-employee-service)
-   - [3.6 Employee REST Controller](#36-employee-rest-controller)
-   - [3.7 Testing with Postman](#37-testing-with-postman)
+   - [3.5 Testing EMS with Postman](#35-testing-ems-with-postman)
+   - [3.6 Bonus: Student Management System (SMS)](#36-bonus-student-management-system-sms)
 4. [What’s Next](#4-whats-next)
 
 ---
 
-## 1. What Is the EMS Project with Spring Data JPA?
+## 1. What Is the EMS Project with Spring Data REST?
 
 ### 1.1 Overview
 
-- **Goal**: Enhance the EMS REST API to manage employee records using Spring Data JPA instead of JPA API.
-- **How**: Replace manual DAO code with Spring Data JPA’s `JpaRepository`, minimizing code while retaining full CRUD functionality.
-- **Why**: Streamline development—reduce boilerplate, leverage Spring’s magic, and maintain the same features from the JPA API version!
+- **Goal**: Enhance the EMS REST API using Spring Data REST to auto-generate endpoints for employee CRUD operations.
+- **How**: Add the Spring Data REST dependency, leverage existing `JpaRepository`, and let Spring handle the REST layer—no manual controller or service needed!
+- **Why**: Minimize code drastically (85-90% reduction from the original JPA API version) while keeping full functionality—pure Spring magic!
 
 #### Real-World Analogy
 
-Think of this as upgrading from handcrafting furniture (JPA API) to using a pre-built kit (Spring Data JPA)—same result, less effort!
+Imagine ordering a fully cooked meal (Spring Data REST) instead of cooking from scratch (JPA API) or assembling ingredients (Spring Data JPA)—same taste, zero effort!
 
 ### 1.2 Project Requirements
 
 - **Functionality**: REST clients should:
-  - Get a list of all employees (`GET /api/employees`).
-  - Get a single employee by ID (`GET /api/employees/{id}`).
-  - Add a new employee (`POST /api/employees`).
-  - Update an existing employee (`PUT /api/employees`).
-  - Delete an employee (`DELETE /api/employees/{id}`).
+  - Get all employees (`GET /employees`).
+  - Get an employee by ID (`GET /employees/{id}`).
+  - Add a new employee (`POST /employees`).
+  - Update an employee (`PUT /employees/{id}`).
+  - Delete an employee (`DELETE /employees/{id}`).
 - **Data**: Employee records include:
   - `id` (auto-incremented primary key).
   - `firstName`.
@@ -64,73 +65,70 @@ Think of this as upgrading from handcrafting furniture (JPA API) to using a pre-
 
 - **Layers**:
   - **Database**: MySQL (`empdir` database, `employee` table).
-  - **Repository**: `EmployeeRepository`—replaces DAO, extends `JpaRepository` for free CRUD methods.
-  - **Service**: `EmployeeService`—business logic, delegates to repository.
-  - **Controller**: REST controller—handles HTTP requests.
-- **Flow**: REST Client → Controller → Service → Repository → Database.
-- **Change from JPA API**: Eliminates `EmployeeDAO` and its implementation—`JpaRepository` provides CRUD logic automatically, reducing code by ~70%.
+  - **Repository**: `EmployeeRepository`—extends `JpaRepository`, scanned by Spring Data REST.
+  - **Spring Data REST**: Auto-generates REST endpoints—no service or controller!
+- **Flow**: REST Client → Spring Data REST → Repository → Database.
+- **Change from Spring Data JPA**: Eliminates `EmployeeService` and `EmployeeRestController`—Spring Data REST scans `JpaRepository` and exposes endpoints based on the entity (`Employee` → `/employees`).
 
 ![alt text](image.png)
-_<p align="center">Figure: Application Architecture with Spring Data JPA</p>_
+_<p align="center">Figure: Application Architecture with Spring Data REST</p>_
 
->[!NOTE]
->`JpaRepository` = Spring’s magic wand—CRUD without the grind!
+> [!NOTE]
+> Spring Data REST = endpoints for free—controller and service obsolete!
 
 ### 1.4 Key Terms for Beginners
 
 Your newbie glossary:
 
-| Term             | Meaning                                      | Example                       |
-|------------------|----------------------------------------------|-------------------------------|
-| **EMS**          | Employee Management System                   | This project!                 |
-| **REST API**     | Web service for CRUD via HTTP                | GET `/api/employees`          |
-| **Repository**   | Interface replacing DAO—extends `JpaRepository` | `EmployeeRepository`       |
-| **Spring Data JPA** | Framework for simplified data access       | `extends JpaRepository`       |
-| **Lombok**       | Reduces boilerplate code (getters/setters)   | `@Data` on `Employee`         |
-| **`Optional`**   | Java 8 class to handle null values           | `Optional<Employee>`          |
-| **`@Transactional`** | Manages database transactions            | `@Transactional` on `save`    |
+| Term                 | Meaning                                    | Example                      |
+| -------------------- | ------------------------------------------ | ---------------------------- |
+| **EMS**              | Employee Management System                 | This project!                |
+| **Spring Data REST** | Auto-generates REST APIs from repositories | `/employees` endpoint        |
+| **Repository**       | Interface extending `JpaRepository`        | `EmployeeRepository`         |
+| **HATEOAS**          | Hypermedia format for REST responses       | Links in `/employees` output |
+| **Lombok**           | Reduces boilerplate code (getters/setters) | `@Data` on `Employee`        |
 
 ---
 
 ## 2. Learning Roadmap
 
-Your path to building EMS with Spring Data JPA!
+Your path to building EMS with Spring Data REST!
 
-### 2.1 Reviewing the JPA API Version
+### 2.1 Reviewing the Spring Data JPA Version
 
-- **What**: Understand the previous EMS project with manual DAO code.
-- **Goal**: Recognize the boilerplate we’ll eliminate.
+- **What**: Recap the EMS project with `EmployeeRepository`, `EmployeeService`, and `EmployeeRestController`.
+- **Goal**: Understand what we’re simplifying.
 
-### 2.2 Setting Up Spring Data JPA
+### 2.2 Setting Up Spring Data REST
 
-- **What**: Add Spring Data JPA dependency (already included via `spring-boot-starter-data-jpa`).
-- **Goal**: Enable `JpaRepository` support.
+- **What**: Add `spring-boot-starter-data-rest` dependency to `pom.xml`.
+- **Goal**: Enable auto-generation of REST endpoints.
 
-### 2.3 Replacing DAO with Repository
+### 2.3 Keeping Entity and Repository
 
-- **What**: Create `EmployeeRepository` extending `JpaRepository`.
-- **Goal**: Get CRUD methods for free—no implementation needed.
+- **What**: Retain `Employee` entity and `EmployeeRepository`.
+- **Goal**: Provide the foundation for Spring Data REST to work.
 
-### 2.4 Updating the Service Layer
+### 2.4 Removing Service and Controller
 
-- **What**: Modify `EmployeeService` to use `EmployeeRepository` instead of `EmployeeDAO`.
-- **Goal**: Delegate calls to repository methods.
+- **What**: Delete `EmployeeService` and `EmployeeRestController`.
+- **Goal**: Let Spring Data REST handle everything.
 
-### 2.5 Keeping Entity and Controller
+### 2.5 Understanding Auto-Generated Endpoints
 
-- **What**: Retain `Employee` entity and `EmployeeRestController` with minor tweaks.
-- **Goal**: Maintain core functionality with less code.
+- **What**: Learn how `/employees` and `/employees/{id}` are created from the `Employee` entity.
+- **Goal**: Master Spring Data REST’s naming convention.
 
 ### 2.6 Testing the Application
 
-- **What**: Verify CRUD operations via Postman.
-- **Goal**: Confirm the app works as before with reduced code.
+- **What**: Verify CRUD operations via Postman or browser.
+- **Goal**: Confirm functionality with minimal code.
 
 ---
 
 ## 3. Practical Demonstration
 
-Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` to use Spring Data JPA!
+Let’s build `rest-api-spring-data-rest-ems` by refactoring `rest-api-spring-data-jpa-ems`!
 
 ### 3.1 Database Setup
 
@@ -160,50 +158,69 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
          ('Angelina', 'Jolie', 'angelina@jolie.com');
      ```
 - **Verify**:
-  - `SHOW TABLES;` → `employee`.
-  - `SELECT * FROM employee;` → 4 rows (ids 1-4 or higher).
+  - `SELECT * FROM employee;` → 4 rows.
 
 ### 3.2 Project Setup
 
-- **Purpose**: Set up `rest-api-spring-data-jpa-ems` (copy from `rest-api-crud-ems`).
+- **Purpose**: Set up `rest-api-spring-data-rest-ems`.
 - **Steps**:
-  1. Copy the previous project or use Spring Initializr:
+
+  1. Copy `rest-api-spring-data-jpa-ems` or use Spring Initializr:
      - Group: `com.example`.
-     - Artifact: `rest-api-spring-data-jpa-ems`.
-  2. Dependencies (same as before—Spring Data JPA is included):
-     - Spring Web.
-     - Spring Data JPA.
+     - Artifact: `rest-api-spring-data-rest-ems`.
+  2. Dependencies:
+     - Spring Data JPA (includes `JpaRepository`).
+     - Spring Data REST (new addition).
      - MySQL Driver.
-     - Spring Boot DevTools.
      - Lombok.
-- **POM.xml** (snippet):
-  ```xml
-  <dependencies>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-data-jpa</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-devtools</artifactId>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>com.mysql</groupId>
-          <artifactId>mysql-connector-j</artifactId>
-          <scope>runtime</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <optional>true</optional>
-      </dependency>
-  </dependencies>
-  ```
+  3. Update `pom.xml`:
+
+     ```xml
+     <dependencies>
+     <dependency>
+     		<groupId>org.springframework.boot</groupId>
+     		<artifactId>spring-boot-starter-data-jpa</artifactId>
+     	</dependency>
+
+     	<dependency>
+     		<groupId>org.springframework.boot</groupId>
+     		<artifactId>spring-boot-starter-web</artifactId>
+     	</dependency>
+
+     	<dependency>
+     		<groupId>org.springframework.boot</groupId>
+     		<artifactId>spring-boot-devtools</artifactId>
+     		<scope>runtime</scope>
+     		<optional>true</optional>
+     	</dependency>
+
+     	<dependency>
+     		<groupId>com.mysql</groupId>
+     		<artifactId>mysql-connector-j</artifactId>
+     		<scope>runtime</scope>
+     	</dependency>
+
+     	<dependency>
+     		<groupId>org.projectlombok</groupId>
+     		<artifactId>lombok</artifactId>
+     		<optional>true</optional>
+     	</dependency>
+
+     	<dependency>
+     		<groupId>org.springframework.boot</groupId>
+     		<artifactId>spring-boot-starter-test</artifactId>
+     		<scope>test</scope>
+     	</dependency>
+
+     	<dependency>
+     		<groupId>org.springframework.boot</groupId>
+     		<artifactId>spring-boot-starter-data-rest</artifactId>
+     	</dependency>
+     </dependencies>
+     ```
+
+  4. Update Maven (e.g., in Eclipse: right-click project → Maven → Update Project).
+
 - **application.properties**:
   ```properties
   spring.datasource.url=jdbc:mysql://localhost:3306/empdir?useSSL=false&serverTimezone=UTC
@@ -211,18 +228,15 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
   spring.datasource.password=your_password
   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
   ```
-- **Notes**:
-  - No `ddl-auto`—table is manual.
-  - Spring Data JPA is active via `spring-boot-starter-data-jpa`.
 
->[!TIP]
->`spring-boot-starter-data-jpa` = your key to Spring magic!
+> [!TIP] >`spring-boot-starter-data-rest` = your REST API genie!
 
 ### 3.3 Employee Entity
 
-- **Purpose**: Reuse the `Employee` entity—unchanged from JPA API version.
+- **Purpose**: Reuse the `Employee` entity—unchanged.
 - **File**: `com.example.jpa.entity.Employee.java`.
 - **Code**:
+
   ```java
   package com.example.jpa.entity;
 
@@ -261,9 +275,10 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
 
 ### 3.4 Employee Repository
 
-- **Purpose**: Replace DAO with a repository extending `JpaRepository`.
+- **Purpose**: Reuse `EmployeeRepository`—Spring Data REST scans it.
 - **File**: `com.example.jpa.repository.EmployeeRepository.java`.
 - **Code**:
+
   ```java
   package com.example.jpa.repository;
 
@@ -273,198 +288,170 @@ Let’s build `rest-api-spring-data-jpa-ems` by refactoring `rest-api-crud-ems` 
   public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
   }
   ```
+
 - **Details**:
-  - `@Repository` not needed—`JpaRepository` handles it.
-  - `Employee`: Entity type.
-  - `Integer`: Primary key type (`id`).
-  - **Free Methods**: `findAll()`, `findById()`, `save()`, `deleteById()`, and more—no implementation required!
-  - Replaces `EmployeeDAO` and `EmployeeDAOImpl`—cuts ~30+ lines of code.
+  - Spring Data REST scans this, sees `Employee`, and generates `/employees` endpoints.
+  - No changes needed—same as Spring Data JPA version.
 
->[!NOTE]
->One line = full CRUD—Spring Data JPA’s power!
+> [!NOTE]
+> Repository + dependency = instant REST API!
 
-### 3.5 Employee Service
+### 3.5 Testing EMS with Postman
 
-- **Purpose**: Update service to use `EmployeeRepository`.
-- **Interface**: `com.example.jpa.service.EmployeeService.java`.
-  ```java
-  package com.example.jpa.service;
-
-  import com.example.jpa.entity.Employee;
-  import java.util.List;
-  import java.util.Optional;
-
-  public interface EmployeeService {
-      List<Employee> findAll();
-      Optional<Employee> findById(int id);
-      Employee save(Employee employee);
-      void deleteById(int id);
-  }
-  ```
-- **Implementation**: `com.example.jpa.service.EmployeeServiceImpl.java`.
-  ```java
-  package com.example.jpa.service;
-
-  import com.example.jpa.entity.Employee;
-  import com.example.jpa.repository.EmployeeRepository;
-  import org.springframework.beans.factory.annotation.Autowired;
-  import org.springframework.stereotype.Service;
-  import org.springframework.transaction.annotation.Transactional;
-  import java.util.List;
-  import java.util.Optional;
-
-  @Service
-  public class EmployeeServiceImpl implements EmployeeService {
-
-      @Autowired
-      private EmployeeRepository employeeRepository;
-
-      @Override
-      public List<Employee> findAll() {
-          return employeeRepository.findAll();
-      }
-
-      @Override
-      public Optional<Employee> findById(int id) {
-          return employeeRepository.findById(id);
-      }
-
-      @Override
-      @Transactional
-      public Employee save(Employee employee) {
-          return employeeRepository.save(employee);
-      }
-
-      @Override
-      @Transactional
-      public void deleteById(int id) {
-          employeeRepository.deleteById(id);
-      }
-  }
-  ```
-- **Details**:
-  - `@Autowired`: Injects `EmployeeRepository` instead of `EmployeeDAO`.
-  - **Changes**:
-    - `findById`: Returns `Optional<Employee>`—matches `JpaRepository`’s method, handles nulls (Java 8 feature).
-    - Calls: `employeeRepository.findAll()`, `.findById()`, `.save()`, `.deleteById()`—all free methods.
-  - `@Transactional`: Still on write operations (`save`, `deleteById`).
-
-### 3.6 Employee REST Controller
-
-- **Purpose**: Adjust controller for `Optional` return type.
-- **File**: `com.example.jpa.controller.EmployeeRestController.java`.
-- **Code**:
-  ```java
-  package com.example.jpa.controller;
-
-  import com.example.jpa.entity.Employee;
-  import com.example.jpa.service.EmployeeService;
-  import org.springframework.beans.factory.annotation.Autowired;
-  import org.springframework.web.bind.annotation.*;
-  import java.util.List;
-  import java.util.Optional;
-
-  @RestController
-  @RequestMapping("/api")
-  public class EmployeeRestController {
-
-      @Autowired
-      private EmployeeService employeeService;
-
-      @GetMapping("/employees")
-      public List<Employee> getEmployees() {
-          return employeeService.findAll();
-      }
-
-      @GetMapping("/employees/{employeeId}")
-      public Employee getEmployee(@PathVariable int employeeId) {
-          Optional<Employee> employee = employeeService.findById(employeeId);
-          if (employee.isEmpty()) {
-              throw new RuntimeException("Employee ID not found: " + employeeId);
-          }
-          return employee.get();
-      }
-
-      @PostMapping("/employees")
-      public Employee addEmployee(@RequestBody Employee employee) {
-          return employeeService.save(employee);
-      }
-
-      @PutMapping("/employees")
-      public Employee updateEmployee(@RequestBody Employee employee) {
-          return employeeService.save(employee);
-      }
-
-      @DeleteMapping("/employees/{employeeId}")
-      public String deleteEmployee(@PathVariable int employeeId) {
-          Optional<Employee> employee = employeeService.findById(employeeId);
-          if (employee.isEmpty()) {
-              return "Employee ID not found: " + employeeId;
-          }
-          employeeService.deleteById(employeeId);
-          return "Employee with ID: " + employeeId + " deleted";
-      }
-  }
-  ```
-- **Details**:
-  - **Changes**:
-    - `getEmployee` and `deleteEmployee`: Use `Optional<Employee>`—check `.isEmpty()` instead of `null`.
-    - `.get()` unwraps `Optional` to return `Employee`.
-  - Rest unchanged—endpoints and logic identical.
-
-### 3.7 Testing with Postman
-
-- **Setup**: Run `rest-api-spring-data-jpa-ems` (`Tomcat started on port(s): 8080`).
+- **Setup**: Run `rest-api-spring-data-rest-ems` (`Tomcat started on port(s): 8080`).
+- **Endpoints**: Auto-generated as `/employees` (pluralized, lowercase entity name).
 - **Tests**:
   1. **Get All Employees**:
-     - GET `http://localhost:8080/api/employees`.
-     - Response: JSON array (e.g., 4 employees—ids 1-4 or higher).
+     - GET `http://localhost:8080/employees`.
+     - Response (HATEOAS format):
+       ```json
+       {
+         "_embedded": {
+           "employees": [
+             {"id": 1, "firstName": "Liam", "lastName": "Neeson", "email": "liam@neeson.com", "_links": {...}},
+             {"id": 2, "firstName": "Bruce", "lastName": "Willis", "email": "bruce@willis.com", "_links": {...}},
+             {"id": 3, "firstName": "Denzel", "lastName": "Washington", "email": "denzel@washington.com", "_links": {...}},
+             {"id": 4, "firstName": "Angelina", "lastName": "Jolie", "email": "angelina@jolie.com", "_links": {...}}
+           ]
+         },
+         "_links": {...},
+         "page": {"size": 20, "totalElements": 4, "totalPages": 1, "number": 0}
+       }
+       ```
   2. **Get Single Employee**:
-     - GET `http://localhost:8080/api/employees/6`.
-     - Response: `{"id": 6, "firstName": "Angelina", "lastName": "Jolie", "email": "angelina@jolie.com"}`.
-     - Invalid ID (e.g., `/9`): Exception (enhance later).
+     - GET `http://localhost:8080/employees/1`.
+     - Response:
+       ```json
+       {"id": 1, "firstName": "Liam", "lastName": "Neeson", "email": "liam@neeson.com", "_links": {...}}
+       ```
   3. **Add Employee**:
-     - POST `http://localhost:8080/api/employees`.
+     - POST `http://localhost:8080/employees`.
      - Body (`Raw` > `JSON`):
        ```json
        {
-           "firstName": "Nicolas",
-           "lastName": "Cage",
-           "email": "nicolas@cage.net"
+         "firstName": "Nicolas",
+         "lastName": "Cage",
+         "email": "nicolas@cage.net"
        }
        ```
-     - Response: `{"id": 8, ...}` (ID varies).
+     - Response: `{"id": 10, ...}` (ID varies).
   4. **Update Employee**:
-     - PUT `http://localhost:8080/api/employees`.
+     - PUT `http://localhost:8080/employees/10`.
      - Body:
        ```json
        {
-           "id": 8,
-           "firstName": "Nicolas",
-           "lastName": "Cage",
-           "email": "nicolas@cage.com"
+         "firstName": "Nicolas",
+         "lastName": "Cage",
+         "email": "nicolas@cage.com"
        }
        ```
      - Response: Updated object—email now `.com`.
   5. **Delete Employee**:
-     - DELETE `http://localhost:8080/api/employees/8`.
-     - Response: `"Employee with ID: 8 deleted"`.
-     - Invalid ID (e.g., `/9`): `"Employee ID not found: 9"`.
+     - DELETE `http://localhost:8080/employees/10`.
+     - Response: 204 No Content (success).
   6. **Verify**:
-     - GET `/api/employees` → Updated list.
+     - GET `/employees` → 4 employees again.
      - MySQL: `SELECT * FROM employee;` → Matches.
 
->[!TIP]
->Same results, less code—Spring Data JPA FTW!
+> [!TIP]
+> HATEOAS adds links—explore them in the browser!
+
+### 3.6 Bonus: Student Management System (SMS)
+
+- **Purpose**: Show Spring Data REST’s reusability with a `Student` entity.
+- **Setup**:
+
+  1. Copy `hibernate-demo-crud-app` or create `hibernate-demo-data-rest`.
+  2. Add dependency to `pom.xml`:
+     ```xml
+     <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-data-rest</artifactId>
+     </dependency>
+     ```
+  3. Database (`student_db`):
+     ```sql
+     CREATE DATABASE student_db;
+     USE student_db;
+     CREATE TABLE student (
+         id INT NOT NULL AUTO_INCREMENT,
+         first_name VARCHAR(45),
+         last_name VARCHAR(45),
+         email VARCHAR(45),
+         PRIMARY KEY (id)
+     );
+     INSERT INTO student (first_name, last_name, email) VALUES
+         ('John', 'Doe', 'john.doe@example.com'),
+         ('Jane', 'Smith', 'jane.smith@example.com'),
+         ('Bob', 'Johnson', 'bob.johnson@example.com');
+     ```
+  4. `application.properties`:
+     ```properties
+     spring.datasource.url=jdbc:mysql://localhost:3306/student_db?useSSL=false&serverTimezone=UTC
+     spring.datasource.username=root
+     spring.datasource.password=your_password
+     ```
+  5. Entity (`Student.java`):
+
+     ```java
+     package com.example.entity;
+
+     import jakarta.persistence.*;
+     import lombok.*;
+
+     @Entity
+     @Table(name = "student")
+     @Data
+     @NoArgsConstructor
+     @AllArgsConstructor
+     public class Student {
+         @Id
+         @GeneratedValue(strategy = GenerationType.IDENTITY)
+         @Column(name = "id")
+         private int id;
+
+         @Column(name = "first_name")
+         private String firstName;
+
+         @Column(name = "last_name")
+         private String lastName;
+
+         @Column(name = "email")
+         private String email;
+     }
+     ```
+
+  6. Repository (`StudentRepository.java`):
+
+     ```java
+     package com.example.jpa.repository;
+
+     import com.example.entity.Student;
+     import org.springframework.data.jpa.repository.JpaRepository;
+
+     public interface StudentRepository extends JpaRepository<Student, Integer> {
+     }
+     ```
+
+  7. Delete `controller`, `dao`, and `service` packages.
+  8. Update Maven and run.
+
+- **Test**:
+  - GET `http://localhost:8080/students` → 3 students.
+  - POST `/students` → Add a student (e.g., `{"firstName": "Alice", "lastName": "Brown", "email": "alice@example.com"}`).
+  - Verify: `SELECT * FROM student;` → 4 rows.
+
+> [!NOTE]
+> Same trick, new entity—Spring Data REST scales effortlessly!
 
 ---
 
 ## 4. What’s Next
 
-- **Next Session**: **Spring Data REST**—reduce code further (up to 90%) by auto-generating REST endpoints.
+- **Upcoming**: Add security or customizations (e.g., [08-Security](#08-spring-boot-and-security)).
+- **Why**: Master this minimal setup, then tweak it for advanced use cases!
 
-
->[!NOTE]
->From 30+ lines to 1—next, cut even more with Spring Data REST!
+> [!TIP]
+> 90% code gone—next, decode HATEOAS magic!
 
 ---
