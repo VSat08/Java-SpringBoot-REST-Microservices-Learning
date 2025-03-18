@@ -223,7 +223,7 @@ Let’s build `rest-api-spring-data-rest-ems` by refactoring `rest-api-spring-da
 
 - **application.properties**:
   ```properties
-  spring.datasource.url=jdbc:mysql://localhost:3306/empdir?useSSL=false&serverTimezone=UTC
+  spring.datasource.url=jdbc:mysql://localhost:3306/empdir
   spring.datasource.username=root
   spring.datasource.password=your_password
   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
@@ -387,7 +387,7 @@ Let’s build `rest-api-spring-data-rest-ems` by refactoring `rest-api-spring-da
      ```
   4. `application.properties`:
      ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/student_db?useSSL=false&serverTimezone=UTC
+     spring.datasource.url=jdbc:mysql://localhost:3306/student_db
      spring.datasource.username=root
      spring.datasource.password=your_password
      ```
