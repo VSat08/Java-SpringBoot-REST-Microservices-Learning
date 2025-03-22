@@ -155,6 +155,7 @@ Let’s secure an employee management REST API (`rest-api-spring-demo`) from the
   package com.example.restdemo.security;
 
   import org.springframework.context.annotation.Configuration;
+  import org.springframework.context.annotation.Bean;
   import org.springframework.http.HttpMethod;
   import org.springframework.security.config.annotation.web.builders.HttpSecurity;
   import org.springframework.security.core.userdetails.User;
