@@ -166,6 +166,7 @@ Let’s secure an employee management REST API (`rest-api-spring-demo`) from the
   public class DemoSecurityConfig {
 
       // Define users and roles in-memory
+      @Bean
       public InMemoryUserDetailsManager userDetailsManager() {
           UserDetails john = User.builder()
                   .username("john")
@@ -189,6 +190,7 @@ Let’s secure an employee management REST API (`rest-api-spring-demo`) from the
       }
 
       // Configure security filter chain
+      @Bean
       public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
           http.authorizedHttpRequests(configure ->
               configure
