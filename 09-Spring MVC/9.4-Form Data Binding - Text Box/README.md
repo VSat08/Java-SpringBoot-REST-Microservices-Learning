@@ -301,6 +301,7 @@ Let’s build `form-data-binding` to bind and display student names!
   - **Load**: Spring calls `getFirstName()` (empty here—new object).
   - **Submit**: Spring calls `setFirstName("James")` with what you typed.
 
+![alt text](image.png)
 >[!NOTE]
 >`*{firstName}` is shorthand for `${student.firstName}`—`*` saves typing!
 
