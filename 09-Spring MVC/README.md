@@ -1,9 +1,9 @@
 
-# 03 - Spring MVC
+# 09 - Spring MVC
 
 ## Introduction
 
-Welcome to **03 - Spring MVC** 🌟! This section dives into the Model-View-Controller (MVC) pattern using Spring Boot, perfect for building interactive web apps. Designed for beginners, this roadmap covers controllers, views with Thymeleaf, and form handling. Let’s create dynamic web pages together! 🚀
+Welcome to **09 - Spring MVC** 🌟! This section dives into the Model-View-Controller (MVC) pattern using Spring Boot, perfect for building interactive web apps. Designed for beginners, this roadmap covers controllers, views with Thymeleaf, and form handling. Let’s create dynamic web pages together! 🚀
 
 ---
 

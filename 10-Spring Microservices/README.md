@@ -1,8 +1,8 @@
-# 03-Spring Boot\06 - Microservices with Spring Boot
+# 10 - Microservices with Spring Boot
 
 ## Introduction
 
-Welcome to **06 - Microservices with Spring Boot** 🌟! This section transforms your Spring Boot skills into microservices mastery—building small, independent services for modern apps. Beginner-friendly, this roadmap explores architecture, creation, and deployment. Let’s scale up your development game! 🚀
+Welcome to **10 - Microservices with Spring Boot** 🌟! This section transforms your Spring Boot skills into microservices mastery—building small, independent services for modern apps. Beginner-friendly, this roadmap explores architecture, creation, and deployment. Let’s scale up your development game! 🚀
 
 ---
 
