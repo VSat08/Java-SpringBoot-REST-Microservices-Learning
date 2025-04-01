@@ -1,5 +1,5 @@
 
-# 03-Spring Boot\03 - Spring MVC
+# 03 - Spring MVC
 
 ## Introduction
 
