@@ -455,9 +455,9 @@ Let’s build `form-data-binding` with checkboxes for skills!
 
 ## 4. What’s Next
 
-- **Next Session**: Dive into CRUD operations and real-time projects—form binding meets databases next!
+- **Next Session**: **9.8- Spring MVC - Form validation(Bean Validation API)**
 
 > [!TIP]
-> You’ve nailed checkboxes—CRUD will tie it all together!
+> You’ve nailed checkboxes—Form Validation will tie it all together!
 
 ---
