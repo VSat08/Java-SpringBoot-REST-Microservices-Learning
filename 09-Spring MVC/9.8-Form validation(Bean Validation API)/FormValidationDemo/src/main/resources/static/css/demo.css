@@ -1,0 +1,8 @@
+@charset "UTF-8";
+.error {
+    color: red;
+    border: 1px solid red;
+    margin: 5px;
+    padding: 5px;
+    background-color: #ffe6e6;
+}
