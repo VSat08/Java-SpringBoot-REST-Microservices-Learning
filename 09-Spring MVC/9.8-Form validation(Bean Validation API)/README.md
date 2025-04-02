@@ -429,7 +429,7 @@ Let’s build a `form-validation-demo` app with Bean Validation!
 
 ## 4. What’s Next
 
-- **Next Session**: Start a real-time project with CRUD operations (Employee Management System)—validation will shine there!
+- **Next Session**: Start a real-time MVC project with CRUD operations (Employee Management System)—validation will shine there!
 
 > [!TIP]
 > You’ve conquered validation—CRUD will make it practical!
