@@ -284,22 +284,19 @@ Before starting, ensure you have:
 - **File**: `src/main/resources/application.properties`.
 - **Code**:
   ```properties
+  spring.application.name=EMSProject-SpringMVC
+
   # MySQL Database Configuration
-  spring.datasource.url=jdbc:mysql://localhost:3306/ems_db?useSSL=false&serverTimezone=UTC
+  spring.datasource.url=jdbc:mysql://localhost:3306/springmvc
   spring.datasource.username=root
   spring.datasource.password=your_password
-  spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
-  # JPA/Hibernate Configuration
-  spring.jpa.hibernate.ddl-auto=update
-  spring.jpa.show-sql=true
-  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
-
-  # Thymeleaf Configuration (optional, defaults)
-  spring.thymeleaf.cache=false
   ```
+
+
+
+
 - **Line-by-Line Breakdown**:
-  - `spring.datasource.url`: Connects to `ems_db` database on `localhost:3306`.
+  - `spring.datasource.url`: Connects to `springmvc` database on `localhost:3306`.
   - `spring.datasource.username/password`: Your MySQL credentials.
   - `spring.jpa.hibernate.ddl-auto=update`: Auto-creates/updates the `employee` table.
   - `spring.jpa.show-sql=true`: Logs SQL queries for debugging.
@@ -308,7 +305,7 @@ Before starting, ensure you have:
   1. Open MySQL Workbench (or CLI).
   2. Create database:
      ```sql
-     CREATE DATABASE ems_db;
+     CREATE DATABASE springmvc;
      ```
   3. Verify: `SHOW DATABASES;`.
 
@@ -721,7 +718,7 @@ Before starting, ensure you have:
        - MySQL: Confirm row deleted with `SELECT * FROM employee;`.
   3. **Verify Database**:
      - Open MySQL Workbench or CLI.
-     - Run: `USE ems_db; SELECT * FROM employee;`.
+     - Run: `USE springmvc; SELECT * FROM employee;`.
      - Expected: Reflects all CRUD operations (e.g., new rows, updated emails, deleted rows).
 - **Sample Test Scenario**:
   - Add "John Doe" (`john@doe.com`).
