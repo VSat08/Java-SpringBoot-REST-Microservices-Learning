@@ -4,7 +4,7 @@
 
 Welcome to **9.9 - Spring MVC CRUD: Employee Management System (EMS)**! 🚀
 
-This project is a real-time **Employee Management System (EMS)** built using **Spring Boot**, **Spring MVC**, **Thymeleaf**, and **Spring Data JPA**. It extends a REST API-based CRUD application by adding a dynamic web interface, allowing users to perform **Create**, **Read**, **Update**, **Delete**, and **View** (CRUD + View) operations on employee records stored in a MySQL database. The application features a polished UI styled with **Bootstrap 5**, making it intuitive and visually appealing. Whether you're a beginner or an aspiring Java developer, this project is a hands-on way to master Spring Boot MVC while building a functional web app! 🖥️
+This project is a real-time **Employee Management System (EMS)** built using **Spring Boot**, **Spring MVC**, **Thymeleaf**, and **Spring Data JPA**. It extends a REST API-based CRUD application by adding a dynamic web interface, allowing users to perform **Create**, **Read**, **Update**, **Delete**, and **View** (CRUD + View) operations on employee records stored in a MySQL database named `springmvc`. The application features a polished UI styled with **Bootstrap 5**, making it intuitive and visually appealing. Whether you're a beginner or an aspiring Java developer, this project is a hands-on way to master Spring Boot MVC while building a functional web app! 🖥️
 
 ---
 
@@ -49,7 +49,7 @@ This project is a real-time **Employee Management System (EMS)** built using **S
 ### 1.1 Overview
 
 - **Goal**: Create a web-based EMS to manage employee records with CRUD operations and a view feature.
-- **What You’ll Build**: A Spring Boot web app where users can:
+- **What You’ll Build**: A Spring Boot web app running on port `1803` where users can:
   1. **List Employees**: View all employees (`id`, `firstName`, `lastName`, `email`) in a table with **View**, **Update**, and **Delete** buttons.
   2. **Add Employee**: Click **Add Employee** to open a form, enter details (e.g., "Tom," "Cruise," "tom@cruise.com"), and save.
   3. **View Employee**: Click **View** to see an employee’s details in a dedicated page.
@@ -57,11 +57,11 @@ This project is a real-time **Employee Management System (EMS)** built using **S
   5. **Delete Employee**: Click **Delete**, confirm via a dialog, and remove the employee.
 - **Why It’s Awesome**: Combines Spring MVC’s power, Thymeleaf’s dynamic templating, and JPA’s database magic into a real-world app. Perfect for learning modern Java web development!
 - **Tools**:
-  - **Spring Boot**: Simplifies setup and configuration.
+  - **Spring Boot 3.4.4**: Simplifies setup and configuration.
   - **Spring MVC**: Handles HTTP requests and responses.
   - **Thymeleaf**: Renders server-side HTML with data binding.
   - **Spring Data JPA**: Provides easy database operations.
-  - **MySQL**: Stores employee data.
+  - **MySQL**: Stores employee data in the `springmvc` database.
   - **Bootstrap 5**: Styles the UI with responsive tables, buttons, and forms.
 
 #### Real-World Analogy
@@ -71,7 +71,7 @@ Think of an HR dashboard for a company. The dashboard (Thymeleaf) shows a table 
 ### 1.2 Application Flow
 
 - **Steps Explained**:
-  1. **List Employees**: Navigate to `http://localhost:8080/api/employees`. Displays `employees-list.html` with a table of employees and an **Add Employee** button.
+  1. **List Employees**: Navigate to `http://localhost:1803/api/employees`. Displays `employees-list.html` with a table of employees and an **Add Employee** button.
   2. **Add Employee**: Click **Add Employee** → Opens `employee-form.html`. Enter "Tom," "Cruise," "tom@cruise.com" → Submit to `POST /api/save`. Redirects to employee list.
   3. **View Employee**: Click **View** on an employee (e.g., "Brad Pitt") → Opens `view-employee.html` with their details.
   4. **Update Employee**: Click **Update** → Opens `employee-form.html` pre-populated (e.g., "Emma Stone"). Update email to "emma@stone.net" → Submit to `POST /api/save`. Redirects to list.
@@ -127,9 +127,9 @@ Your step-by-step path to mastering EMS and Spring Boot MVC!
 
 ### 2.2 Configuring the Database
 
-- **What**: Set up MySQL connection details.
+- **What**: Set up MySQL connection to the `springmvc` database.
 - **Goal**: Allow Spring Boot to connect to the `employee` table.
-- **How**: Edit `application.properties` with database URL, username, and password.
+- **How**: Edit `application.properties` with database URL, username, password, and JPA settings.
 
 ### 2.3 Defining the Employee Entity
 
@@ -165,7 +165,7 @@ Let’s build the EMS step by step! This section is your manual to set up, code,
 
 Before starting, ensure you have:
 
-- **Java 17** (or compatible version).
+- **Java 17**: Required for Spring Boot 3.4.4.
 - **Maven**: For dependency management.
 - **Eclipse IDE** (or IntelliJ, VS Code with Java extensions).
 - **MySQL**: Installed and running (e.g., MySQL Workbench).
@@ -180,12 +180,12 @@ Before starting, ensure you have:
   1. **New Project in Eclipse**:
      - File → New → Spring Starter Project.
      - **Details**:
-       - Name: `ems-crud-demo`.
+       - Name: `EMSProject-SpringMVC`.
        - Type: Maven.
        - Java Version: 17.
        - Packaging: JAR.
-       - Group: `com.example.mvc`.
-       - Artifact: `ems`.
+       - Group: `com.example`.
+       - Artifact: `EMSProject-SpringMVC`.
        - Package: `com.example.mvc`.
   2. **Dependencies**:
      - Spring Web
@@ -201,24 +201,24 @@ Before starting, ensure you have:
   <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
       <modelVersion>4.0.0</modelVersion>
-      <groupId>com.example.mvc</groupId>
-      <artifactId>ems</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-      <name>ems-crud-demo</name>
-      <description>Employee Management System with Spring MVC</description>
       <parent>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-parent</artifactId>
-          <version>3.2.5</version>
+          <version>3.4.4</version>
           <relativePath/>
       </parent>
+      <groupId>com.example</groupId>
+      <artifactId>EMSProject-SpringMVC</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <name>EMSProject-SpringMVC</name>
+      <description>Demo project for Form Data Binding in Spring MVC using thymeleaf </description>
       <properties>
           <java.version>17</java.version>
       </properties>
       <dependencies>
           <dependency>
               <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-starter-web</artifactId>
+              <artifactId>spring-boot-starter-data-jpa</artifactId>
           </dependency>
           <dependency>
               <groupId>org.springframework.boot</groupId>
@@ -226,7 +226,13 @@ Before starting, ensure you have:
           </dependency>
           <dependency>
               <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-starter-data-jpa</artifactId>
+              <artifactId>spring-boot-starter-web</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-devtools</artifactId>
+              <scope>runtime</scope>
+              <optional>true</optional>
           </dependency>
           <dependency>
               <groupId>com.mysql</groupId>
@@ -240,18 +246,24 @@ Before starting, ensure you have:
           </dependency>
           <dependency>
               <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-devtools</artifactId>
-              <scope>runtime</scope>
-              <optional>true</optional>
-          </dependency>
-          <dependency>
-              <groupId>org.springframework.boot</groupId>
               <artifactId>spring-boot-starter-test</artifactId>
               <scope>test</scope>
           </dependency>
       </dependencies>
       <build>
           <plugins>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-compiler-plugin</artifactId>
+                  <configuration>
+                      <annotationProcessorPaths>
+                          <path>
+                              <groupId>org.projectlombok</groupId>
+                              <artifactId>lombok</artifactId>
+                          </path>
+                      </annotationProcessorPaths>
+                  </configuration>
+              </plugin>
               <plugin>
                   <groupId>org.springframework.boot</groupId>
                   <artifactId>spring-boot-maven-plugin</artifactId>
@@ -274,32 +286,41 @@ Before starting, ensure you have:
   - `spring-boot-starter-data-jpa`: For database operations.
   - `mysql-connector-j`: For MySQL connectivity.
   - `lombok`: For reducing boilerplate code.
+  - `spring-boot-devtools`: For hot reloading during development.
 
 > [!TIP]
 > Run `mvn clean install` to download dependencies and verify the setup!
 
 ### 3.3 Configuring application.properties
 
-- **Purpose**: Connect Spring Boot to MySQL and configure JPA.
+- **Purpose**: Connect Spring Boot to the `springmvc` MySQL database and configure the server port.
 - **File**: `src/main/resources/application.properties`.
 - **Code**:
   ```properties
   spring.application.name=EMSProject-SpringMVC
 
-  # MySQL Database Configuration
+  # Server Configuration
   spring.datasource.url=jdbc:mysql://localhost:3306/springmvc
   spring.datasource.username=root
-  spring.datasource.password=your_password
+  spring.datasource.password=Sanchii@1803
+  server.port=1803
+
+  # JPA/Hibernate Configuration
+  spring.jpa.hibernate.ddl-auto=update
+  spring.jpa.show-sql=true
+  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+  # Thymeleaf Configuration
+  spring.thymeleaf.cache=false
   ```
-
-
-
-
 - **Line-by-Line Breakdown**:
-  - `spring.datasource.url`: Connects to `springmvc` database on `localhost:3306`.
-  - `spring.datasource.username/password`: Your MySQL credentials.
+  - `spring.application.name`: Sets the app name to `EMSProject-SpringMVC`.
+  - `spring.datasource.url`: Connects to the `springmvc` database on `localhost:3306`.
+  - `spring.datasource.username/password`: MySQL credentials (`root`, `Sanchii@1803`).
+  - `server.port=1803`: Runs the app on port `1803`.
   - `spring.jpa.hibernate.ddl-auto=update`: Auto-creates/updates the `employee` table.
   - `spring.jpa.show-sql=true`: Logs SQL queries for debugging.
+  - `spring.jpa.properties.hibernate.dialect`: Uses MySQL 8 dialect.
   - `spring.thymeleaf.cache=false`: Disables caching for live Thymeleaf changes.
 - **Database Setup**:
   1. Open MySQL Workbench (or CLI).
@@ -310,7 +331,7 @@ Before starting, ensure you have:
   3. Verify: `SHOW DATABASES;`.
 
 > [!WARNING]
-> Replace `your_password` with your actual MySQL password. Ensure MySQL is running!
+> Ensure MySQL is running and the password `Sanchii@1803` is correct for the `root` user. Update if different!
 
 ### 3.4 Creating the Employee Entity
 
@@ -578,9 +599,9 @@ Before starting, ensure you have:
                             <td th:text="${emp.email}"/>
                             <td>
                                 <a th:href="@{/api/view(employeeID=${emp.id})}" class="btn btn-success btn-sm">View</a>
-                                &nbsp;
+                                 
                                 <a th:href="@{/api/update(employeeID=${emp.id})}" class="btn btn-warning btn-sm">Update</a>
-                                &nbsp;
+                                 
                                 <a th:href="@{/api/delete(employeeID=${emp.id})}" onclick="if(!(confirm('Are you want to delete this employee permanently?'))) return false" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
@@ -627,7 +648,6 @@ Before starting, ensure you have:
     ```
   - **View Page**: `view-employee.html`.
     ```html
-    <!DOCTYPE html Colombo, and their respective logos are trademarks or registered trademarks of their respective owners.
     <!DOCTYPE html>
     <html xmlns:th="http://www.thymeleaf.org">
     <head>
@@ -693,11 +713,11 @@ Before starting, ensure you have:
 - **Purpose**: Verify all CRUD and View operations work as expected.
 - **Steps**:
   1. **Run the Application**:
-     - Right-click `EmsCrudDemoApplication.java` → Run As → Spring Boot App.
-     - Console output: `Tomcat started on port(s): 8080`.
+     - Right-click `EMSProjectSpringMVCApplication.java` → Run As → Spring Boot App.
+     - Console output: `Tomcat started on port(s): 1803`.
   2. **Test Cases**:
      - **List Employees**:
-       - Visit `http://localhost:8080/api/employees`.
+       - Visit `http://localhost:1803/api/employees`.
        - Expected: Table shows employees (e.g., "Tom Cruise", "Emma Stone") with **View**, **Update**, **Delete** buttons.
        - Verify in MySQL: `SELECT * FROM employee;`.
      - **Add Employee**:
@@ -734,7 +754,7 @@ Before starting, ensure you have:
 
 - **White Label Error Page**:
   - **Cause**: Wrong URL or missing Thymeleaf template.
-  - **Fix**: Visit `http://localhost:8080/api/employees` (not `/`). Ensure `employees-list.html` exists in `src/main/resources/templates/`.
+  - **Fix**: Visit `http://localhost:1803/api/employees` (not `/`). Ensure `employees-list.html` exists in `src/main/resources/templates/`.
 - **No Data in Table**:
   - **Cause**: Database empty or misconfigured.
   - **Fix**: Check `application.properties` for correct `spring.datasource` settings. Run `INSERT INTO employee (first_name, last_name, email) VALUES ('Test', 'User', 'test@user.com');` in MySQL.
@@ -743,13 +763,13 @@ Before starting, ensure you have:
   - **Fix**: Verify `employee-form.html` has `th:object="${employee}"` and `th:field` matches `Employee` fields (`id`, `firstName`, `lastName`, `email`).
 - **HTTP 500 Error**:
   - **Cause**: Code error (e.g., `Optional.get()` on empty result).
-  - **Fix**: Check logs in Eclipse console. Add null checks (e.g., `employeeOpt.orElse(null)` in `EmployeeController`).
+  - **Fix**: Check logs in Eclipse console. Add null checks (e.g., `employeeOpt.orElseThrow()` in `EmployeeController`).
 - **Bootstrap Styling Not Applied**:
   - **Cause**: Incorrect CDN URL.
   - **Fix**: Ensure `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" ...>` is in `<head>`.
 - **Database Connection Error**:
   - **Cause**: MySQL not running or wrong credentials.
-  - **Fix**: Start MySQL service (`sudo service mysql start` on Linux or equivalent). Verify `spring.datasource.username/password`.
+  - **Fix**: Start MySQL service (`sudo service mysql start` on Linux or equivalent). Verify `spring.datasource.username=root` and `password=Sanchii@1803`.
 
 > [!WARNING]
 > Always check the Spring Boot console logs for detailed error messages when debugging!
@@ -1035,7 +1055,7 @@ Take EMS to the next level with these additions:
   - Replace Thymeleaf with a frontend framework (e.g., React, Angular) consuming REST APIs.
   - Add client-side validation with JavaScript.
 - **Resources**:
-  - [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+  - [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/3.4.4/reference/htmlsingle/)
   - [Baeldung Spring Tutorials](https://www.baeldung.com/spring-boot)
   - [Thymeleaf Documentation](https://www.thymeleaf.org/documentation.html)
   - [Bootstrap 5 Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
@@ -1045,4 +1065,4 @@ Take EMS to the next level with these additions:
 
 ---
 
-Congratulations! 🎉 You’ve built a fully functional Employee Management System with Spring Boot MVC. Clone this repository, run it, and enhance it with your own features. Happy coding! 💻
+Congratulations! 🎉 You’ve built a fully functional Employee Management System with Spring Boot MVC. Clone this repository, run it on `http://localhost:1803/api/employees`, and enhance it with your own features. Happy coding! 💻
