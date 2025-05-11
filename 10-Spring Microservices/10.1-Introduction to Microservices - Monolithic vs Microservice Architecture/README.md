@@ -8,8 +8,8 @@ Welcome to **Section 10.1** of the *Mastering Java + Spring Boot* course! 🚀 T
 
 This README is designed for beginners and aspiring Java developers, providing a foundation for building microservices with **Spring Boot** in upcoming sections. Whether you’re new to Java or looking to advance your skills in REST APIs, MVC, and microservices, this guide will set you on the right path! 🖥️
 
-[!NOTE]  
-This section lays the groundwork for understanding microservices, preparing you for hands-on implementation with Spring Boot in later lectures.
+> [!NOTE]  
+> This section lays the groundwork for understanding microservices, preparing you for hands-on implementation with Spring Boot in later lectures.
 
 ---
 
@@ -39,8 +39,8 @@ This section lays the groundwork for understanding microservices, preparing you 
 
 **Microservices** are an architectural style that structures an application as a collection of **small, independent, loosely coupled services**, each designed to handle a specific **business capability** within a domain. Unlike traditional approaches where all components are bundled together, microservices break down the application into autonomous services that can be developed, deployed, and scaled separately.
 
-[!TIP]  
-Think of microservices as a team of specialized workers: each service has one job (e.g., handling payments), works independently, and communicates with others to complete the overall task (e.g., running an e-commerce platform).
+> [!TIP]  
+> Think of microservices as a team of specialized workers: each service has one job (e.g., handling payments), works independently, and communicates with others to complete the overall task (e.g., running an e-commerce platform).
 
 ### 1.2 Key Characteristics
 
@@ -50,8 +50,8 @@ Think of microservices as a team of specialized workers: each service has one jo
 - **Language-Neutral**: Each service can use a different technology stack (e.g., Java, Python, Node.js).
 - **Bounded Context**: Each service operates within its own domain, with clear boundaries (e.g., a payment service doesn’t handle user authentication).
 
-[!IMPORTANT]  
-Microservices are designed around **business domains**, ensuring each service aligns with a specific function, making the system modular and easier to maintain.
+> [!IMPORTANT]  
+> Microservices are designed around **business domains**, ensuring each service aligns with a specific function, making the system modular and easier to maintain.
 
 ---
 
@@ -68,8 +68,8 @@ A **monolithic architecture** is a traditional approach where all components of 
 - **Unified Development and Deployment**: The entire application is built, tested, and deployed together.
 - **Single Scaling**: Scaling requires replicating the entire application, not individual components.
 
-[!NOTE]  
-Most applications you’ve built so far in this course (e.g., Employee Management System) are monolithic, combining views, logic, and database access into one unit.
+> [!NOTE]  
+> Most applications you’ve built so far in this course (e.g., Employee Management System) are monolithic, combining views, logic, and database access into one unit.
 
 ### 2.2 Examples
 
@@ -107,8 +107,8 @@ Monolithic architectures face significant limitations, especially for large and 
   - Migrating to a new tech stack (e.g., from Java to Go) is difficult due to the large, interconnected codebase.
   - Adopting new frameworks or technologies requires rewriting significant portions of the app.
 
-[!WARNING]  
-Monolithic architectures are suitable for small applications but become inefficient and risky as complexity grows, leading to slower development and higher maintenance costs.
+> [!WARNING]  
+> Monolithic architectures are suitable for small applications but become inefficient and risky as complexity grows, leading to slower development and higher maintenance costs.
 
 ---
 
@@ -125,8 +125,8 @@ A **microservice architecture** divides an application into **small, autonomous 
 - **Granular Scaling**: Scale only the services that need it (e.g., scale payment service during a sale).
 - **Fault Isolation**: A failure in one service (e.g., cart) doesn’t affect others (e.g., product catalog).
 
-[!TIP]  
-Microservices enable faster development and deployment by allowing teams to work on isolated services without affecting the entire system.
+> [!TIP]  
+> Microservices enable faster development and deployment by allowing teams to work on isolated services without affecting the entire system.
 
 ### 3.2 Examples
 
@@ -176,8 +176,8 @@ Microservices address the challenges of monolithic architectures with the follow
   - Deploy updates to individual services frequently, speeding up delivery.
   - Example: Push a bug fix to the product service without affecting other services.
 
-[!NOTE]  
-Companies like **Netflix**, **Amazon**, **Uber**, **Spotify**, and **PayPal** use microservices to achieve scalability, resilience, and rapid development.
+> [!NOTE]  
+> Companies like **Netflix**, **Amazon**, **Uber**, **Spotify**, and **PayPal** use microservices to achieve scalability, resilience, and rapid development.
 
 ### 3.4 Architecture Components
 
@@ -205,8 +205,8 @@ Microservice architectures include additional components to manage and coordinat
   - Each service typically has its own database to ensure independence.
   - Example: Product service uses MySQL, while cart service uses MongoDB.
 
-[!IMPORTANT]  
-Proper management of API gateways, service discovery, and communication is critical to ensure microservices work seamlessly in a distributed system.
+> [!IMPORTANT]  
+> Proper management of API gateways, service discovery, and communication is critical to ensure microservices work seamlessly in a distributed system.
 
 ---
 
@@ -226,8 +226,8 @@ The table below summarizes the key differences between monolithic and microservi
 | **Complexity**              | Simpler for small apps, complex for large apps.          | Complex setup but manageable for large, distributed apps. |
 | **Use Case**                | Small, simple applications (e.g., basic CRUD apps).      | Large, complex applications (e.g., e-commerce, social media). |
 
-[!CAUTION]  
-Microservices introduce complexity (e.g., managing distributed systems, inter-service communication). Use them only when the application’s scale and requirements justify the added overhead.
+> [!CAUTION]  
+> Microservices introduce complexity (e.g., managing distributed systems, inter-service communication). Use them only when the application’s scale and requirements justify the added overhead.
 
 ---
 
@@ -242,8 +242,8 @@ Microservices introduce complexity (e.g., managing distributed systems, inter-se
 - **Scalability**: Supports deploying services independently, aligning with microservice principles.
 - **Community and Ecosystem**: Extensive documentation and libraries make Spring Boot ideal for enterprise-grade microservices.
 
-[!TIP]  
-In upcoming sections, you’ll implement microservices using Spring Boot, leveraging tools like Spring Cloud to build a real-world e-commerce or social media application.
+> [!TIP]  
+> In upcoming sections, you’ll implement microservices using Spring Boot, leveraging tools like Spring Cloud to build a real-world e-commerce or social media application.
 
 ---
 
@@ -269,8 +269,8 @@ This section introduced the fundamentals of microservices and compared them with
 - [Baeldung Microservices Tutorials](https://www.baeldung.com/spring-cloud-series)
 - [Microservices.io](https://microservices.io/) for architectural patterns.
 
-[!NOTE]  
-Clone this repository and revisit this README as you progress through the course to reinforce your understanding of microservices.
+> [!NOTE]  
+> Clone this repository and revisit this README as you progress through the course to reinforce your understanding of microservices.
 
 ---
 
